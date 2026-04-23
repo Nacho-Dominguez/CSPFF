@@ -1,0 +1,2 @@
+ALTER TABLE `jos_student` ADD COLUMN `home_sms` BOOL NOT NULL DEFAULT 0,
+  ADD COLUMN `work_sms` BOOL NOT NULL DEFAULT 0;

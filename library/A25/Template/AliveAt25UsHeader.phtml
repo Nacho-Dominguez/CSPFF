@@ -1,0 +1,41 @@
+<div id="header" >
+<?php echo $this->topMenuContainer->run(); ?>
+<div id="top-bottom" class="row">
+<div class="col-sm-7" style="text-align: left;">
+<a href="<?php echo A25_Link::to('index.php'); ?>" class="noDots">
+<?php echo A25_TemplateContent::titleAndLogo(); ?>
+</a>
+</div>
+<div class="col-sm-5">
+<span class="rightMenu">
+<a href="<?php echo PlatformConfig::contactUrl()?>">Contact Us</a>
+&nbsp;|&nbsp;
+<a href="<?php echo PlatformConfig::accountUrl()?>">
+<?php
+
+$student_id = A25_CookieMonster::getStudentIdFromCookie();
+if (PlatformConfig::isNationalPortal) { ?>
+    <a href="<?php echo A25_Link::toNational('change-state')?>">Choose Your State</a> <?
+} else {
+    if ($student_id) {
+        echo "Your Account";
+    } else {
+        echo "Sign In";
+    }
+    ?></a>
+    </span>
+    <?php if (PlatformConfig::isAState) { ?>
+    <div class="stateBox">
+    <span style="font-size: 20px; font-weight: bold;">
+    <?php echo PlatformConfig::STATE_NAME?>
+    </span>
+    <a href="<?php echo A25_Link::toNational('change-state')?>">
+    Change State</a><br/>
+    <i><?php echo PlatformConfig::agency?></i>
+    </div>
+    <?php }
+}?>
+</div>
+<?php $this->fireAfterState(); ?>
+</div>
+</div>

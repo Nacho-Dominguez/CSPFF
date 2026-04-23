@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+label {
+	float: left;
+	width: 400px;
+}
+#button {
+	margin-left: 400px;
+}
+</style>
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Display error messages inside labels</h1>
+	<p>By default, the TMT validator uses JavaScript alert boxes to display errors
+	to the user. If you want to display errors in a custom, or more user friendly way, we can
+	take advantage of it's extensibility.</p>
+	<p>First, we must attach a tmt:callback attribute to the &lt;form&gt; tag:</p>
+	<p class="code">&lt;form action=&quot;index.htm&quot; method=&quot;post&quot; tmt:validate=&quot;true&quot; tmt:callback=&quot;errorOnLabels&quot;&gt;</p>
+	<p>The validator will invoke a JavaScript function based on the value of the tmt:callback attribute (errorOnLabels in this case).</p>
+	<p>This example shows error messages displayed  as the field's label. This solves the issue of error messages not being listed by the validator in  the order in which they appear on the page layout, as each error message is displayed next to the  relevant field.</p>
+	<p>The JavaScript code is somewhat more complex  than other custom solutions, but it's fully reusable</p>
+	<p class="code">function errorOnLabels(formNode, validators){<br />
+	&nbsp;var labelNodes = formNode.getElementsByTagName(&quot;label&quot;);<br />
+	&nbsp;// Reset all the labels<br />
+	&nbsp;resetLabels(labelNodes);<br />
+	&nbsp;for(var i=0; i&lt;validators.length; i++){<br />
+	&nbsp;&nbsp;var label = getLinkedLabel(labelNodes, validators[i].name);<br />
+	&nbsp;&nbsp;if(label){<br />
+	&nbsp;&nbsp;&nbsp;// Flag the labels<br />
+	&nbsp;&nbsp;&nbsp;flagLabel(label, validators[i].message);<br />
+	&nbsp;&nbsp;}<br />
+	&nbsp;}<br />
+	}<br />
+	<br />
+	function getLinkedLabel(labelNodes, fieldID){<br />
+	&nbsp;for(var i=0; i&lt;labelNodes.length; i++){<br />
+	&nbsp;&nbsp;if(labelNodes[i].htmlFor == fieldID){<br />
+	&nbsp;&nbsp;&nbsp;return labelNodes[i];<br />
+	&nbsp;&nbsp;}<br />
+	&nbsp;}<br />
+	}<br />
+	<br />
+	function flagLabel(labelNode, message){<br />
+	&nbsp;labelNode.oldText = labelNode.firstChild;<br />
+	&nbsp;var strongNode = document.createElement(&quot;strong&quot;);<br />
+	&nbsp;var textNode = document.createTextNode(message);<br />
+	&nbsp;strongNode.appendChild(textNode);<br />
+	&nbsp;labelNode.replaceChild(strongNode, labelNode.firstChild);<br />
+	}<br />
+	<br />
+	function resetLabels(labelNodes){<br />
+	&nbsp;for(var i=0; i&lt;labelNodes.length; i++){<br />
+	&nbsp;&nbsp;if(labelNodes[i].oldText){<br />
+	&nbsp;&nbsp;&nbsp;labelNodes[i].replaceChild(labelNodes[i].oldText, labelNodes[i].firstChild);<br />
+	&nbsp;&nbsp;}<br />
+	&nbsp;}<br />
+	}</p>
+</div>
+<script type="text/javascript">
+// <![CDATA[
+// By defining a callback function a developer can display errors the way he see fit
+
+// This function deliberately avoid using innerHTML (a non-standard shortcut)
+// since we want to have the sample working even if served with a xml mime-type. 
+// So we stick with 100% standard DOM
+
+function errorOnLabels(formNode, validators){
+	var labelNodes = formNode.getElementsByTagName("label");
+	// Reset all the labels
+	resetLabels(labelNodes);
+	for(var i=0; i<validators.length; i++){
+		var label = getLinkedLabel(labelNodes, validators[i].name);
+		if(label){
+			// Flag the labels
+			flagLabel(label, validators[i].message);
+		}
+	}
+}
+
+function getLinkedLabel(labelNodes, fieldID){
+	for(var i=0; i<labelNodes.length; i++){
+		if(labelNodes[i].htmlFor == fieldID){
+			return labelNodes[i];
+		}
+	}
+}
+
+function flagLabel(labelNode, message){
+	labelNode.oldText = labelNode.firstChild;
+	var strongNode = document.createElement("strong");
+	var textNode = document.createTextNode(message);
+	strongNode.appendChild(textNode);
+	labelNode.replaceChild(strongNode, labelNode.firstChild);
+}
+
+function resetLabels(labelNodes){
+	for(var i=0; i<labelNodes.length; i++){
+		if(labelNodes[i].oldText){
+			labelNodes[i].replaceChild(labelNodes[i].oldText, labelNodes[i].firstChild);
+		}
+	}
+}
+
+// ]]>
+</script>
+
+<form action="index.htm" method="post" tmt:validate="true" tmt:callback="errorOnLabels">
+	<fieldset>
+	<legend>Generic Form</legend>
+	
+	<div>
+		<label for="dish">Select an italian dish (only italian!)</label>
+		<select name="dish" id="dish" tmt:invalidvalue="Crepes" tmt:message="Only traditional Italian dishes please, no foreign stuff!">
+			<option value="Spaghetti">Spaghetti</option>
+			<option value="Pizza">Pizza</option>
+			<option value="Crepes">Crepes suzette</option>
+			<option value="Mozzarella">Mozzarella alla caprese</option>
+		</select>
+	</div>
+	<div>
+		<label for="agefield">Age (required, positive integer, min 18, max 75)</label>
+		<input type="text" id="agefield" name="agefield" class="required" tmt:required="true" tmt:errorclass="invalid" tmt:message="Please insert a valid age" tmt:pattern="positiveinteger" tmt:minnumber="18" tmt:maxnumber="75" tmt:filters="numbersonly" value="18" />
+	</div>
+	<div>
+		<label for="namefield">Name (required, string, no leading or trailing spaces)</label>
+		<input type="text" id="namefield" name="namefield" class="required" tmt:required="true" tmt:errorclass="invalid" tmt:message="Please insert a name" tmt:filters="ltrim,rtrim" />
+	</div>
+	<div>
+		<label for="emailfield">Email (required, string, email)</label>
+		<input type="text" id="emailfield" name="emailfield" class="required" tmt:required="true" tmt:errorclass="invalid" tmt:message="Please insert a valid email" tmt:pattern="email" />
+	</div>
+	<div>
+		<label for="datefield">Date (not required, date, YYYY-MM-DD)</label>
+		<input type="text" id="datefield" name="datefield" tmt:message="Please insert a valid date using the YYYY-MM-DD format" tmt:errorclass="invalid" tmt:datepattern="YYYY-MM-DD" value="2005-05-09" />
+	</div>
+	<div>
+		<label for="commentsfield">Comments (not required, min 3 chars, max 10)</label>
+		<textarea id="commentsfield" name="commentsfield" tmt:message="Comments should be from 3 to 10 chars" tmt:errorclass="invalid" tmt:minlength="3" tmt:maxlength="10"></textarea>
+	</div>
+	<div>
+		<input type="submit" id="button" value="Submit" />
+	</div>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+Since I have patched Doctrine, in order to upgrade, I must run svn merge
+between the version that I had and the version that I am upgrading to.  That
+will leave my changes in place, or report conflicts between my changes and the
+upgrade's changes.

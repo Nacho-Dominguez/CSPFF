@@ -1,0 +1,37 @@
+These are all of the desired automated emails:
+
+1. To Student:
+- Registration Information
+  - Status: works
+- Course Registration Confirmation
+  - Status: works
+- Payment Reminder
+  - Related to Unpaid Student Report (same report)
+  - Status: no
+- Payment Confirmation
+  - Status: only for credit card payment
+- Course Completion
+  - Status: ?
+
+2. To Instructor:
+- Special Needs Text
+  - Related to same thing under 'Admin'
+  - Status: working & autotested
+- Instructor Class Reminder
+  - Status: ?
+- New User Details
+  - Status: ?
+
+3. To Admin.:
+- Contact Us
+  - Status: This is part of email setup
+- Supplies Request
+  - Status: ?
+- Timesheets
+  - Status: ?
+- Unpaid Students Report
+  - Related to Payment reminder emails (same report)
+  - Status: ?
+- Special Needs Text
+  - Related to same thing under 'Instructor'
+  - Status: working & autotested

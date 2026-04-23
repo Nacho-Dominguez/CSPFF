@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mosinstall type="component">
+   <name>location</name>
+   <creationDate>2006-05-10</creationDate>
+   <author>Christiaan van Woudenberg</author>
+   <copyright>Copyright 2006 Velocera Engineering, LLC</copyright>
+   <authorEmail>tech@velocera.com</authorEmail>
+   <authorUrl>www.velocera.com</authorUrl>
+   <version>1.0</version>
+   <description>Alive At 25 Location administration utility.</description>
+   <files>
+      <filename>location.php</filename>
+      <filename>location.html.php</filename>
+      <filename>index.html</filename>
+   </files>
+   <install>
+      <queries>
+    </queries>
+   </install>
+   <installfile>install.location.php</installfile>
+   <uninstallfile>uninstall.location.php</uninstallfile>
+   <administration>
+      <menu>Manage Locations</menu>
+      <submenu>
+         <menu task="A25Config">List Base Configuration</menu>
+         <menu task="list">List Locations</menu>
+         <menu task="new" hidemainmenu="1">Add New Location</menu>
+         <menu task="newparent" hidemainmenu="1">Add New Location Parent</menu>
+      </submenu>
+      <files>
+         <filename>admin.location.php</filename>
+         <filename>admin.location.html.php</filename>
+         <filename>toolbar.location.php</filename>
+         <filename>toolbar.location.html.php</filename>
+         <filename>index.html</filename>
+      </files>
+   </administration>
+</mosinstall>

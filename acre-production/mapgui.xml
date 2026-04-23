@@ -1,0 +1,49 @@
+<Data>
+	<ColorArray>
+	<Color id="1" hex="FFFFFF" />
+	<Color id="2" hex="000000" />
+	<Color id="3" hex="cccccc" />
+	<Color id="4" hex="155501" />
+	<Color id="5" hex="fcd202" />
+	</ColorArray>
+	<GlobalSettings
+		AlaskaOn= "0"
+		HawaiiOn="0"
+		DCOn="1"
+		bClickOn="0"
+		bLabelOn="1"
+		bLabelColor="2"
+		bDefaultColor="3"
+		bDefaultAlpha="100"
+		bRolloverColor="3"
+		bRolloverAlpha="100"
+		bHandleOn="1"
+		thinLinesOn="1"
+		thickLinesOn="0"
+		thinLinesColor="2"
+		thickLinesColor="2"
+		backgroundImagePath="components/com_course/images/mapBG.jpg"
+	/>
+
+	<Button id="CA"
+		clickOn="1"
+		labelOn="1"
+		labelColor="2"
+		defaultColor="5"
+		defaultAlpha="100"
+		rolloverColor="4"
+		rolloverAlpha="100"
+		clickHandlerValue="">
+	</Button>
+
+	<Button id="CO"
+		clickOn="1"
+		labelOn="1"
+		labelColor="2"
+		defaultColor="5"
+		defaultAlpha="100"
+		rolloverColor="4"
+		rolloverAlpha="100"
+		clickHandlerValue="Colorado">
+	</Button>
+</Data>

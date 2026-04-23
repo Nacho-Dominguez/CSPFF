@@ -1,0 +1,1 @@
+ALTER TABLE `jos_student_course_xref` ADD COLUMN `kick_out_date` datetime default NULL;

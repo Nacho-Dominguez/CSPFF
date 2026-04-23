@@ -1,0 +1,15 @@
+#top-bottom {
+  background-color: #ffffff;
+}
+
+.rightMenu, .rightMenu a:link, .rightMenu a:visited, .rightMenu a:hover {
+  color: #fe4900;
+}
+
+#mainlevel-nav{
+  background: none;
+}
+
+.colHeader {
+  background: none;
+}

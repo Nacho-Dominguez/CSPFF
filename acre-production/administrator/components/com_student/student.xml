@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mosinstall type="component">
+   <name>student</name>
+   <creationDate>2006-05-10</creationDate>
+   <author>Christiaan van Woudenberg</author>
+   <copyright>Copyright 2006 Velocera Engineering, LLC</copyright>
+   <authorEmail>tech@velocera.com</authorEmail>
+   <authorUrl>www.velocera.com</authorUrl>
+   <version>1.0</version>
+   <description>Alive At 25 Student administration utility.</description>
+   <files>
+      <filename>student.php</filename>
+      <filename>student.html.php</filename>
+      <filename>index.html</filename>
+   </files>
+   <install>
+      <queries>
+    </queries>
+   </install>
+   <installfile>install.student.php</installfile>
+   <uninstallfile>uninstall.student.php</uninstallfile>
+   <administration>
+      <menu>Manage Students</menu>
+      <submenu>
+         <menu task="list">List Students</menu>
+         <menu task="new" hidemainmenu="1">Add New Student</menu>
+      </submenu>
+      <files>
+         <filename>admin.student.php</filename>
+         <filename>admin.student.html.php</filename>
+         <filename>toolbar.student.php</filename>
+         <filename>toolbar.student.html.php</filename>
+         <filename>student.config.php</filename>
+         <filename>index.html</filename>
+      </files>
+   </administration>
+</mosinstall>

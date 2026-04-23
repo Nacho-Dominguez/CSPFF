@@ -1,0 +1,8 @@
+Refactorings that can be done once we have PHP 5.3:
+- Replace all declarations of retrieve() in classes such as A25_Record_Location
+  with a single declaration in A25_Record, which uses get_called_class() to
+  determine which object needs to be loaded.
+  - However, doing so would affect code completion in Netbeans, as it would not
+    know the type of object returned.  That being said, I think that removing
+    the duplication has more value than the occasional Netbeans code
+    completion.

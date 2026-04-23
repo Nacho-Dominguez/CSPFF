@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mosinstall type="component">
+   <name>course</name>
+   <creationDate>2006-06-23</creationDate>
+   <author>Christiaan van Woudenberg</author>
+   <copyright>Copyright 2006 Velocera Engineering, LLC</copyright>
+   <authorEmail>tech@velocera.com</authorEmail>
+   <authorUrl>www.velocera.com</authorUrl>
+   <version>1.0</version>
+   <description>Alive At 25 Course administration utility.</description>
+   <files>
+      <filename>course.php</filename>
+      <filename>course.html.php</filename>
+      <filename>index.html</filename>
+   </files>
+   <install>
+      <queries>
+    </queries>
+   </install>
+   <installfile>install.course.php</installfile>
+   <uninstallfile>uninstall.course.php</uninstallfile>
+   <administration>
+      <menu>Manage Courses</menu>
+      <submenu>
+         <menu task="list">List Courses</menu>
+         <menu task="new" hidemainmenu="1">Add New Course</menu>
+      </submenu>
+      <files>
+         <filename>admin.course.php</filename>
+         <filename>admin.course.html.php</filename>
+         <filename>toolbar.course.php</filename>
+         <filename>toolbar.course.html.php</filename>
+         <filename>index.html</filename>
+      </files>
+   </administration>
+</mosinstall>

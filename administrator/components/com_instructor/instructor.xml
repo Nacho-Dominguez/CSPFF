@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mosinstall type="component">
+   <name>instructor</name>
+   <creationDate>2006-06-20</creationDate>
+   <author>Christiaan van Woudenberg</author>
+   <copyright>Copyright 2006 Velocera Engineering, LLC</copyright>
+   <authorEmail>tech@velocera.com</authorEmail>
+   <authorUrl>www.velocera.com</authorUrl>
+   <version>1.0</version>
+   <description>Alive At 25 Instructor administration utility.</description>
+   <files>
+      <filename>instructor.php</filename>
+      <filename>instructor.html.php</filename>
+      <filename>index.html</filename>
+   </files>
+   <install>
+      <queries>
+    </queries>
+   </install>
+   <installfile>install.instructor.php</installfile>
+   <uninstallfile>uninstall.instructor.php</uninstallfile>
+   <administration>
+      <menu>Manage Instructors</menu>
+      <submenu>
+         <menu task="list">List Instructors</menu>
+         <menu task="new">Add New Instructor</menu>
+      </submenu>
+      <files>
+         <filename>admin.instructor.php</filename>
+         <filename>admin.instructor.html.php</filename>
+         <filename>toolbar.instructor.php</filename>
+         <filename>toolbar.instructor.html.php</filename>
+         <filename>instructor.class.php</filename>
+         <filename>index.html</filename>
+      </files>
+   </administration>
+</mosinstall>

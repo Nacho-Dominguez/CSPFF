@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="navBar">
+	<ul>
+		<li><a href="../index.htm">Home</a></li>
+		<li><a href="../reference/index.htm">Syntax Reference</a></li>
+		<li><a href="../samples/index.htm">Samples</a></li>
+		<li><a href="../faq/index.htm">FAQ</a></li>
+		<li><a href="../troubleshooting/index.htm">Troubleshooting</a></li>
+	</ul>
+</div>
+<div class="docBlock">
+	<h3>When things go wrong...</h3>
+	<p>Since it makes heavy use of DOM, XHTML and JavaScript, everything inside the <strong>TMT Validator is case sensitive</strong>. The whole library has been designed with power users in mind, so it doesn't tolerate sloppy coding (most of the time it will fail silently instead of throwing JavaScript errors)</p>
+</div>
+<div class="docBlock">
+	<h3>The submit button's value isn't passed to the server-side script</h3>
+	<p>By default submit buttons are disabled after the form is submitted. This   prevents multiple submits but also prevents the value of the submit buttons from   being passed as part of the HTTP request. Set the <strong>tmt:blocksubmit</strong> attribute of the &lt;form&gt; tag to false if  you want prevent this behavior</p>
+</div>
+<div class="docBlock">
+	<h3>Conflicting JavaScript code on page load</h3>
+	<p>The TMT Validator needs to be initialized after the document is loaded. The library internally achieves this by using the JavaScript code below:</p>
+	<p class="code">addLoadEvent(tmt_validatorInit);</p>
+	<p>More details about this handy piece of code are available here: <a href="http://www.sitepoint.com/blog-post-view.php?id=171578">http://www.sitepoint.com/blog-post-view.php?id=171578</a> (thanks to Danilo Celic)</p>
+	<p>Problems can easily arise if, inside your XHTML code, you are using the onload attribute of the &lt;body&gt; tag like:</p>
+	<p class="code">&lt;body onload=&quot;doThis()&quot;&gt;</p>
+	<p>This will prevent the validator's from initializing, and the whole validation process will never happen. There are different ways to solve this.</p>
+	<p>An easy, but less elegant solution is to add a call to tmt_validatorInit inside your &lt;body&gt; tag:</p>
+	<p class="code"><strong>Solution n&deg;1</strong><br />
+&lt;body onload=&quot;doThis();tmt_validatorInit()&quot;&gt;</p>
+	<p>If you prefer to minimize the amount of JavaScript calls in your XHTML tags (a worthwhile goal), you can use something like:</p>
+	<p class="code"><strong>Solution n&deg;2</strong><br />
+&lt;head&gt;<br />
+&lt;script src=&quot;script_tmt_validator.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br />
+&lt;script language=&quot;JavaScript&quot;&gt;<br />
+		function doThis(){<br />
+		// Your JS code here <br />
+		}<br />
+		addLoadEvent(doThis);<br />
+&lt;/script&gt;<br />
+&lt;/head&gt;<br />
+&lt;body&gt;</p>
+	<p>As an alternative, you can assign an anonymous function to the window's onload event:</p>
+	<p class="code"><strong>Solution n&deg;3</strong><br />
+&lt;head&gt;<br />
+&lt;script src=&quot;script_tmt_validator.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br />
+&lt;script language=&quot;JavaScript&quot;&gt;<br />
+		function doThis(){<br />
+		// Your JS code here <br />
+		}<br />
+		window.onload = function(){<br />
+		doThis();<br />
+		tmt_validatorInit();<br />
+		// More JS code here if you need <br />
+		}<br />
+&lt;/script&gt;<br />
+&lt;/head&gt;<br />
+&lt;body&gt;</p>
+	<p>The TMT Validator tries to be as unobtrusive as possible and to play nicely with other scripts, so something like this will work just fine:</p>
+	<p class="code">&lt;script language=&quot;JavaScript&quot;&gt;<br />
+		function doThis(){<br />
+		// Your JS code here<br />
+		}<br />
+		window.onload = doThis;<br />
+&lt;/script&gt;<br />
+&lt;script src=&quot;../script_tmt_validator.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</p>
+	<p>The code below will prevent the validator from working because &quot;doThis&quot; takes full control over the onload event. Note that the TMT Validator scripts have been included before our doThis() function instead of after it. </p>
+	<p class="code">&lt;script src=&quot;../script_tmt_validator.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br />
+&lt;script language=&quot;JavaScript&quot;&gt;<br />
+		function doThis(){<br />
+		// Your JS code here<br />
+		}<br />
+		window.onload = doThis;<br />
+&lt;/script&gt;</p>
+	<p>Any of the 3 solutions above will work just fine to fix this. Just pick the one that fits your needs and coding habits best.</p>
+</div>
+<div class="docBlock">
+	<h3>About the onsubmit event of the &lt;form&gt; tag</h3>
+	<p>The TMT Validator takes full control over the onsubmit event of the form tag. So, if you have something like this:</p>
+	<p class="code">&lt;form action=&quot;index.htm&quot; method=&quot;post&quot; tmt:validate=&quot;true&quot; onsubmit=&quot;doThis()&quot;&gt;</p>
+	<p>The call to &quot;doThis()&quot; will be overwritten by the Validator's parser and never executed.</p>
+	<p>To fix this you have to open the script_tmt_validator.js file and hack it a little bit (don't try this unless you have good knowledge of JavaScript). First of all, locate the tmt_validatorInit function (it's at the very top of the file) and comment three lines of code:</p>
+	<p class="code"> // Set the form node's onsubmit event <br />
+		//formNodes[i].onsubmit = function(){<br />
+		// return tmt_validateForm(this);<br />
+		//}</p>
+	<p>Then modify the XHTML code:</p>
+	<p class="code">&lt;form action=&quot;index.htm&quot; method=&quot;post&quot; tmt:validate=&quot;true&quot; onsubmit=&quot;doThis();return tmt_validateForm(this)&quot;&gt;</p>
+	<p>Be advised this is a pure hack; please consider all its implications before start using it. It will make your code a little harder to maintain and you will have to apply the hack again before using any updated version of script_tmt_validator.js.</p>
+</div>
+<div class="docBlock">
+	<h3>Filters conflicting with onblur and onkeyup</h3>
+	<p>If you use tmt:filters on text field, you can&rsquo;t call custom  JavaScript code using their onblur and onkeyup events; since, in order to make  the filters work, the Validator takes full control of the two events.</p>
+	<p>Hopefully this problem will be addressed during a  future release.</p>
+</div>
+<div class="docBlock">
+	<h3>Namespaces and Gecko based browsers</h3>
+	<p>If you are serving your pages using an <a href="http://www.xml.com/pub/a/2003/03/19/dive-into-xml.html">XML mime-type</a>, and you are getting this weird error from the most recent versions of Gecko based browsers:</p>
+	<p class="code">XML Parsing Error: prefix not bound to a namespace</p>
+	...all you need to do is to add the proper namespace declaration inside the &lt;html&gt; tag:
+	<p class="code">&lt;html xmlns:tmt=&quot;http://www.massimocorner.com/validator&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;<br />
+	</p>
+</div>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

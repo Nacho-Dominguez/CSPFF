@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="navBar">
+	<ul>
+		<li><a href="index.htm">Home</a></li>
+		<li><a href="reference/index.htm">Syntax Reference</a></li>
+		<li><a href="samples/index.htm">Samples</a></li>
+		<li><a href="faq/index.htm">FAQ</a></li>
+		<li><a href="troubleshooting/index.htm">Troubleshooting</a></li>
+	</ul>
+</div>
+<div class="docBlock">
+	<h3>About the TMT Validator</h3>
+	<p>The TMT validator is a JavaScript library for form validation. It was developed with several goals in mind:</p>
+	<ul>
+		<li>Attach validation rules to form fields using attributes in a declarative way</li>
+		<li>Streamline authoring/editing on any IDE that can provide custom code hints for tags</li>
+		<li>Make code generation painless. Defining the validation rules as attributes of the field tags makes it easier to generate forms server-side, or write code generators, because the form fields are self-contained</li>
+		<li>Easy to use out of the box for XHTML people, even with minimal programming skills, while still being totally open to extensibility by developers familiar with JavaScript</li>
+		<li>Ability to work on pages served using an <a href="http://www.xml.com/pub/a/2003/03/19/dive-into-xml.html">XML mime-type</a>, not only plain text tag soup</li>
+		<li>Use well-formed XML code that can be parsed, generated or manipulated by any XML parser</li>
+		<li>Easy integration with server-side languages that support custom tags (CFML, ASP.NET, JSP)</li>
+	</ul>
+	<p>See it <a href="samples/index.htm">in action,</a> take a look at the <a href="reference/index.htm">syntax reference</a>, <a href="tmt_validator.zip">download version 1.2.4</a> or check the <a href="CHANGELOG.txt">changelog</a></p>
+</div>
+<div class="docBlock">
+	<h3>About XHTML and the W3C validator</h3>
+	<p>At the time of writing, the W3C's validator isn't yet able to understand XML namespaces, so pages using the TMT Validator are flagged as invalid.</p>
+	<p>In all sincerity, I don't mind, since what I want is well formed XML, because that's where I see the real benefits of moving into XHTML. If passing the W3C's validation is really important for your project, I am afraid the TMT Validator isn't currently suited to your needs.</p>
+</div>
+<div class="docBlock">
+	<h3>Sorry, no tech support</h3>
+	<p>The TMT Validator is provided on an &quot;as is&quot; basis, <strong>there is no tech support</strong>, nothing, zippo, nada. This project was born out of a personal need but, along the way, I realized it was worth sharing. You can use it for free on websites, applications or wherever you want (note: <a href="license.htm">you can't redistribute it</a>) and I sincerely hope it will make your life easier.</p>
+	<p><strong>Please, don't ask for help</strong> (<em>unless you are willing to hire me</em>).</p>
+	<p>If you get stuck, the best thing you can do is to check all the documentation available on this website (there is quite a lot of it). If the problem persists, you are on your own, because I simply can't afford to support freeware, sorry.</p>
+</div>
+<div>Copyright 2005 massimocorner.com (<a href="license.htm">license</a>)</div>
+</body>
+</html>

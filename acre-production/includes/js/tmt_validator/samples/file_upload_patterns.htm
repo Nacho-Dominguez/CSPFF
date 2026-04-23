@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Patterns for file upload validation</h1>
+	<p>Checking a file's extensions during file upload is a common requirement. TMT Validator offers a few built in patterns that ensure a file uses the required extension, and the file name does not contain spaces nor special characters.</p>
+	<p>If you need an additional custom pattern, all you have to do is to write a custom regular expression that satisfies your requirements and define a custom validation pattern using JavaScript (<a href="custom_pattern.htm">see custom pattern sample</a>)</p>
+	<p>Large files may take a long time to upload. It is important to provide a method to avoid multiple submits during this time. The script automatically prevents this by disabling all the submit buttons as soon as the form validates. For a better user experience you can also define custom text for the disabled button using the following syntax:</p>
+	<p class="code">&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; tmt:waitmessage=&quot;Processing...&quot; /&gt;</p>
+</div>
+<form action="index.htm" method="post" enctype="multipart/form-data" tmt:validate="true">
+	<fieldset>
+	<legend>File extension</legend>
+	<table>
+		<tr>
+			<td>Upload a .pdf file, no white space or special chars inside its name (not required)</td>
+			<td><input type="file" name="filepath_pdf" tmt:message="Please select a .pdf file, no white space or special chars inside its name" tmt:pattern="filepath_pdf" /></td>
+		</tr>
+		<tr>
+			<td>Upload a .jpg or .gif file, no white space or special chars inside its name (not required)</td>
+			<td><input type="file" name="filepath_jpg_gif" tmt:message="Please select a .jpg or .gif file, no white space or special chars inside its name" tmt:pattern="filepath_jpg_gif" /></td>
+		</tr>
+		<tr>
+			<td>Upload a .jpg file, no white space or special chars inside its name (not required)</td>
+			<td><input type="file" name="filepath_jpg" tmt:message="Please select a .jpg file, no white space or special chars inside its name" tmt:pattern="filepath_jpg" /></td>
+		</tr>
+		<tr>
+			<td>Upload a .zip file, no white space or special chars inside its name (not required)</td>
+			<td><input type="file" name="filepath_zip" tmt:message="Please select a .zip file, no white space or special chars inside its name" tmt:pattern="filepath_zip" /></td>
+		</tr>
+		<tr>
+			<td>Upload a file, no white space or special chars inside its name (not required)</td>
+			<td><input type="file" name="filepath" tmt:message="Please select a file, no white space or special chars inside its name" tmt:pattern="filepath" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Submit" tmt:waitmessage="Processing..." /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+ALTER TABLE `jos_student_course_xref` ADD COLUMN `sent_payment_reminder` boolean NOT NULL default '0';

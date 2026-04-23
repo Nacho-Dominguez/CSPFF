@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="navBar">
+	<ul>
+		<li><a href="../index.htm">Home</a></li>
+		<li><a href="../reference/index.htm">Syntax Reference</a></li>
+		<li><a href="../samples/index.htm">Samples</a></li>
+		<li><a href="../faq/index.htm">FAQ</a></li>
+		<li><a href="../troubleshooting/index.htm">Troubleshooting</a></li>
+	</ul>
+</div>
+<div class="docBlock">
+	<h3>Do I have to use XHTML? Does it work with HTML too?</h3>
+	<p>All the code was written with XHTML in mind as it takes advantage of the DOM and leverages <a href="http://www.w3.org/TR/REC-xml-names/">XML Namespaces</a>. Still, there is nothing that inherently prevents you from using it inside an HTML page. Of course, the resulting tag soup will be invalid both from an HTML and an XML perspective.</p>
+</div>
+<div class="docBlock">
+	<h3>Which browsers are supported?</h3>
+	<p>The library was tested with IE 5+ on Windows, Mozilla 1.5+, Firefox 1.x, Safari 1+ and IE 5.2 for Mac.</p>
+</div>
+<div class="docBlock">
+	<h3 style="width: 80%">Will my error messages be listed in the same order as the fields that are displayed on the webpage?</h3>
+	<p>Sometimes they will, sometimes they won't, you can't count on it. If you are concerned about this issue, you can <a href="../samples/custom_error_label.htm">display error messages inext to their relevant field</a>.</p>
+</div>
+<div class="docBlock">
+	<h3>I don't know JavaScript, can I still use it?</h3>
+	<p>JavaScript programming knowledge isn't required in order to use the Validator. Some decent understanding of JavaScript can indeed help you out whenever you need to extend the functionality or <a href="../troubleshooting/index.htm">troubleshoot</a> something. </p>
+</div>
+<div class="docBlock">
+	<h3>Can I use images as my submit buttons?</h3>
+	<p>You can use images or &lt;button&gt; tags as submit buttons, but unlike standard form buttons, the TMT Validator will not disable them after successful validation.</p>
+</div>
+<div class="docBlock">
+	<h3>Is it open source?</h3>
+	<p>The TMT Validator is free for download, you can freely use it for building websites, web applications or whatever you want, but it's not <a href="http://www.opensource.org/docs/definition.php">Open Source</a>, since <a href="../license.htm">you can't redistribute</a> it without the proper permission. </p>
+</div>
+<div class="docBlock">
+	<h3>Should I use an XML mime-type?</h3>
+	<p>The TMT Validator was designed out of the box to be as future-proof as possible. That's why it works even if the page is served using an <a href="http://www.xml.com/pub/a/2003/03/19/dive-into-xml.html">XML mime-type</a>. However, before going down this route, you should carefully consider all the implications as it requires strong coding discipline. In other words, unless you really know what you are doing, keep serving your XHTML pages as plain text.</p>
+</div>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

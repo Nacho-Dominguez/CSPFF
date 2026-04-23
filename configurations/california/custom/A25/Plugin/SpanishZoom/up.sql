@@ -1,0 +1,1 @@
+ALTER TABLE `jos_student` ADD COLUMN `spanish` BOOL default NULL;

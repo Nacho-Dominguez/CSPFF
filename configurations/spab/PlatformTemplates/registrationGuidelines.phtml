@@ -1,0 +1,18 @@
+<?php
+$mainLocation = A25_Record_Location::retrieve(ServerConfig::parentLocationId);
+?>
+<p>
+You may register for a <i><?php echo PlatformConfig::siteTitle ?></i> course on-line or by calling
+<?php echo PlatformConfig::phoneNumber ?>.  Registration for all classes closes
+<?php echo $mainLocation->enrollment_deadline ?> 
+before each course. We do not accept same day registrations or walk-up students.
+Because of the high demand for our classes, we recommend you register at least
+7 days in advance for a class.
+</p>
+<p>
+Please note that <b>refunds are not issued for any reason</b>. If you don't show
+up for the class, you will need to re-register and pay again. We also reserve
+the right to cancel a course due to low enrollment, weather, or unforeseen
+emergencies.  If your course is canceled, you will be notified by an
+instructor and have the opportunity to apply your payment to a new course date.
+</p>

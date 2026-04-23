@@ -1,0 +1,19 @@
+{
+    "require": {
+        "appdevl/query-strategy": "dev-master",
+				"authorizenet/authorizenet": "1.8.2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.7.*",
+        "phpunit/phpunit-selenium": ">=1.2",
+        "appdevl/phpunit-selenium2-adapter": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Acre\\": "library/",
+            "Acre\\A25\\": "",
+            "Acre\\TestHelpers\\": "test/Helpers/",
+            "Acre\\TestFramework\\": "test/Framework/"
+        }
+    }
+}

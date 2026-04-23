@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Image upload validation</h1>
+	<p>Client side validation for image upload can be somewhat tricky. Due to some exaggerated security concerns this will not work with Firefox 1.0+ and Mozilla 1.7+ unless the script is called directly from the local system. This function will fail silently on these Gecko based browsers.</p>
+	<p>It has been fully tested in IE 5.5+ and works in Safari and IE 5.2 on the Mac.</p>
+	<p>In order to enable image validation, we add the tmt:image attribute to an input/file field. A simple example looks like this:</p>
+	<p class="code">&lt;input type=&quot;file&quot; name=&quot;image_upload&quot; tmt:message=&quot;Max width 360px. Max size 50kb.&quot; tmt:image=&quot;true&quot; tmt:imagemaxwidth=&quot;360&quot; tmt:imagemaxsize=&quot;50&quot; /&gt;</p>
+	<p>Image upload validation works with .jpg and .gif files. It accepts up to 5 different attributes that can check both file size and dimension:</p>
+	<ul>
+		<li><strong>tmt:imagemaxsize</strong>: maximum file size (kb)</li>
+		<li><strong>tmt:imagemaxwidth</strong>: maximum width (px)</li>
+		<li><strong>tmt:imageminwidth</strong>: minimum width (px)</li>
+		<li><strong>tmt:imagemaxheight</strong>: maximum height (px)</li>
+		<li><strong>tmt:imageminheight</strong>: minimum height (px) </li>
+	</ul>
+	<p>In order to avoid having images with spaces or special characters inside their names, we can use one of the built-in patterns (<a href="file_upload_patterns.htm">see sample</a>) or define a custom one (<a href="custom_pattern.htm">see sample</a>).</p>
+	<p>The example below shows all the validation rules and a pattern mix for image upload:</p>
+	<p class="code">&lt;input type=&quot;file&quot; name=&quot;jpg_upload&quot; tmt:pattern=&quot;filepath_jpg&quot; tmt:message=&quot;Please select a .jpg file. Max width 360px. Min width 240px. Max height 240px. Min height 180px. No white space or special chars inside its name.&quot; tmt:image=&quot;true&quot; tmt:imagemaxwidth=&quot;360&quot; tmt:imageminwidth=&quot;240&quot; tmt:imagemaxheight=&quot;240&quot; tmt:imageminheight=&quot;180&quot; /&gt;</p>
+</div>
+<form action="index.htm" method="post" enctype="multipart/form-data" tmt:validate="true">
+	<fieldset>
+	<legend>Image upload</legend>
+	<table>
+		<tr>
+			<td>Upload a .jpg or .gif file (not required)<br />
+				Max width 360px<br />
+				Max size 50kb</td>
+			<td><input type="file" name="image_upload" tmt:pattern="filepath_jpg_gif" tmt:message="Please select a .jpg or .gif file. Max width 360px. Max size 50kb. No white space or special chars inside its name." tmt:image="true" tmt:imagemaxwidth="360" tmt:imagemaxsize="50" /></td>
+		</tr>
+		<tr>
+			<td>Upload a .jpg file (not required)<br />
+				Max width 360px. Min width 240px<br />
+				Max height 240px. Min height 180px</td>
+			<td><input type="file" name="jpg_upload" tmt:pattern="filepath_jpg" tmt:message="Please select a .jpg file. Max width 360px. Min width 240px. Max height 240px. Min height 180px. No white space or special chars inside its name." tmt:image="true" tmt:imagemaxwidth="360" tmt:imageminwidth="240" tmt:imagemaxheight="240" tmt:imageminheight="180" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

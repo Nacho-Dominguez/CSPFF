@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+	<name>DDC Online</name>
+	<creationDate>January 2013</creationDate>
+	<author>Albright Agile Programming</author>
+	<version>1.0</version>
+	<description>A template for the DDC Online site.</description>
+</mosinstall>

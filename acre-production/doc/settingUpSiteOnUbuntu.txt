@@ -1,0 +1,61 @@
+Need packages:
+apache2
+php5
+php5-mysql
+php5-curl
+mysql-server
+php5-cli (for running phpunit on the server, not needed otherwise)
+sendmail (if you want to send e-mails)
+- In /etc/mail/sendmail.mc, if the mail server is a different machine than the
+  web server, add:
+  define(`MAIL_HUB',`relay:aliveat25.us')
+  Then run 'sendmailconfig'.  Without this change, the mailserver will not be
+  able to send to @aliveat25.us addresses, because it thinks of itself as
+  aliveat25.us, so it tries to send to users on the local machine.
+
+Enable mod-rewrite:
+$ sudo a2enmod rewrite
+- Make sure that 'AllowOverride All' is somewhere in the Apache configuration
+  for the site.  This is necessary in order for .htaccess to work.
+
+Enable mod-expires for caching to work (performance increase):
+$ sudo a2enmod expires
+
+Settings in /etc/php5/apache2/php.ini that are necessary for proper function:
+magic_quotes_gpc = Off
+magic_quotes_runtime = Off
+memory_limit = 64M (The tests will pass with 32M, but with full data, 64M is
+needed sometimes.)
+open_basedir must not be defined, or else excel exports won't work
+
+Settings in /etc/php5/apache2/php.ini for performance reasons:
+register_argc_argv = Off
+auto_globals_jit = Off
+register_long_arrays = Off
+
+Settings in /etc/php5/apache2/php.ini for security reasons:
+allow_url_fopen = Off (only with apache, required for cli)
+enable_dl = Off
+expose_php = Off
+disable_functions = open_log, apache_child_terminate, apache_get_modules, apache_get_version, apache_note, apache_setenv, virtual, exec, fsockopen, popen, proc_open
+open_basedir = /var/www/ (or whatever the highest level of the web directory
+is.  This will not work with php cli, however.)
+
+In order for the integration tests to pass, the memory limit must be moved up
+to 64MB in /etc/php5/cli/php.ini.  This limit may go down when/if phpunit
+starts running each test in its own process.
+
+Run util/db/execDbReset.php
+Run util/db/insertZipCodes.php
+
+SSL setup can be tricky.  Here are a few things to ensure:
+- In apache, the normal site must be '*:80', not just '*'
+- The Common Name in the CSR must be the same as the site name in apache
+
+Here's how you generate a key:
+openssl genrsa -out server.key 1024
+openssl req -new -key server.key -out server.csr
+openssl x509 -req -days 1460 -in server.csr -signkey server.key -out server.crt
+
+Enable ssl in apache:
+$ sudo a2enmod ssl

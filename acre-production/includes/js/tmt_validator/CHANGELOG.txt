@@ -1,0 +1,14 @@
+1.2.4: Disabled fields are now skipped during the validation process (Thanks Giampaolo!). 
+       More advanced error display validation added to the zip file (script_tmt_validator_error_display.js).
+       New entry inside the troubleshooting docs
+1.2.3: tmt:invalidvalue now works well even if it's set as an empty string (Thanks Rudi)
+       Fixed a missing slash inside email pattern (Thanks Edo!)
+       Added an entry to the troubleshooting docs
+1.2.2: CSS class is properly restored on FireFox even if the field has no default class attribute
+1.2.1: Solved an obscure bug on hidden fields and IE
+1.2.0: Added tmt:blocksubmit attribute to <form> tag
+       Input tags without "type" attribute now default to "text" instead of throwing an error
+1.1.0: Support for radio buttons
+1.0.3: More non-ISO characters cleaned by demoronizer filter
+1.0.2: File upload patterns are now case insensitive
+1.0.1: Fixed an elusive bug that pops up with multiple textareas

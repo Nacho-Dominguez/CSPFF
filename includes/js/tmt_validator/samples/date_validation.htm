@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Date validation</h1>
+	<p>We can use any of the 14 built-in date formats.</p>
+	<p>If none of the built-in formats satisfy your needs, you can add your own pretty easily (<a href="custom_date_validation.htm">see sample</a>).</p>
+	<p>The XHTML code for the field looks like this: </p>
+	<p class="code">&lt;input type=&quot;text&quot; name=&quot;mydate&quot; tmt:datepattern=&quot;YYYY-MM-DD&quot; /&gt;</p>
+</div>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Date Formats</legend>
+	<table>
+		<tr>
+			<td>Date 01 (not required, date, YYYY-MM-DD)</td>
+			<td><input type="text" name="date01" tmt:message="Date 01: please insert a valid date using the YYYY-MM-DD format" tmt:datepattern="YYYY-MM-DD" value="2005-05-09" /></td>
+		</tr>
+		<tr>
+			<td>Date 02 (not required, date, YYYY-M-D)</td>
+			<td><input type="text" name="date02" tmt:message="Date 02: please insert a valid date using the YYYY-M-D format" tmt:datepattern="YYYY-M-D" value="2005-5-9" /></td>
+		</tr>
+		<tr>
+			<td>Date 03 (not required, date, MM.DD.YYYY)</td>
+			<td><input type="text" name="date03" tmt:message="Date 03: please insert a valid date using the MM.DD.YYYY format" tmt:datepattern="MM.DD.YYYY" value="05.09.2005" /></td>
+		</tr>
+		<tr>
+			<td>Date 04 (not required, date, M.D.YYYY)</td>
+			<td><input type="text" name="date04" tmt:message="Date 04: please insert a valid date using the M.D.YYYY format" tmt:datepattern="M.D.YYYY" value="5.9.2005" /></td>
+		</tr>
+		<tr>
+			<td>Date 05 (not required, date, MM/DD/YYYY)</td>
+			<td><input type="text" name="date05" tmt:message="Date 05: please insert a valid date using the MM/DD/YYYY format" tmt:datepattern="MM/DD/YYYY" value="05/09/2005" /></td>
+		</tr>
+		<tr>
+			<td>Date 06 (not required, date, M/D/YYYY)</td>
+			<td><input type="text" name="date06" tmt:message="Date 06: please insert a valid date using the M/D/YYYY format" tmt:datepattern="M/D/YYYY" value="5/9/2005" /></td>
+		</tr>
+		<tr>
+			<td>Date 07 (not required, date, MM-DD-YYYY)</td>
+			<td><input type="text" name="date07" tmt:message="Date 07: please insert a valid date using the MM-DD-YYYY format" tmt:datepattern="MM-DD-YYYY" value="05-09-2005" /></td>
+		</tr>
+		<tr>
+			<td>Date 08 (not required, date, M-D-YYYY)</td>
+			<td><input type="text" name="date08" tmt:message="Date 08: please insert a valid date using the M-D-YYYY format" tmt:datepattern="M-D-YYYY" value="5-9-2005" /></td>
+		</tr>
+		<tr>
+			<td>Date 09 (not required, date, DD.MM.YYYY)</td>
+			<td><input type="text" name="date09" tmt:message="Date 09: please insert a valid date using the DD.MM.YYYY format" tmt:datepattern="DD.MM.YYYY" value="09.05.2005" /></td>
+		</tr>
+		<tr>
+			<td>Date 10 (not required, date, D.M.YYYY)</td>
+			<td><input type="text" name="date1" tmt:message="Date 10: please insert a valid date using the D.M.YYYY format" tmt:datepattern="D.M.YYYY" value="9.5.2005" /></td>
+		</tr>
+		<tr>
+			<td>Date 11 (not required, date, DD/MM/YYYY)</td>
+			<td><input type="text" name="date11" tmt:message="Date 11: please insert a valid date using the DD/MM/YYYY format" tmt:datepattern="DD/MM/YYYY" value="09/05/2005" /></td>
+		</tr>
+		<tr>
+			<td>Date 12 (not required, date, D/M/YYYY)</td>
+			<td><input type="text" name="date12" tmt:message="Date 12: please insert a valid date using the D/M/YYYY format" tmt:datepattern="D/M/YYYY" value="9/5/2005" /></td>
+		</tr>
+		<tr>
+			<td>Date 13 (not required, date, DD-MM-YYYY)</td>
+			<td><input type="text" name="date13" tmt:message="Date 13: please insert a valid date using the DD-MM-YYYY format" tmt:datepattern="DD-MM-YYYY" value="09-05-2005" /></td>
+		</tr>
+		<tr>
+			<td>Date 14 (not required, date, D-M-YYYY)</td>
+			<td><input type="text" name="date14" tmt:message="Date 14: please insert a valid date using the D-M-YYYY format" tmt:datepattern="D-M-YYYY" value="9-5-2005" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

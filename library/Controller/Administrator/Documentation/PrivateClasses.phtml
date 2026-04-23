@@ -1,0 +1,46 @@
+<style type='text/css'>
+  p, h4 {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  img {
+    padding: 4px;
+    border: 1px solid #999;
+  }
+</style>
+<div style="text-align: left; font-size: 14px; max-width: 770px; margin-left: auto; margin-right: auto;">
+  <h1>Reserving Classes for Certain Students</h1>
+  <p>There are 3 different ways to restrict classes to be only for certain students.</p>
+  <h2>Option 1</h2>
+  <p>If you don't need the course to be visible on the public site, the simplest
+    way to block unwanted registrations is just to "un-publish" the course. Then
+    it will just be available to Administrators, but the public won't be able to
+    see it. Of course, that will prevent the students to enroll themselves, so it
+    may not work for every situation.</p>
+  <h2>Option 2</h2>
+  <p>If the course type is set to to "School", rather than "Public", it will
+    have special messages throughout the registration process. For example, on
+    the "Find A Course" page, there will be a special message under the Enroll
+    button, like this:</p>
+  <img src="<?php echo A25_Link::to('/administrator/images/Documentation/school_find_course.png')?>" />
+  <p>Then if they click Enroll, they will see this message at the top of the screen:</p>
+  <img src="<?php echo A25_Link::to('/administrator/images/Documentation/school_enroll.png')?>" />
+  <p>However, this does not actually block anyone from enrolling. The wrong
+    person could still enroll if they ignore the messages, although that doesn't
+    seem to happen too often.</p>
+  <h2>Option 3</h2>
+  <p style="font-size: 12px; color: #666; background-color: #efefff; padding: 12px;">
+      This is an <i>optional</i> feature which is not enabled by default.  If
+      you would like it turned on for your website, please email the
+      website developer, Jonathan Albright, at
+      <a href="mailto:jonathan@appdevl.net">jonathan@appdevl.net</a>.
+  </p>
+  <p>If you want to put a password on the class, we can install the <a href=
+    "<?php echo A25_Link::to('/administrator/documentation/organization-registration-code')?>
+    ">Registration Code for Organizations</a> extension for you. Then, the class
+    will ask for a password when they click Enroll, like this:</p>
+  <img src="<?php echo A25_Link::to('/administrator/images/Documentation/registration_code.png')?>" />
+  <p>For more details, see the documentation for <a href=
+    "<?php echo A25_Link::to('/administrator/documentation/organization-registration-code')?>
+    ">Registration Code for Organizations</a>.</p>
+</div>

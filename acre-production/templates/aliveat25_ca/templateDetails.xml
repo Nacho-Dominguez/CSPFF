@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+	<name>Alive at 25 CA</name>
+	<creationDate>March 2025</creationDate>
+	<author>AppDevl</author>
+	<version>1.0</version>
+	<description>A template for the CA Alive at 25 site.</description>
+</mosinstall>

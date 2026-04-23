@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Custom validation pattern</h1>
+	<p>The TMT Validator was designed with extensibility in mind. That's why all the validation rules and patterns are stored inside a global JavaScript object.</p>
+	<p>For this custom validation we want to be sure the user enters a string starting with http://. Our regular expression is ^http://. The TMT Validator stores all patterns inside tmt_globalPatterns, a global variable that contains a JavaScript object, acting as a container for both built-in and custom patterns.</p>
+	<p>So all we need to do is to add the following line of JavaScript code:</p>
+	<p class="code">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+		tmt_globalPatterns.httpstart = new RegExp(&quot;^http://&quot;);<br />
+&lt;/script&gt;</p>
+	<p>The XHTML code for the field looks like this:</p>
+	<p class="code">&lt;input type=&quot;text&quot; name=&quot;mylink&quot; tmt:pattern=&quot;httpstart&quot; /&gt;</p>
+</div>
+<script type="text/javascript">
+// Add custom pattern to global patten repository
+tmt_globalPatterns.httpstart = new RegExp("^http://");
+</script>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Custom Pattern</legend>
+	<table>
+		<tr>
+			<td>Url: (must start with http://)
+				<input type="text" name="httpstart" class="required" tmt:errorclass="invalid" tmt:required="true" tmt:pattern="httpstart" tmt:message="Please enter a url starting with http://" />
+				<input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

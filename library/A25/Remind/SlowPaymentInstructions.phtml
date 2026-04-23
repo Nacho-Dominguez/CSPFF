@@ -1,0 +1,37 @@
+<p>
+<?php
+if (A25_DI::PlatformConfig()->acceptCreditCards) {
+    echo 'Or, mail ';
+}
+else {
+    echo 'Mail';
+}
+  if (A25_DI::PlatformConfig()->acceptChecks) {
+    echo 'check or ';
+  }
+?>money order payable to "<?php echo A25_DI::PlatformConfig()->paymentTo ?>"
+to:
+</p>
+<p>
+<?php echo PlatformConfig::paymentAddressHtml()?>
+</p>
+<p>
+<?php 
+if ($enroll->kick_out_date) {
+  echo 'Please make sure payment arrives before ' . date('g:i a \o\n l, F j', strtotime($enroll->kick_out_date)) .
+' or you will lose your seat reservation in the class and will have to register again.
+';
+}
+else {
+  echo A25_DI::PlatformConfig()->slowPaymentCertificateText($course); }
+echo A25_DI::PlatformConfig()->includeOnCheckText($student); ?>
+</p>
+<p style="font-size: 10px; color: #999;">
+If your <?php if (A25_DI::PlatformConfig()->acceptChecks) {
+    echo 'check or ';
+  }
+?>money order is not approved by your financial institution, a
+$<?php echo $course->getLateFee() ?> late fee and a
+$<?php echo A25_DI::PlatformConfig()->nsfFee ?> NSF charge will apply.
+</p>
+<?php echo $this->cancelPolicy($course);

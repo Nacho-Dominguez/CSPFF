@@ -1,0 +1,1 @@
+ALTER TABLE `jos_location` ADD COLUMN `admin_notes` text default NULL;

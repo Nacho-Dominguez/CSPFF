@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Custom filters</h1>
+	<p>Filters are stored inside tmt_globalFilters, a global variable that contains a JavaScript object for filters. In order to add our own, we can call the tmt_filterInfo function. The tmt_filterInfo function requires 2 arguments</p>
+	<ol>
+		<li>Regular expression pattern for the content we want to remove</li>
+		<li>The string that will replace the content (often just an empty string)</li>
+	</ol>
+	<p class="code">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+		tmt_globalFilters.a_to_f = tmt_filterInfo(&quot;[^a-fA-F]&quot;, &quot;&quot;);<br />
+&lt;/script&gt;</p>
+</div>
+<script type="text/javascript">
+// A custom filter
+tmt_globalFilters.a_to_f = tmt_filterInfo("[^a-fA-F]", "");
+</script>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Custom Filter</legend>
+	<table>
+		<tr>
+			<td>Only letters, from a to f (both lower and uppercase)
+				<input type="text" name="af" tmt:filters="a_to_f" />
+				<input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

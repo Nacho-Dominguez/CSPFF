@@ -1,0 +1,9 @@
+[submodule "includes/third-party/timePicker"]
+	path = includes/third-party/timePicker
+	url = https://github.com/perifer/timePicker.git
+[submodule "includes/third-party/jquery-cookie"]
+	path = includes/third-party/jquery-cookie
+	url = git://github.com/carhartl/jquery-cookie.git
+[submodule "includes/third-party/ckeditor"]
+	path = includes/third-party/ckeditor
+	url = https://github.com/ckeditor/ckeditor-dev.git

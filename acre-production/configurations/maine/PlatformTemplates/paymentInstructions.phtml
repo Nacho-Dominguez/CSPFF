@@ -1,0 +1,34 @@
+<p><strong>Tuition:</strong> $<?php echo PlatformConfig::defaultCourtFee ?></p>
+<h2>Payment Policies</h2>
+<p>
+Courses can be paid for on-line with a credit or debit card.
+</p><p>
+Courses within 8 days require immediate payment with credit card within
+<?php echo A25_DI::PlatformConfig()->kickOutAfterDeadline ?>.
+For all other courses, payment is due within
+<?php echo A25_DI::PlatformConfig()->kickOutBeforeDeadline ?> and can be made
+with a credit card or money order.
+If payment is not received in time, your seat reservation will be lost and you will need
+to register again.
+</p><p>
+All payments are NON-REFUNDABLE and cannot be transferred to any other student account.
+</p><p>
+No payments are accepted at the class location.
+</p>
+<h2>Payment Options</h2>
+<p>
+Pay your tuition with a credit/debit card online or by calling
+<?php echo PlatformConfig::phoneNumber ?>. (Visa, Mastercard,
+Discover and American Express are accepted)
+</p><p>
+Or, mail a MONEY ORDER payable to <?php echo A25_DI::PlatformConfig()->paymentTo ?> to this address:
+</p><p>
+<?php echo PlatformConfig::paymentAddressHtml() ?>
+</p><p>
+Please include the student's name and Alive at 25 Student ID # with your payment.
+</p>
+<h2>Scholarships</h2>
+<p>
+A limited number of scholarships are available. Contact
+<a href="mailto:info@schnne.org">info@shcnne.org</a> to request an application.
+</p>

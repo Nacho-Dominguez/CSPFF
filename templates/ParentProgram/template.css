@@ -1,0 +1,398 @@
+body{
+background:url("img/bg.png") repeat-x left top #001050;
+font-family: Verdana, Geneva, Arial, sans-serif;
+font-size: 10px;
+}
+input,select,table,td {
+font-family: Verdana, Geneva, Arial, sans-serif;
+font-size: 12px;
+}
+.content {
+background-color: #DDDDDD;
+padding: 10px;
+}
+.contentpaneopen {
+width: 100%;
+border: 1px solid #444444;
+background-color: #FFFFFF;
+padding: 0px;
+}
+.contentpaneopen td {
+padding: 10px;
+}
+.contentheading {
+background:url("img/title491.png") repeat-y right top #00a9cf;
+color: white;
+font-size: x-large;
+font-weight: bold;
+}
+
+.colHeaderPic{
+ border-left:1px solid #fff;
+ border-right:1px solid #fff;
+ border-bottom:1px solid #fff;
+ height:171px;
+ padding:0px 0px 0px 0px;
+ }
+
+/* Normalize lists (see Pro CSS and HTML Design patterns p. 264 */
+ul{
+margin-left: 0px; padding-left: 0px;
+margin-top: 0px; padding-top: 0px;
+} 
+ul li{ margin-left:60px; }
+
+.wrapper{
+width:780px;
+margin: 0px auto;
+padding: 2px;
+background-color: white;
+}
+
+.head{
+background:url("img/title491.png") repeat-y right top #00a9cf;
+font-family: sans-serif;
+color: white;
+position: relative;
+margin: 0px;
+}
+
+.title{
+position: relative;
+height: 120px;
+padding-top: 18px;
+padding-left: 18px;
+}
+
+/* Logo */
+.logo{
+float: left;
+text-align: right;
+margin-left: 20px;
+}
+
+.logo_alive{
+font-size: 60px;
+text-transform: lowercase;
+letter-spacing: -5px;
+display: block;
+line-height: 60px;
+margin-bottom: -10px;
+margin-right: 8px;
+}
+
+.logo_at{
+text-transform: uppercase;
+font-size: 16px;
+vertical-align: 15px;
+}
+
+.logo_25{
+font-size: 35px;
+font-weight: bolder;
+letter-spacing: -.1em;
+line-height: 100%;
+margin-left: -6px;
+}
+
+.logo_tm{
+font-size: 8px;
+vertical-align: 20px;
+margin-left: -2px;
+}
+
+.pp_title{
+float: left;
+border-left: 3px solid white;
+margin-left: 6px;
+margin-top: 18px;
+padding-left: 6px;
+}
+
+.pp_title_pp{
+font-size: 25px;
+line-height: 25px;
+text-transform: uppercase;
+letter-spacing: -.07em;
+margin-top: 8px;
+}
+
+.pp_title_tag{
+font-size:14px;
+line-height: 100%;
+letter-spacing: -.02em;
+top:40px;
+margin-top: 5px;
+}
+/* End of Logo */
+
+/* User5 (Header menu) */
+.user5{
+position: absolute;
+right: 20px;
+top: 10px;
+font-weight: bold;
+}
+
+.user5 li {
+text-align: center;
+list-style: none;
+float: left;
+margin: 0px;
+font-size: 10px;
+}
+
+.user5 a {
+display: block;
+padding: 0px 1em;
+color: white;
+text-decoration: none;
+font-weight: bold;
+}
+.user5 a:hover {
+text-decoration: underline;
+}
+/* end of User5 */
+
+/* The main menu */
+#mainlevel-nav {
+background-color: black;
+padding: 0px;
+margin: 0px;
+height: 38px;
+width: 100%;
+}
+
+#mainlevel-nav li {
+background:url("img/menu_border.png") no-repeat right top black;
+text-align: center;
+list-style: none;
+float: left;
+margin: 0px;
+}
+
+#mainlevel-nav li a {
+display: block;
+color: white;
+text-decoration: none;
+font-weight: bold;
+font-size: 12px;
+padding: 13px 5px;
+line-height: 12px;
+margin: 0px 1px 0px 0px;
+}
+
+#mainlevel-nav li a:hover, #mainlevel-nav li a:active, #active_menu-nav {
+background:url("img/nav_over_bg.gif") repeat-x right top green;
+
+}
+/* end of main menu */
+
+/* Footer */
+.footer{
+width:760px;color:white;
+font-size: 10px;
+margin: auto;
+position: relative;
+}
+/* end of Footer */
+
+/* User9 */
+.user9{
+float:right;
+right: 5px;
+width: 300px;
+text-align: right;
+}
+.user9 ul{
+height: 40px;
+}
+.user9 li {
+text-align: right;
+list-style: none;
+margin: 0px;
+font-size: 10px;
+float: left;
+}
+.user9 a {
+display: block;
+color: white;
+text-decoration: none;
+padding: 2em 1em 0px 1em;
+}
+.user9 a:hover {
+text-decoration: underline;
+}
+/* End of User9 */
+
+
+/* Zebra Table Styles */
+
+.striped {
+	margin: 0px;
+	border:1px solid #333333;
+}
+
+.striped td {
+	white-space: nowrap;
+}
+
+.striped th {
+	white-space: nowrap;
+}
+
+.striped a:link {
+	white-space: normal;
+}
+
+.striped thead th{
+	padding:3px;
+	height:35px;
+	background:url("img/title491.png") repeat-y right top #00a9cf;
+	color: white;
+	font-weight:bold;
+	border-right:1px solid #333333;
+	border-left:1px solid #333333;
+	border-top:1px solid #333333;
+}
+.striped thead td{
+	padding:4px;
+	height:35px;
+	background:url("img/title491.png") repeat-y right top #00a9cf;
+	color: white;
+	font-weight:bold;
+	border-right:1px solid #333333;
+	border-left:1px solid #333333;
+	border-top:1px solid #333333;
+}
+.striped tr td{
+	padding:3px;
+	background:#ffffff;
+	border-left:1px solid #333333;
+	border-right:1px solid #333333;
+}
+.striped tbody td{
+	padding:3px;
+	background:#ffffff;
+	border-left:1px solid #333333;
+	border-right:1px solid #333333;
+	font-size: 10px;
+}
+.striped tr.even td{
+	background:#dfdfdf;
+}
+.striped tr.ruled td{
+	background:#bbbbbb;
+}
+
+/* End of Zebra Table Styles */
+
+/* Course Search Items */
+#courseSearchImages img{
+    border:1px solid #ffffff;
+    margin:4px;
+}
+#courseSearchLinks {
+    font-size:16px;
+    color:#ffffff;
+    /*font-weight:bold;*/
+    text-align:center;
+}
+
+#courseSearchLinks table{
+    margin:0px;
+    padding:0px 0px 0px 0px;
+    display:block;
+}
+
+#courseSearchLinks a:link{
+    color:#ffffff;
+    width:155px;
+    background: black;
+    padding:11px 13px;
+    margin:1px;
+    display:block;
+    border:1px solid #00ff00;
+    text-decoration:none;
+    border:1px solid #ffffff;
+}
+
+#courseSearchLinks a:visited{
+    color:#ffffff;
+    width:155px;
+    background: black;
+    padding:11px 13px;
+    margin:2px;
+    display:block;
+    text-decoration:none;
+    border:1px solid #ffffff;
+}
+
+#courseSearchLinks a:hover{
+    color:#ffffff;
+    /*background: url(../images/buttonOn.jpg) repeat-x center;*/
+    background:url("img/title491.png") repeat-y right top #00a9cf;
+}
+
+.colHeader{
+    border:1px solid #ffffff;
+    color: #ffffff;
+    background:url("img/title491.png") repeat-y right top #00a9cf;
+    font-size:20px;
+    padding:10px 15px 6px 10px;
+    font-weight:bold;
+    height:26px;
+}
+
+#colContent{
+    padding:10px;
+    background:#ffffff;
+    min-height:300px;
+    border-top:1px solid #333333;
+    font-size: 12px;
+}
+
+.locationContent {
+    margin:15px;
+    border:1px solid #333333;
+    background:#ffffff;
+}
+
+.formlabel {
+    width:25%;
+}
+
+.required {
+    color:#cc0000;
+}
+
+INPUT.required {
+	color: #000000;
+	background-image: url(../images/required.gif);
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+INPUT.invalid, TEXTAREA.invalid {
+	background-color: #F7DDDD;
+	border: 1px solid #ff0000 !important;
+}
+
+.message {
+    color:#ff0000;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.shell {
+    border:1px solid #000000;
+    background:#ffffff;
+}
+
+.shell #colContent {
+    border: none;
+}
+
+.clr {
+    clear: both;
+}

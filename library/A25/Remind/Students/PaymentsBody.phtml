@@ -1,0 +1,15 @@
+<?php
+$course = $enroll->Course;
+$student = $enroll->Student;
+
+$generator = new A25_Remind_HtmlBodyGenerator();
+echo $generator->header($student, A25_Remind_Students_Payments::subject());
+?>
+<p>
+Thank you for registering for an <?php echo PlatformConfig::courseTitleFullHtml() ?> Course
+on <?php echo date('l, F j', strtotime($course->course_start_date)) ?>.
+This is just a friendly reminder that
+payment is due.
+</p>
+<?php echo $generator->paymentDueBox($student, $course, $enroll); ?>
+<?php echo $generator->footer(); ?>

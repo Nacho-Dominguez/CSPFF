@@ -1,0 +1,154 @@
+<style type="text/css">
+  .carousel {
+    background-color: #eeeeee;
+    width: 752px;
+    height: 459px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #333333;
+    padding: 10px;
+  }
+  .carousel-inner {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .carousel-indicators li {
+    border: 1px solid #333333;
+  }
+  .carousel-indicators .active {
+    background-color: #333333;
+  }
+  .carousel-caption {
+    padding-bottom: 20px;
+  }
+  .item {
+    height: 429px;
+  }
+  .carousel-control {
+    color: #000;
+  }
+  .carousel-control.left {
+    background: none;
+  }
+  .carousel-control.right {
+    background: none;
+  }
+  .glyphicon-chevron-left {
+    left: 41px !important;
+  }
+  .item img {
+    max-height: 349px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+<div style="text-align: left; font-size: 14px; margin-bottom: 48px;">
+  <div style="width: 640px; margin-left: auto; margin-right: auto;">
+    <h1>Agencies</h1>
+    <p>
+      The Agency plugin lets you group instructors by Agency and view statistics
+      for any given agency.
+    </p>
+    <p>
+      Setup requires 2 steps:
+      <ol>
+        <li>Create Agencies</li>
+        <li>Assign Instructors to Agencies</li>
+      </ol>
+    </p>
+    <h3 style="padding-top: 30px;">Setup</h3>
+    <h4>Setup step 1: Create Agencies</h4>
+  </div>
+  <div id="create" class="carousel slide" data-ride="carousel" data-interval="10000">
+    <ol class="carousel-indicators">
+      <li data-target="#create" data-slide-to="0" class="active"></li>
+      <li data-target="#create" data-slide-to="1"></li>
+      <li data-target="#create" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="<?php echo A25_Link::to('/administrator/images/Documentation/ControlPanelAgency.png') ?>" alt="agency">
+        <div class="container">
+          <div class="carousel-caption">
+            <p>A) Click on the "Agencies" button</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="<?php echo A25_Link::to('/administrator/images/Documentation/ViewAgencies.png') ?>" alt="agencies">
+        <div class="container">
+          <div class="carousel-caption">
+            <p>B) Click the "New" icon</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="<?php echo A25_Link::to('/administrator/images/Documentation/AddAgency.png') ?>" alt="add agency">
+        <div class="container">
+          <div class="carousel-caption">
+            <p>C) Enter the name of the agency and click "Save"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="left carousel-control" href="#create" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#create" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+  <div style="width: 640px; margin-left: auto; margin-right: auto;">
+    <h4 style="padding-top: 30px;">Setup step 2: Assign Instructors to Agencies</h4>
+  </div>
+  <div id="assign" class="carousel slide" data-ride="carousel" data-interval="10000">
+    <ol class="carousel-indicators">
+      <li data-target="#assign" data-slide-to="0" class="active"></li>
+      <li data-target="#assign" data-slide-to="1"></li>
+      <li data-target="#assign" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="<?php echo A25_Link::to('/administrator/images/Documentation/ControlPanelUser.png') ?>" alt="user">
+        <div class="container">
+          <div class="carousel-caption">
+            <p>A) Click "Users"</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="<?php echo A25_Link::to('/administrator/images/Documentation/SelectUser.png') ?>" alt="select user">
+        <div class="container">
+          <div class="carousel-caption">
+            <p>B) Select a User</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="<?php echo A25_Link::to('/administrator/images/Documentation/AssignUser.png') ?>" alt="assign user">
+        <div class="container">
+          <div class="carousel-caption">
+            <p>C) Select an Agency, then click "Save"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="left carousel-control" href="#assign" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#assign" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+  <div style="width: 640px; margin-left: auto; margin-right: auto;">
+    <h3 style="margin-top: 36px;">Reporting</h3>
+    <p>
+      Once Agencies have been created and associated with Instructors, the
+      Location Statistics Report can be filtered to show results for any
+      individual agency.
+    </p>
+  <img src="<?php echo A25_Link::to('/administrator/images/Documentation/LocationStatistics.png') ?>" alt="report" style="width: 640px;">
+  </div>
+</div>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>

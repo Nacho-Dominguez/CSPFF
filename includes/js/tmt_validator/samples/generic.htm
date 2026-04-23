@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Generic validation sample</h1>
+	<p>This generic form displays the TMT Validator's most commonly used features. Please look at the XHTML source to get an idea of how the syntax is formed</p>
+</div>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Generic Form</legend>
+	<table>
+		<tr>
+			<td><label for="agefield">Age (required, positive integer, min 18, max 75)</label></td>
+			<td><input type="text" id="agefield" name="agefield" class="required" tmt:required="true" tmt:errorclass="invalid" tmt:message="Please insert a valid age" tmt:pattern="positiveinteger" tmt:minnumber="18" tmt:maxnumber="75" tmt:filters="numbersonly" value="18" /></td>
+		</tr>
+		<tr>
+			<td><label for="namefield">Name (required, string, no leading or trailing spaces)</label></td>
+			<td><input type="text" id="namefield" name="namefield" class="required" tmt:required="true" tmt:errorclass="invalid" tmt:message="Please insert a name" tmt:filters="ltrim,rtrim" /></td>
+		</tr>
+		<tr>
+			<td><label for="emailfield">Email (required, string, email)</label></td>
+			<td><input type="text" id="emailfield" name="emailfield" class="required" tmt:required="true" tmt:errorclass="invalid" tmt:message="Please insert a valid email" tmt:pattern="email" /></td>
+		</tr>
+		<tr>
+			<td><label for="datefield">Date (not required, date, YYYY-MM-DD)</label></td>
+			<td><input type="text" id="datefield" name="datefield" tmt:message="Please insert a valid date using the YYYY-MM-DD format" tmt:errorclass="invalid" tmt:datepattern="YYYY-MM-DD" value="2005-05-09" /></td>
+		</tr>
+		<tr>
+			<td><label for="commentsfield">Comments (not required, min 3 chars, max 10)</label></td>
+			<td><textarea id="commentsfield" name="commentsfield" cols="20" rows="3" tmt:message="Comments should be from 3 to 10 chars" tmt:errorclass="invalid" tmt:minlength="3" tmt:maxlength="10"></textarea></td>
+		</tr>
+		<tr>
+			<td>Italy's major contributions to modern civilization?<br />
+				(pick at least one) </td>
+			<td><label>
+				<input name="italy" type="checkbox" class="boxes" value="Pizza" tmt:minchecked="1" tmt:message="Please select at least one contribution" />
+				Pizza</label>
+				<br />
+				<label>
+				<input name="italy" type="checkbox" class="boxes" value="Spaghetti" />
+				Spaghetti</label>
+				<br />
+				<label>
+				<input name="italy" type="checkbox" class="boxes" value="Sophia" />
+				Sophia Loren</label>
+				<br />
+				<label>
+				<input name="italy" type="checkbox" class="boxes" value="Leonardo" />
+				Leonardo Da Vinci</label>
+				<br />
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Custom validation</h1>
+	<p>TMT Validator was designed with extensibility in mind. There will always be the need for custom validation. TMT Validator stores all rules inside tmt_globalRules, a global variable that contains a JavaScript object, acting as a container for both built-in and custom validation rules.</p>
+	<p>In order to invoke the custom validation rule, we need to add a custom attribute to the field that exactly matches the name of the custom validation. Then the validator will call our custom method passing the field's DOM node as an argument and expecting a boolean as return value:</p>
+	<p class="code">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+		// This will be triggered by the tmt:lowercase attribute<br />
+		tmt_globalRules.lowercase = function(fieldNode){<br />
+		&nbsp;var lowerStr = fieldNode.value.toLowerCase();<br />
+		&nbsp;return (lowerStr == fieldNode.value);<br />
+		}<br />
+&lt;/script&gt;</p>
+	<p>The XHTML code for the field looks like this:</p>
+	<p class="code">&lt;input type=&quot;text&quot; name=&quot;mylowercase&quot; tmt:lowercase=&quot;true&quot; tmt:message=&quot;Please enter only lowercase letters&quot; /&gt;</p>
+</div>
+<script type="text/javascript">
+// A custom validation method that will be triggered by the tmt:lowercase attribute
+tmt_globalRules.lowercase = function(fieldNode){
+	var lowerStr = fieldNode.value.toLowerCase();
+	return (lowerStr == fieldNode.value);
+}
+</script>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Custom validation</legend>
+	<table>
+		<tr>
+			<td>Lowercase (anything, letters must be lowercase, required)
+				<input type="text" name="lowercase" tmt:lowercase="true" class="required" tmt:required="true" tmt:message="Please enter only lowercase letters" />
+				<input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

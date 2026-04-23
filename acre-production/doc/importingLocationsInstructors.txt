@@ -1,0 +1,62 @@
+DELETE jos_location_user_xref FROM jos_users
+JOIN jos_location_user_xref ON jos_users.id = jos_location_user_xref.user_id
+WHERE jos_users.usertype != 'Instructor' OR jos_users.state='WY';
+
+DELETE jos_messages_cfg FROM jos_users
+JOIN jos_messages_cfg ON jos_users.id = jos_messages_cfg.user_id
+WHERE jos_users.usertype != 'Instructor' OR jos_users.state='WY';
+
+DELETE jos_core_acl_aro, jos_core_acl_groups_aro_map FROM jos_users
+JOIN jos_core_acl_aro ON jos_users.id = jos_core_acl_aro.value
+JOIN jos_core_acl_groups_aro_map ON jos_core_acl_aro.aro_id = jos_core_acl_groups_aro_map.aro_id
+WHERE jos_users.usertype != 'Instructor' OR jos_users.state='WY';
+
+DELETE jos_location_user_xref FROM jos_location
+INNER JOIN jos_location_user_xref
+ON jos_location.location_id = jos_location_user_xref.location_id
+WHERE jos_location.state='WY';
+
+DELETE jos_location_user_xref FROM jos_location
+INNER JOIN jos_location_user_xref
+ON jos_location.location_id = jos_location_user_xref.location_id
+WHERE jos_location.location_id=4;
+
+DELETE FROM jos_location WHERE location_id=1;
+
+-- Move CommerceCity/Adams County CSP Office to id=2, where it won't interfere
+UPDATE jos_location_user_xref SET location_id = 2 WHERE location_id=1;
+UPDATE jos_location SET location_id = 2 WHERE location_id=1;
+
+UPDATE jos_location SET parent=1 WHERE parent=4;
+DELETE FROM jos_location where parent != 1;
+
+DELETE FROM jos_users WHERE usertype != 'Instructor';
+DELETE FROM jos_users WHERE state='WY';
+DELETE FROM jos_location WHERE state='WY';
+DELETE FROM jos_location WHERE location_id=4;
+DELETE FROM jos_location WHERE location_id=2;
+
+-- jos_location_pages is not needed
+-- mysqldump -p --no-create-info --extended-insert --add-locks --lock-tables --quick [database_name] jos_location jos_users jos_messages_cfg jos_location_user_xref jos_core_acl_aro jos_core_acl_groups_aro_map
+
+-- Add these lines to the beginning of the dumped SQL file
+-- They get rid of the 2 instructors created for testing
+
+DELETE FROM jos_users WHERE id=399;
+DELETE FROM jos_users WHERE id=439;
+DELETE FROM jos_messages_cfg WHERE user_id=399;
+DELETE FROM jos_messages_cfg WHERE user_id=439;
+DELETE FROM jos_location_user_xref WHERE user_id=399;
+DELETE FROM jos_location_user_xref WHERE user_id=439;
+
+DELETE jos_core_acl_aro, jos_core_acl_groups_aro_map
+FROM jos_core_acl_aro
+INNER JOIN jos_core_acl_groups_aro_map
+ON jos_core_acl_aro.aro_id = jos_core_acl_groups_aro_map.aro_id
+WHERE jos_core_acl_aro.value=399;
+
+DELETE jos_core_acl_aro, jos_core_acl_groups_aro_map
+FROM jos_core_acl_aro
+INNER JOIN jos_core_acl_groups_aro_map
+ON jos_core_acl_aro.aro_id = jos_core_acl_groups_aro_map.aro_id
+WHERE jos_core_acl_aro.value=439;

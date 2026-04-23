@@ -1,0 +1,1 @@
+ALTER TABLE `jos_reason_type` ADD COLUMN `active` boolean NOT NULL default '1';

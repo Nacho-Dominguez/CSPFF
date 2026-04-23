@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Conditional validation</h1>
+	<p>Out of the box, the TMT Validator doesn't provide a way to perform conditional validation. This was a design choice. Creating a flexible and generic solution would require a lot of code and would undoubtedly fail to cover all contingencies.</p>
+	<p>Whenever we need to peform conditional validation, all we need to do is write a custom rule and use a custom attribute <a href="custom_validation.htm">(see sample</a>).</p>
+	<p>We then add tmt:required="conditional". This will instruct the validator to check for rules even if the field is currently empty.</p>
+	<p>In this example we want to validate a text field only if the associated checkbox is checked. We will first add a custom rule named "dependonbox". The XHTML code will look like this:</p>
+	<p class="code">&lt;input type=&quot;text&quot; name=&quot;newmeal&quot; id=&quot;newmeal&quot; tmt:required=&quot;conditional&quot; tmt:dependonbox=&quot;specialmeal&quot; /&gt;</p>
+	<p>Now we need to write the JavaScript code for the custom rule, adding a method to the tmt_globalRules object. As always for custom rules, the method should expect the field's DOM node as its only argument and return a boolean:</p>
+	<p class="code">// This will be triggered by the tmt:dependonbox attribute<br />
+		tmt_globalRules.dependonbox = function(fieldNode){<br />
+		&nbsp;var relatedBox = document.getElementById(fieldNode.getAttribute(&quot;tmt:dependonbox&quot;));<br />
+		&nbsp;// The field is required only if the box is checked<br />
+		&nbsp;var isRequired = relatedBox.checked;<br />
+		&nbsp;if(isRequired &amp;&amp; fieldNode.value == &quot;&quot;){<br />
+		&nbsp;&nbsp;return false;<br />
+		&nbsp;}<br />
+		&nbsp;return true;<br />
+		}</p>
+</div>
+<script type="text/javascript">
+// <![CDATA[
+// A custom validation method that will be triggered by the tmt:dependonbox attribute
+tmt_globalRules.dependonbox = function(fieldNode){
+	var relatedBox = document.getElementById(fieldNode.getAttribute("tmt:dependonbox"));
+	// The field is required only if the box is checked
+	var isRequired = relatedBox.checked;
+	if(isRequired && fieldNode.value == ""){
+		return false;
+	}
+	return true;
+}
+// ]]>
+</script>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Conditional validation</legend>
+	<table>
+		<tr>
+			<td><label>Yes, I want a special meal
+				<input name="specialmeal" type="checkbox" class="boxes" id="specialmeal" value="true" />
+				</label>
+			</td>
+		</tr>
+		<tr>
+			<td>Specify the special meal's name
+				<input type="text" name="newmeal" id="newmeal" tmt:required="conditional" tmt:dependonbox="specialmeal" tmt:message="Please enter the special meal's name" />
+				<input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div class="docBlock">
+	<p>The sample below is basically the same as above, we just added a little bit of inline JavaScript code that enables/disables the related text field based on the checkbox's status. The full form code is: </p>
+	<p class="code">&lt;form action=&quot;index.htm&quot; method=&quot;post&quot; tmt:validate=&quot;true&quot;&gt;<br />
+&lt;fieldset&gt;<br />
+&lt;legend&gt;Conditional validation (enabling/disabling field)&lt;/legend&gt;<br />
+&lt;table&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;label&gt;Yes, I am moving to a new job!<br />
+&lt;input name=&quot;moving&quot; type=&quot;checkbox&quot; class=&quot;boxes&quot; id=&quot;moving&quot; onclick=&quot;document.getElementById('newjob').disabled=this.checked?false:true&quot; value=&quot;true&quot; /&gt;<br />
+&lt;/label&gt;<br />
+&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;Specify the new job please<br />
+&lt;input type=&quot;text&quot; name=&quot;newjob&quot; id=&quot;newjob&quot; disabled=&quot;disabled&quot; tmt:required=&quot;conditional&quot; tmt:dependonbox=&quot;moving&quot; tmt:message=&quot;Please enter the new job&quot; /&gt;<br />
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;/table&gt;<br />
+&lt;/fieldset&gt;<br />
+&lt;/form&gt;</p>
+</div>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Conditional validation (enabling/disabling a field)</legend>
+	<table>
+		<tr>
+			<td><label>Yes, I am moving to a new job!
+				<input name="moving" type="checkbox" class="boxes" id="moving" onclick="document.getElementById('newjob').disabled=this.checked?false:true" value="true" />
+				</label>
+			</td>
+		</tr>
+		<tr>
+			<td>Specify the new job please
+				<input type="text" name="newjob" id="newjob" disabled="disabled" tmt:required="conditional" tmt:dependonbox="moving" tmt:message="Please enter the new job" />
+				<input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

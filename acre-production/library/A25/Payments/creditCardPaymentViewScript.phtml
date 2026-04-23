@@ -1,0 +1,24 @@
+<style type="text/css">
+  #donationbox label {
+    display: inline;
+  }
+  #donateCustom_amount {
+    font-size: 10px;
+  }
+</style>
+
+<form enctype="application/x-www-form-urlencoded" action="<?php echo $this->element->getAction() ?>" method="post">
+<?php \Acre\A25\Payments\AimPaymentForm::fireTopOfPaymentViewScript($this) ?>
+  <div style="clear: both; margin-top: 12px;"></div>
+  <?php
+  foreach ($this->element as $element)
+  {
+    if (in_array($element->getName(), array('donationRadio',
+        'donateCustom_amount', 'requirement_message', 'submit')))
+      continue;
+    echo $element->render($this);
+  } 
+  \Acre\A25\Payments\AimPaymentForm::fireBottomOfPaymentViewScript($this);
+  echo $this->element->submit->render($this);
+?>
+</form>

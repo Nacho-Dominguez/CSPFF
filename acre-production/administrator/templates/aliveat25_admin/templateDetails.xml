@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template" version="1.0.0" client="administrator">
+	<name>Alive At 25 Admin</name>
+	<creationDate>July 12, 2006</creationDate>
+	<author>Christiaan van Woudenberg</author>
+	<copyright>GNU/GPL</copyright>
+	<authorEmail>christiaanv@velocera.com</authorEmail>
+	<authorUrl>http://www.velocera.com</authorUrl>
+	<version>1.0</version>
+	<description></description>
+	<files>
+		<filename>index.php</filename>
+		<filename>css/template_css.css</filename>
+	</files>
+</mosinstall>

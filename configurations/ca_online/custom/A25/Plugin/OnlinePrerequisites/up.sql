@@ -1,0 +1,1 @@
+ALTER TABLE `jos_student_course_xref` ADD COLUMN `prerequisites_completed` tinyint NOT NULL DEFAULT 0;

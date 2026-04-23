@@ -1,0 +1,35 @@
+<?php
+$mainLocation = A25_Record_Location::retrieve(
+		ServerConfig::parentLocationId);
+
+$late_fee_string = $mainLocation->late_fee_deadline . ' hours';
+?>
+<p>Tuition: $119</p>
+<h2>Payment Policies</h2>
+<p>Courses designated with a
+<img src="/includes/js/tmt_validator/images/required.gif" border="0" align="absmiddle" />
+require payment with credit card within
+<?php echo A25_DI::PlatformConfig()->kickOutAfterDeadline ?>.
+For all other courses, payment is due within
+<?php echo A25_DI::PlatformConfig()->kickOutBeforeDeadline ?>.</p>
+<p>If payment is not received in time, your seat reservation will be lost and you will need to register again.</p>
+<p>A late fee of $<?php echo $mainLocation->late_fee ?> applies to any payment
+that occurs within <?php echo $late_fee_string; ?> of the course or later.
+</p>
+<p>All payments are NON-REFUNDABLE and cannot be transferred to any other student account.</p>
+
+<p>No payments are accepted at the class location.</p>
+
+<h2>Payment Options</h2>
+
+<p>Pay your tuition with a credit/debit card online or by calling
+<?php echo PlatformConfig::phoneNumber ?>.  (Only <?php echo A25_DI::PlatformConfig()->acceptedCards ?> accepted)</p>
+
+<p>Or, mail a MONEY ORDER payable to <i><?php echo A25_DI::PlatformConfig()->paymentTo ?></i> to this address:</p>
+
+<p><?php echo PlatformConfig::paymentAddressHtml() ?></p>
+
+<p>Please include the student's name and ADoD Student ID # with your payment.
+If your form of payment is not approved by your financial institution, an
+additional $<?php echo $mainLocation->late_fee ?> late fee and
+$<?php echo A25_DI::PlatformConfig()->nsfFee ?> NSF fee will apply.</p>

@@ -1,0 +1,34 @@
+Rule: Clear out individual stories that are not part of an overarching Goal,
+then do the next Goal, then clear out stories, etc.  The stories on the Kanban
+board all need to be related to the next Goal.
+
+Individual stories un-related to a Goal, which are not on Kanban board yet:
+
+Current Goal In Process:
+- Replace all reports with A25_Report
+  - Neither John nor Erasmo uses the Payments Received Report, but it might be
+    important to Karen, so I need to ask her before removing it.
+  - The graphs are not necessary for the Location Statistics or Marketing
+    Report.  Even though these 2 reports are very similar, the unique pieces
+    from each are still needed in some form.
+
+Upcoming Goals in priority order:
+- Upgrade to PHP 5.3 and do refactorings that require 5.3
+  (architectureGoals/php5_3.txt)
+- Eliminate the possibility of null Doctrine objects, which cause errors when
+  unexpected data arises
+  - One option is to do something like replace all uses of $enroll->Course->
+    with functions in $enroll which check to see if Course exists, so that we
+    don't get so many white screens.
+  - A better option is probably to create the concept of 'empty' objects which
+    are used when the relative is not defined.  These objects would just return
+    whatever is appropriate for an empty object, which would usually be null
+    values for the properties, or blank strings.
+- Organize state logic into plugins
+  - some ideas are in comments as @todo-separate_states
+- Relate Payment directly to Student, so that we can save payments before
+  enrollments are finalized.
+- Replace all Forms with A25_Form
+- Replace all SQL queries with Doctrine
+- Replace all controllers with the new style, using 'Controller_Enroll' instead
+  of 'course.php: task=enroll'

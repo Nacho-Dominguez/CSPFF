@@ -1,0 +1,33 @@
+<?php
+$course = $enroll->Course;
+$student = $enroll->Student;
+$paymentoption = strtotime(($course->course_start_date . ' - ' . $course->getSetting('register_cc_days') . ' days'));
+
+$generator = A25_DI::Factory()->HtmlBodyGenerator();
+echo $generator->header($student, A25_Remind_Students_KickOut::subject());
+?>
+<p>
+Your seat reservation has expired for the <?php echo PlatformConfig::courseTitleFullHtml() ?> 
+course on <?php echo date('l, F j', strtotime($course->course_start_date)) ?> 
+because payment has not been received.  You may register again for the same
+course or a different course at
+<a href="<?php echo PlatformConfig::prettyLandingPageUrl ?>">
+<?php echo PlatformConfig::prettyLandingPageUrl ?></a>.  Please be sure to
+submit payment in time to preserve your seat in the course.
+</p>
+<?php if (strtotime($enroll->date_registered) < $paymentoption) { ?>
+<p>
+If you have already mailed in payment, please call our office at
+<?php echo PlatformConfig::phoneNumber ?>.
+</p>
+<?php } ?>
+<p style="margin-top: 36px;">
+Thank you,<br/>
+<br/>
+<?php echo PlatformConfig::courseTitleHtml() ?>
+
+</p>
+</div>
+</div>
+</body>
+</html>

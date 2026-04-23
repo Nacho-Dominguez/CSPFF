@@ -1,0 +1,1 @@
+ALTER TABLE `jos_users` CHANGE `control` `control` varchar(16);

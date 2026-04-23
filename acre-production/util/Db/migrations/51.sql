@@ -1,0 +1,1 @@
+ALTER TABLE `jos_location` ADD COLUMN `virtual` boolean NOT NULL default '0';

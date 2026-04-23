@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Filters</h1>
+	<p>Filters are an effective way to prevent/limit users from entering incorrect data, before the real validation process is performed.</p>
+	<p>There are 15 built-in filters and we can easily define our own too (<a href="custom_filters.htm">see sample</a>).</p>
+	<p>Multiple filters can be attached to the same field by using a comma separated list: </p>
+	<p class="code">&lt;input type=&quot;text&quot; name=&quot;noquotes&quot; tmt:filters=&quot;noquotes,nodoublequotes&quot; /&gt;</p>
+</div>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Filters Samples</legend>
+	<table>
+		<tr>
+			<td>Whatever (left and right trim)</td>
+			<td><input type="text" name="whatever" tmt:filters="ltrim,rtrim" /></td>
+		</tr>
+		<tr>
+			<td>Whatever (only alphanumeric chars)</td>
+			<td><input type="text" name="alphanumeric" tmt:filters="alphanumericonly" /></td>
+		</tr>
+		<tr>
+			<td>Letters (A-Z only)</td>
+			<td><input type="text" name="letters" tmt:filters="lettersonly" /></td>
+		</tr>
+		<tr>
+			<td>Numbers (only numbers)</td>
+			<td><input type="text" name="numbersonly" tmt:filters="numbersonly" /></td>
+		</tr>
+		<tr>
+			<td>Numbers and commas</td>
+			<td><input type="text" name="numberscommas" tmt:filters="numberscommas" /></td>
+		</tr>
+		<tr>
+			<td>Numbers and dots</td>
+			<td><input type="text" name="numbersdots" tmt:filters="numbersdots" /></td>
+		</tr>
+		<tr>
+			<td>No commas</td>
+			<td><input type="text" name="nocommas" tmt:filters="nocommas" /></td>
+		</tr>
+		<tr>
+			<td>No dots</td>
+			<td><input type="text" name="nodots" tmt:filters="nodots" /></td>
+		</tr>
+		<tr>
+			<td>No quotes</td>
+			<td><input type="text" name="noquotes" tmt:filters="noquotes,nodoublequotes" /></td>
+		</tr>
+		<tr>
+			<td>Comma to dots</td>
+			<td><input type="text" name="commastodots" tmt:filters="commastodots" /></td>
+		</tr>
+		<tr>
+			<td>Dots to commas</td>
+			<td><input type="text" name="dotstocommas" tmt:filters="dotstocommas" /></td>
+		</tr>
+		<tr>
+			<td>No HTML</td>
+			<td><textarea type="text" name="nohtml" tmt:filters="nohtml"></textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2">Demoronizer (replace MS Word's non-ISO characters with plausible substitutes)</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><textarea type="text" name="demoronizer" tmt:filters="demoronizer"></textarea></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

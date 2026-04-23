@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+	<name>CA Online</name>
+	<creationDate>April 2020</creationDate>
+	<author>AppDevl</author>
+	<version>1.0</version>
+	<description>A template for the CA DDC Online site.</description>
+</mosinstall>

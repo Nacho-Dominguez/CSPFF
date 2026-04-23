@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="navBar">
+	<ul>
+		<li><a href="../index.htm">Home</a></li>
+		<li><a href="../reference/index.htm">Syntax Reference</a></li>
+		<li><a href="../samples/index.htm">Samples</a></li>
+		<li><a href="../faq/index.htm">FAQ</a></li>
+		<li><a href="../troubleshooting/index.htm">Troubleshooting</a></li>
+	</ul>
+</div>
+<div class="docBlock">
+	<h3>Getting started</h3>
+	<p>If you just need to get started with the validator, please check this basic <a href="../samples/getting_started.htm">sample page</a>. View a complete list of <a href="../samples/index.htm">examples here</a>.</p>
+	<p>The complete syntax reference is included below</p>
+</div>
+<div class="docBlock">
+	<h3>The &lt;form&gt; tag</h3>
+	<p>There are only three validation attributes that apply to the form tag</p>
+	<table>
+		<tr>
+			<td>tmt:validate</td>
+			<td>This attribute is required in order to enable validation on the current form (<a href="../samples/getting_started.htm">see sample</a>)</td>
+		</tr>
+		<tr>
+			<td>tmt:blocksubmit</td>
+			<td>By default submit buttons are disabled after the form is submitted. This prevents multiple submits but also prevents the value of the submit buttons from being passed as part of the HTTP request. Set this attribute to false to keep the submit buttons enabled</td>
+		</tr>
+		<tr>
+			<td>tmt:callback</td>
+			<td>This attribute allows a developer to take full control over error notification. Using this attribute requires some basic JavaScript programming skills (<a href="../samples/custom_error.htm">see sample and instructions</a>)</td>
+		</tr>
+	</table>
+	<p>Sample XHTML code:</p>
+	<p class="code">&lt;form action=&quot;index.htm&quot; tmt:validate=&quot;true&quot; tmt:callback=&quot;displayError&quot;&gt;</p>
+</div>
+<div class="docBlock">
+	<h3>Text fields and textarea tags</h3>
+	<p>The attributes below apply to both input/text, input/password, input/file and textarea tags:</p>
+	<table>
+		<tr>
+			<td>tmt:required</td>
+			<td>It's one of the most important attributes (see sample), set it to true to flag the field as required (default is false)<br />
+				In case you need conditional validation, set it to &quot;conditional&quot; (<a href="../samples/conditional_validation.htm">see sample and instructions</a>)</td>
+		</tr>
+		<tr>
+			<td>tmt:message</td>
+			<td>The error message associated with the field</td>
+		</tr>
+		<tr>
+			<td>tmt:errorclass</td>
+			<td>Use this attribute if you want to associate a CSS class to a field whenever it's flagged as invalid (<a href="../samples/generic.htm">see sample</a>)</td>
+		</tr>
+		<tr>
+			<td>tmt:pattern</td>
+			<td><p>There are 6 generic built-in patterns:</p>
+				<ul>
+					<li>email</li>
+					<li>lettersonly</li>
+					<li>alphanumeric</li>
+					<li>integer</li>
+					<li>positiveinteger</li>
+					<li>number</li>
+				</ul>
+				<p>5 additional patterns focus on file upload (<a href="../samples/file_upload_patterns.htm">see sample</a>)</p>
+				<ul>
+					<li>filepath_pdf</li>
+					<li>filepath_jpg_gif</li>
+					<li>filepath_jpg</li>
+					<li>filepath_zip</li>
+					<li>filepath</li>
+				</ul>
+				<p>Custom patterns can be added (<a href="../samples/custom_pattern.htm">see sample and instructions</a>)</p></td>
+		</tr>
+		<tr>
+			<td>tmt:filters</td>
+			<td><p>Filters are a very effective way to prevent users from entering incorrect data from the very beginning (<a href="../samples/filters.htm">see sample</a>)</p>
+				<p>This attribute accepts a comma delimited list of filter names, allowing the application of more than one filter to a single field</p>
+				<p>There are 15 built-in filters:</p>
+				<ul>
+					<li>ltrim</li>
+					<li>rtrim</li>
+					<li>nospaces</li>
+					<li>nocommas</li>
+					<li>nodots</li>
+					<li>noquotes</li>
+					<li>nodoublequotes</li>
+					<li>nohtml</li>
+					<li>alphanumericonly</li>
+					<li>numbersonly</li>
+					<li>lettersonly</li>
+					<li>commastodots</li>
+					<li>dotstocommas</li>
+					<li>numberscommas</li>
+					<li>numbersdots</li>
+					<li>demoronizer (replace MS Word's non-ISO characters with plausible substitutes)</li>
+				</ul>
+				<p>Custom filters can be added (<a href="../samples/custom_filters.htm">see sample and instructions</a>)</p></td>
+		</tr>
+		<tr>
+			<td>tmt:minlength</td>
+			<td>Enforce a minimum length (<a href="../samples/generic.htm">see sample</a>)</td>
+		</tr>
+		<tr>
+			<td>tmt:maxlength</td>
+			<td>Enforce a maximum length (<a href="../samples/generic.htm">see sample</a>)</td>
+		</tr>
+		<tr>
+			<td>tmt:minnumber</td>
+			<td>Enforce a minimum numeric value (<a href="../samples/generic.htm">see sample</a>)</td>
+		</tr>
+		<tr>
+			<td>tmt:maxnumber</td>
+			<td>Enforce a maximum numeric value (<a href="../samples/generic.htm">see sample</a>)</td>
+		</tr>
+		<tr>
+			<td>tmt:datepattern</td>
+			<td><p>There are 14 built-in date patterns (<a href="../samples/date_validation.htm">see sample</a>):</p>
+				<ul>
+					<li>YYYY-MM-DD</li>
+					<li>YYYY-M-D</li>
+					<li>MM.DD.YYYY</li>
+					<li>M.D.YYYY</li>
+					<li>MM/DD/YYYY</li>
+					<li>M/D/YYYY</li>
+					<li>MM-DD-YYYY</li>
+					<li>M-D-YYYY</li>
+					<li>DD.MM.YYYY</li>
+					<li>D.M.YYYY</li>
+					<li>DD/MM/YYYY</li>
+					<li>D/M/YYYY</li>
+					<li>DD-MM-YYYY</li>
+					<li>D-M-YYYY</li>
+				</ul>
+				<p>Custom date patterns can be added (<a href="../samples/custom_date_validation.htm">see sample and instructions</a>)</p></td>
+		</tr>
+		<tr>
+			<td>tmt:equalto</td>
+			<td>Compares two field values for equality (<a href="../samples/subscription_form.htm">see sample and instructions</a>)</td>
+		</tr>
+	</table>
+	<p>Examples: </p>
+	<p class="code">&lt;input type=&quot;text&quot; name=&quot;emailfield&quot; tmt:required=&quot;true&quot; tmt:errorclass=&quot;invalid&quot; tmt:message=&quot;Please insert a valid email&quot; tmt:pattern=&quot;email&quot; /&gt;</p>
+	<p class="code">&lt;input type=&quot;text&quot; name=&quot;datefield&quot; tmt:message=&quot;Please insert a valid date using the YYYY-MM-DD format&quot; tmt:errorclass=&quot;invalid&quot; tmt:datepattern=&quot;YYYY-MM-DD&quot; /&gt;</p>
+	<p class="code">&lt;input type=&quot;text&quot; name=&quot;agefield&quot; tmt:required=&quot;true&quot; tmt:errorclass=&quot;invalid&quot; tmt:message=&quot;Please insert a valid age&quot; tmt:pattern=&quot;positiveinteger&quot; tmt:minnumber=&quot;18&quot; tmt:maxnumber=&quot;75&quot; tmt:filters=&quot;numbersonly&quot; /&gt;</p>
+</div>
+<div class="docBlock">
+	<h3>Image upload</h3>
+	<p> Image upload validation works with .jpg and .gif files and accepts up to 5 different attributes that can check both file size and dimensions (<a href="../samples/image_upload.htm">see sample and additional details</a>)</p>
+	<table>
+		<tr>
+			<td>tmt:image</td>
+			<td>Set it to true to enable image upload validation for the current input/file field</td>
+		</tr>
+		<tr>
+			<td>tmt:imagemaxsize</td>
+			<td>maximum file size (kb)</td>
+		</tr>
+		<tr>
+			<td>tmt:imagemaxwidth</td>
+			<td>maximum width (px)</td>
+		</tr>
+		<tr>
+			<td>tmt:imageminwidth</td>
+			<td>minimum width (px)</td>
+		</tr>
+		<tr>
+			<td>tmt:imagemaxheight</td>
+			<td>maximum height (px)</td>
+		</tr>
+		<tr>
+			<td>tmt:imageminheight</td>
+			<td>minimum height (px)</td>
+		</tr>
+	</table>
+	<p>Sample XHTML code:</p>
+	<p class="code">&lt;input type="file" name="jpg_upload" tmt:message="Please select a .jpg or .gif file. Max width 360px. Min width 240px. Max height 240px. Min height 180px." tmt:image="true" tmt:imagemaxwidth="360" tmt:imageminwidth="240" tmt:imagemaxheight="240" tmt:imageminheight="180" /&gt;</p>
+</div>
+<div class="docBlock">
+	<h3>Checkboxes</h3>
+	<p>Checkboxes are a special kind of field, since they often come in groups, sharing the same name but having different values. TMT Validator validates a set of checkboxes with the same name as a unique entity (<a href="../samples/checkboxes.htm">see sample and instructions</a>).</p>
+	<p>There are two attributes that apply only to checkboxes validation:</p>
+	<table>
+		<tr>
+			<td>tmt:minchecked</td>
+			<td>Ensure that at least a minimum number of boxes are checked in a group</td>
+		</tr>
+		<tr>
+			<td>tmt:maxchecked</td>
+			<td>Specify a maximum number of boxes that can be checked in a group</td>
+		</tr>
+	</table>
+	<p>The tmt:message and tmt:errorclass attributes can be used in the same way as on any other form field:</p>
+	<table>
+		<tr>
+			<td>tmt:errorclass</td>
+			<td>Use this attribute if you want to associate a CSS class to a field whenever it's flagged as invalid</td>
+		</tr>
+		<tr>
+			<td>tmt:message</td>
+			<td>The error message associated with the field</td>
+		</tr>
+	</table>
+	<p>Sample XHTML code:</p>
+	<p class="code">&lt;input name=&quot;drink&quot; type=&quot;checkbox&quot; class=&quot;boxes&quot; value=&quot;Nicole&quot; tmt:minchecked=&quot;2&quot; tmt:maxchecked=&quot;3&quot; tmt:message=&quot;Please select at least two ladies&quot; /&gt;</p>
+</div>
+
+<div class="docBlock">
+	<h3>Radio buttons </h3>
+	<p>Radio buttons  are a special kind of field, since they come in groups, sharing the same name but having different values. TMT Validator validates a set of radios with the same name as a unique entity (<a href="../samples/radio_buttons.htm">see sample and instructions</a>).</p>
+	<p>The tmt:required attribute force the user to  select a radio button among the group:</p>
+	<table>
+		<tr>
+			<td>tmt:required</td>
+			<td>Set it to true to flag group of buttons as required (default is false)</td>
+		</tr>
+	</table>
+	<p>The tmt:message and tmt:errorclass attributes can be used in the same way as on any other form field:</p>
+	<table>
+		<tr>
+			<td>tmt:errorclass</td>
+			<td>Use this attribute if you want to associate a CSS class to a field whenever it's flagged as invalid</td>
+		</tr>
+		<tr>
+			<td>tmt:message</td>
+			<td>The error message associated with the field</td>
+		</tr>
+	</table>
+	<p>Sample XHTML code:</p>
+	<p class="code">&lt;input name=&quot;drink&quot; type=&quot;radio&quot; class=&quot;boxes&quot; value=&quot;Nicole&quot; tmt:required=&quot;true&quot; tmt:message=&quot;Please select a lady&quot; /&gt;</p>
+</div>
+<div class="docBlock">
+	<h3>Select tags</h3>
+	<p>There are two different attributes that apply only to drop-down lists created using the &lt;select&gt; tag (<a href="../samples/select.htm">see sample</a>)</p>
+	<table>
+		<tr>
+			<td>tmt:invalidindex</td>
+			<td>Prevent the user from selecting an entry from a given position (zero based)</td>
+		</tr>
+		<tr>
+			<td>tmt:invalidvalue</td>
+			<td>Prevent the user from selecting an entry with a given value</td>
+		</tr>
+	</table>
+	<p>The tmt:message and tmt:errorclass attributes can be used in the same way as on any other form field:</p>
+	<table>
+		<tr>
+			<td>tmt:errorclass</td>
+			<td>Use this attribute if you want to associate a CSS class to a field whenever it's flagged as invalid</td>
+		</tr>
+		<tr>
+			<td>tmt:message</td>
+			<td>The error message associated with the field</td>
+		</tr>
+	</table>
+	<p>Sample XHTML code:</p>
+	<p class="code">&lt;select name=&quot;dish&quot; tmt:invalidvalue=&quot;Crepes&quot; tmt:message=&quot;Only traditional Italian dishes please, no foreign stuff!&quot;&gt;<br />
+&lt;option value=&quot;Spaghetti&quot;&gt;Spaghetti&lt;/option&gt;<br />
+&lt;option value=&quot;Pizza&quot;&gt;Pizza&lt;/option&gt;<br />
+&lt;option value=&quot;Crepes&quot;&gt;Crepes suzette&lt;/option&gt;<br />
+&lt;option value=&quot;Mozzarella&quot;&gt;Mozzarella alla caprese&lt;/option&gt;<br />
+&lt;/select&gt;</p>
+</div>
+<div class="docBlock">
+	<h3>Submit buttons</h3>
+	<p>Large forms, especially the ones with file upload, can require some processing time, during this process it's better to avoid multiple submits from the user. That's why the validator automatically disables all the submit buttons after a form successfully passes the validation process (<a href="../samples/file_upload_patterns.htm">see sample</a>)</p>
+	<table>
+		<tr>
+			<td>tmt:waitmessage</td>
+			<td>Display this string as the button's label during form processing, after successful validation</td>
+		</tr>
+	</table>
+	<p>Sample XHTML code:</p>
+	<p class="code">&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; tmt:waitmessage=&quot;Processing...&quot; /&gt;</p>
+</div>
+<div>
+	<p>Very special thanks to Alex Marino and Rob Turnbull</p>
+	<p>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</p>
+</div>
+</body>
+</html>

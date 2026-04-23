@@ -1,0 +1,1 @@
+ALTER TABLE jos_student ADD COLUMN license_no VARCHAR(60) default NULL

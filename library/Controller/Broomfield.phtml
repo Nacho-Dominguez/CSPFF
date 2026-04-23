@@ -1,0 +1,25 @@
+<div style="margin:8px;">
+<div style="float: right;">
+<?php if (PlatformConfig::linkToTuitionRates) {?>
+<a href="<?php echo A25_Link::to(
+		'/component/option,com_location/task,paymentpolicies/Itemid,42/');?>">
+	How much is tuition?</a>
+<?php } ?>
+</div>
+<h1>Upcoming courses for Broomfield Municipal Court</h1>
+<div style="color: #666; font-style: italic;">
+<p>Please note that <b>only</b> the classes listed below qualify for Broomfield Municipal Court referrals.
+If you navigate elsewhere on our site and choose a different course it will not be accepted by Broomfield Municipal Court.</p>
+<!-- Abridged version of PlatformConfig::findACourseComments follows -->
+<p>
+Classes occurring within 2 weeks require immediate payment with credit card in
+order to enroll.  These are marked with an <span class="asterisk">*</span>.
+</p>
+<p>
+Classes outside of 2 weeks have the option to be paid with money order or credit
+card, as long as the payment is received within <?php echo A25_DI::PlatformConfig()->kickOutBeforeDeadline; ?>
+ of enrolling in the course.</p>
+<!-- End findACourseComments -->
+</div>
+<?php $report->run(); ?>
+</div>

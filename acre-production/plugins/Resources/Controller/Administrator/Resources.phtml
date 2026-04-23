@@ -1,0 +1,27 @@
+<?php
+/**
+ * When/if this plugin starts being used by other states which have other
+ * documents, we will have to create a place for each state to store its
+ * files and the links to them.  But since Colorado is currently the only
+ * state using this plugin, I have just embedded the links and files here
+ * directly. 
+ */
+?>
+
+<div style="width: 782px;">
+  <h1 style="text-align: left;">
+    <img src="<?php echo A25_Link::to('/administrator/images/documents.png')?>"
+        style="vertical-align: middle;"/>
+    Employee Resources
+  </h1>
+  <div style="padding: 24px; border: 1px solid #666666; background-color: #efefef;">
+    <table>
+    <?php
+      foreach ($resources as $resource) {
+        $this->htmlForDocument($resource->title, $resource->uri, $resource->type);
+      }
+    ?>
+    </table>
+  </div>
+  
+</div>

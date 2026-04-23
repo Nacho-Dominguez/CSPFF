@@ -1,0 +1,1 @@
+ALTER TABLE `jos_order_item` ADD COLUMN `calc_accrual_date` DATE;

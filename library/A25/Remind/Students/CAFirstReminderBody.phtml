@@ -1,0 +1,69 @@
+<?php
+$course = $enroll->Course;
+$student = $enroll->Student;
+
+$generator = new A25_Remind_HtmlBodyGenerator();
+echo $generator->header($student, A25_Remind_Students_UpcomingClass::subject());
+echo $enroll->virtualCourseInfo();
+?>
+
+<p>
+Your <i><?php echo PlatformConfig::courseTitleHtml() ?></i> class is just a week away
+and we are looking forward to seeing you there. For you to successfully complete
+the class, please remember to do the following:
+</p>
+<ol>
+    <li><a href="https://zoom.us/signup#/signup" style="font-weight: bold;">
+    Create a Zoom account</a> if you don't already have one</li>
+    <li><b>Have your Zoom class log information ready</b> (see link above).</li>
+    <li><a href="https://zoom.us/test" style="font-weight: bold;">Do a Zoom test
+        </a> of your speaker, microphone and video.</li>
+    <li><b>You must have your <i><?php echo PlatformConfig::courseTitleHtml() ?></i>
+book and photo ID</b> to attend the class. Your book was mailed out 14 days
+prior to class in a large white envelope. If you have not received your book 5
+days prior to class contact the <i><?php echo PlatformConfig::courseTitleHtml() ?></i> office,
+<?php echo A25_DI::PlatformConfig()->contactEmailAddress . ', ' . PlatformConfig::phoneNumber ?>,
+to reschedule your class. The instructor can not make exceptions.</li>
+    <li><b>Sit at a table or desk</b> and be visible on camera at all times.</li>
+    <li><b>Show up to the class waiting room 45 minutes before the start of
+class.</b> This is so your instructor can check you and all of the other
+students in so the class can start on time, and allow you enough time to
+complete a short Kahoot activity that will be emailed to you then. Please
+<a href="https://create.kahoot.it/auth/register" style="font-weight: bold;">
+Create a Kahoot account</a> if you don't already have one.</li>
+    <li>Participation is expected and you will be called on to read sections of
+the course guide or answer questions. If you are uncomfortable reading then
+please tell your instructor upon checking in to the class.</li>
+    <li>Check for an email 1 hour before the class begins for final instructions and a link to your Kahoot activity.</li>
+</ol>
+<p>
+If you need to step away from your computer for any reason, you are expected to
+privately chat with your instructor and be back on camera within 5 minutes.
+</p>
+<p style="background-color: #FFFF00; color: #000000;">
+If you are disconnected from the class for longer than 5 minutes, you will not
+complete the course, will need to re-enroll, and pay for the course again. This
+includes losing internet connectivity.
+</p>
+<p>
+A laptop, desktop, or tablet is required to complete the class. <b>Do not use your phone except to play the Kahoot games</b>.
+</p>
+<p>
+Once in Zoom, if the name showing for you is not correct, please hover over your
+picture, click on the three dots, click rename, and type your name.
+</p>
+<p>
+If you have questions, please raise your hand using the Zoom raise hand tool.
+</p>
+<p>
+    <b><u>Certificates of completion</u></b><br/>
+Students who are active participants and attend the entire course will be mailed a certificate
+of completion. Please allow up to 14 days for your certificate to arrive via US
+Mail.
+</p>
+<p>
+    Thanks,
+</p>
+<p>
+    The <i><?php echo PlatformConfig::courseTitleHtml() ?></i> Team
+</p>

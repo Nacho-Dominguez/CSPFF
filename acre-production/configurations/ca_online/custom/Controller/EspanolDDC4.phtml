@@ -1,0 +1,85 @@
+<style type="text/css">
+h1, h2 {
+        padding-left: 32px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        margin-top: 20px;
+}
+h2 {
+        margin-top: 0px;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: #000077;
+}
+#frontpage_summary p {
+                padding-left: 32px;
+                padding-right: 32px;
+                padding-top: 12px;
+}
+a.frontpage_button {
+        display: inline-block;
+        border: 1px solid black;
+        padding: 12px 10px;
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+  background: <?php echo A25_DI::PlatformConfig()->colorScheme()->backgroundColor() ?> url(<?php echo ServerConfig::currentUrl() ?>/templates/aliveat25/images/calloutBG.png) repeat-x top center;
+        color: white;
+        font-weight: bold;
+}
+a.frontpage_button:hover {
+        color: black;
+        background: url(<?php echo ServerConfig::currentUrl() ?>/templates/aliveat25/images/buttonOn.jpg) repeat-x center;
+        background-size: 100% 100%;
+}
+.frontpage_image {
+    display: block;
+    padding: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+</style>
+<div id="frontpage_summary" style="
+        color: black;
+        border-left: 1px solid gray;
+        border-right: 1px solid gray;
+        border-top: 1px solid black;
+        font-size: 14px;">
+<h1><?php echo PlatformConfig::STATE_NAME?> <i><?php echo PlatformConfig::courseTitleFullHtml(); ?></i></h1>
+<h2>Curso de Manejo defensivo</h2>
+<div class="row" style="margin: 0px;">
+  <div class="col-sm-12" style="max-width: 300px; margin: auto;">
+    <a class="frontpage_button" href="/component/option,com_course/task,confirm/course_id,3/Itemid,19/">
+      Reg&iacute;strate Ahora
+    </a>
+  </div>
+</div>
+<img class="frontpage_image" src="<?php echo A25_Link::to('/PlatformTemplates/screenshot.jpg')?>" />
+<p>
+DDC-4 es un curso en l&iacute;nea de 4 horas de duraci&oacute;n a su propio ritmo. Puedes detenerlo e iniciarlo cuando quieras. El costo es $79.00. Puedes acceder al curso durante dos meses desde el momento de la inscripci&oacute;n.
+</p>
+<p>
+    Si necesita ayuda, env&iacute;enos un correo electr&oacute;nico a <a href="mailto:<?php echo ServerConfig::adminEmailAddress?>" target="_blank"><?php echo ServerConfig::adminEmailAddress?></a>
+</p>
+<p>
+<i>DDC-4</i> es un curso en l&iacute;nea basado en el mismo
+contenido que se utiliza en el Consejo Nacional de Seguridad dirigido por un
+instructor de <i>Defensive Driving Course</i> &mdash; el programa de seguridad
+del conductor m&aacute;s utilizado en el mundo. A trav&eacute;s de ejercicios de
+animaci&oacute;n, narraci&oacute;n, video e interactivos del curso online de
+manejo defensivo ofrece un ambiente atractivo, interactivo de aprendizaje donde
+los estudiantes analizan situaciones reales de conducci&oacute;n, los riesgos
+puntuales de conducci&oacute;n, e identificar las defensas adecuadas.
+</p>
+<h2>Lo que va a aprender</h2>
+<ul style="margin-left: 12px;">
+<li>Las estrategias de manejo a la defensiva y t&eacute;cnicas para reducir el riesgo de colisi&oacute;n</li>
+<li>&iquest;C&oacute;mo las drogas, el alcohol, las condiciones f&iacute;sicas y las emociones afectan las decisiones de manejo?</li>
+<li>&iquest;C&oacute;mo lidiar con las distracciones del conductor y la fatiga?</li>
+<li>Las fuerzas f&iacute;sicas de una colisi&oacute;n</li>
+<li>La importancia de los dispositivos de seguridad de los ocupantes y c&oacute;mo usarlos correctamente</li>
+</ul>
+<p><b>M&aacute;s de 2 millones de personas</b><br/>
+han tomado el curso en l&iacute;nea DDC!</p>
+</div>

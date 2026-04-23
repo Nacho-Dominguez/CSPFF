@@ -1,0 +1,98 @@
+<?php 
+    $tooltip = new A25_Include_Tooltip();
+    $tooltip->load();
+?>
+<style type="text/css">
+h1 {
+	margin-top: 20px;
+    text-align: center;
+    font-size: 40px;
+    color: #006600;
+}
+h2 {
+	font-size: 32px;
+	color: #000066;
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+#frontpage_summary p {
+		padding-left: 32px;
+		padding-right: 32px;
+		padding-top: 12px;
+}
+a.frontpage_button {
+	display: inline-block;
+	border: 1px solid black;
+	padding: 12px 10px;
+	width: 100%;
+	text-align: center;
+	margin-right: 12px;
+	text-decoration: none;
+  background: <?php echo A25_DI::PlatformConfig()->colorScheme()->backgroundColor() ?> url(<?php echo ServerConfig::currentUrl() ?>/templates/aliveat25/images/calloutBG.png) repeat-x top center;
+	color: white;
+	font-weight: bold;
+}
+a.frontpage_button:hover {
+	color: black;
+	background: url(<?php echo ServerConfig::currentUrl() ?>/templates/aliveat25/images/buttonOn.jpg) repeat-x center;
+    background-size: 100% 100%;
+}
+.frontpage_image {
+    display: block;
+    padding: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+@media (max-width: 768px) {
+  .frontpage_image {
+    padding-right: 32px;
+  }
+}
+</style>
+<div id="frontpage_summary" style="
+	color: black;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-top: 1px solid black;
+	font-size: 14px;">
+<h1>Colorado Safe Driver</h1>
+<h2>Online Defensive Driving Courses</h2>
+<div class="row" style="margin: 5px 0px;">
+    <div class="col-sm-6">
+        <a class="frontpage_button" href="/component/option,com_course/task,confirm/course_id,1/Itemid,19/"
+           rel="tooltip" title="4-hour course<br/>$69">
+            DDC Online
+        </a>
+    </div>
+    <div class="col-sm-6">
+        <a class="frontpage_button" href="/component/option,com_course/task,confirm/course_id,17/Itemid,19/"
+           rel="tooltip" title="Professional Truck Driver course plus 3 modules<br/>$179">
+                Truck Driver Improvement Course
+        </a>
+    </div>
+</div>
+<img class="frontpage_image" src="<?php echo A25_Link::to('/PlatformTemplates/screenshot.jpg')?>" />
+<p style='text-align: center; text-decoration: underline;'>
+Please note that this course does not qualify you to obtain a driving permit.
+</p>
+<p>
+<i>DDC Online</i> is a 4-hour online course based on the same content used in
+the National Safety Council instructor-led <i>Defensive Driving Course</i>
+&mdash; the most widely used driver safety program in the world. Through
+animation, narration, video and interactive exercises the online defensive
+driving course offers an engaging, interactive learning environment where
+students analyze real driving situations, spot driving hazards, and identify the
+correct defenses.
+</p>
+<h2>What you will learn</h3>
+<ul style="margin-left: 12px;">
+<li>Defensive driving strategies and techniques to reduce the chance of collision</li>
+<li>How drugs, alcohol, physical conditions and emotions affect driving decisions</li>
+<li>How to deal with driver distractions and fatigue</li>
+<li>Physical forces of a collision</li>
+<li>The importance of occupant safety devices and how to use them correctly</li>
+</ul>
+<p><b>More than 2 million people</b><br/>have taken the DDC Online course!</p>
+</div>

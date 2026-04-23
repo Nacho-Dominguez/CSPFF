@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Custom date validation</h1>
+	<p>The TMT Validator has built-in pattern for 14 different date formats. To create a new custom date format we will take advantage of the Validator's extensibility.</p>
+	<p>Rules for date validation are stored inside tmt_globalDatePatterns, a global variable that contains a JavaScript object for each date validation pattern. In order to add our own, we can call the tmt_dateInfo function.</p>
+	<p>The tmt_dateInfo function requires 5 arguments:</p>
+	<ol>
+		<li>Regular expression that will validate date formatting</li>
+		<li>Position (zero based) of the years inside our date format</li>
+		<li>Position (zero based) of the months inside our date format</li>
+		<li>Position (zero based) of the days inside our date format</li>
+		<li>String used to separate between days/months/years </li>
+	</ol>
+	<p>The resulting JavaScript code is:</p>
+	<p class="code">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+		tmt_globalDatePatterns[&quot;spacedate&quot;] = tmt_dateInfo(&quot;^\([0-3]?[0-9]\)\\s\([0-2]?[0-9]\)\\s\([0-9]{4}\)$&quot;, 2, 1, 0, &quot; &quot;);<br />
+&lt;/script&gt;</p>
+	<p>The XHTML code for the field looks like this:</p>
+	<p class="code">&lt;input type=&quot;text&quot; name=&quot;mydate&quot; tmt:datepattern=&quot;spacedate&quot; /&gt;</p>
+</div>
+<script type="text/javascript">
+// Add a custom date validation
+tmt_globalDatePatterns["spacedate"] = tmt_dateInfo("^\([0-3]?[0-9]\)\\s\([0-2]?[0-9]\)\\s\([0-9]{4}\)$", 2, 1, 0, " ");
+</script>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Custom date validation </legend>
+	<table>
+		<tr>
+			<td>Custom date (required, date, D M YYYY)</td>
+			<td><input type="text" name="customdate" class="required" tmt:errorclass="invalid" tmt:required="true" tmt:message="Please insert a valid date using the D M YYYY format" tmt:datepattern="spacedate" value="9 5 2005" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

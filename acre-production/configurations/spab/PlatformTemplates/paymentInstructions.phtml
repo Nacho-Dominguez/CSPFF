@@ -1,0 +1,26 @@
+<?php
+$mainLocation = A25_Record_Location::retrieve(ServerConfig::parentLocationId);
+
+$late_fee_string = $mainLocation->late_fee_deadline . ' hours';
+?>
+<p><strong>Tuition:</strong> $<?php echo PlatformConfig::defaultCourtFee ?> per module</p>
+<p>Originals sign up for all 3 modules (original training plus renewal training parts 1 & 2) ($1275), Renewals sign up for renewal modules 1 & 2 ($850)<p>
+<h2>Payment Policies</h2>
+<p>Checks must be received 3 business days prior to class. A late fee of $<?php echo $mainLocation->late_fee ?> applies to any payment
+that occurs within <?php echo $late_fee_string; ?> of the course or later.
+</p>
+<p><b>All payments are NON-REFUNDABLE</b> and cannot be transferred to any other student account.
+Refunds are not given for missed classes. If you don't show up for the class,
+you will need to re-register and pay again.</p>
+
+<p>No payments are accepted at the class location.</p>
+
+<h2>Payment Options</h2>
+
+<p><b><i>Check/Money order</i></b></p>
+<p>Mail a company check, cashier&rsquo;s check, or money order payable to <b><?php echo A25_DI::PlatformConfig()->paymentTo ?></b> to this address:</p>
+
+<p><?php echo PlatformConfig::paymentAddressHtml() ?></p>
+
+<p>Please include your name and <?php echo PlatformConfig::siteTitle?> Student ID # with your money order.</p>
+<p style="font-style: italic;">SPABresources.com is a division of California Safe Driver.</p>

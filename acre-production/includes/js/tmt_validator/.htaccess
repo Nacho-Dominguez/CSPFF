@@ -1,0 +1,17 @@
+AddType application/x-mmxp  mxp
+AddType text/plain  dtd
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} \.htm$
+RewriteCond %{THE_REQUEST} HTTP/1\.1
+RewriteRule .* - "[T=text/html; charset=utf-8]"
+
+RewriteEngine On
+RewriteCond %{HTTP_ACCEPT} application/xhtml\+xml
+RewriteCond %{HTTP_ACCEPT} !application/xhtml\+xml\s*;\s*q=0
+RewriteCond %{REQUEST_URI} \.htm$
+RewriteCond %{THE_REQUEST} HTTP/1\.1
+RewriteRule .* - "[T=application/xhtml+xml; charset=utf-8]"
+
+
+

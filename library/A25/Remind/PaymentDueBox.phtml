@@ -1,0 +1,12 @@
+<div style="width: 80%; text-align: left;
+font-size: 12px; background-color: #ffefdf; color: #333;
+margin: 36px; padding: 12px;">
+<h3 style="text-align: center; color: #000;">Amount due: $<?php echo $student->getAccountBalance()?></h3>
+<h4><a href="<?php echo PlatformConfig::accountUrlDirect()?>">Pay now via credit card online</a></h4>
+<?php
+echo $this->slowPaymentInstructions($student, $course, $enroll);
+?>
+<p style="font-style: italic">
+If you have already mailed in payment, please disregard this message.
+</p>
+</div>

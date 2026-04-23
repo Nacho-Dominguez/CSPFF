@@ -1,0 +1,15 @@
+<div id="header" >
+<?php echo $this->topMenuContainer->run(); ?>
+<div id="top-bottom" class="row">
+<div class="col-sm-7" style="text-align: left;">
+<a href="<?php echo A25_Link::to('index.php'); ?>" class="noDots" style="text-decoration: none;">
+<?php echo A25_TemplateContent::titleAndLogo(); ?>
+</a>
+</div>
+<div class="col-sm-5">
+<span class="rightMenu">
+<a href="<?php echo PlatformConfig::contactUrl()?>">Contact Us</a>
+</div>
+<?php $this->fireAfterState(); ?>
+</div>
+</div>

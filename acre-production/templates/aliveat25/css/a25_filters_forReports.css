@@ -1,0 +1,13 @@
+.filter {
+  float: left;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 1em;
+}
+
+.date_range {
+  float: left;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 1em;
+}

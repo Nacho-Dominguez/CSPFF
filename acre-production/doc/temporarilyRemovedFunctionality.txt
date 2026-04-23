@@ -1,0 +1,20 @@
+In order to bring the whole system under test faster, we are removing all functionalities from the /administrator section that do not seem to work correctly.  These include:
+
+- The entire "Statistics" module (com_stats).  I will bring these back one by
+  one.  There may be some insight as to which ones work correctly in Ed
+  Albright's email on 5/26/08.  The reports removed include:
+  - Course Revenue Report
+  - Court Statistics
+  - Daily Credit Card Totals
+  - DMV Report
+  - Instructor Statistics Report
+  - Location Statistics Report
+  - Losing Courses Report
+  - Marketing Report
+  - Student Report
+  - Payments Received Report
+  - Credit Type Usage Report
+  I removed this code from joomlaSchemaAndData.sql:
+  From insert to jos_components...
+  (32,'Statistics','option=com_stats',0,0,'option=com_stats','Statistics','com_stats',0,'js/ThemeOffice/component.png',0,''),
+

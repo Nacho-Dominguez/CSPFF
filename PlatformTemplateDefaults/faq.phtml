@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * This runs inside of A25_Page_Faq->display() 
+ */
+
+$this->newSection('Questions about the Alive at 25 Program');
+$this->questionAnswer('Is this a driver education course?', 'Alive at 25 is a 4-and-1/2 hour driver\'s awareness program, which is different from driver&#39;s education. This course is not a behind the wheel driving course. Alive at 25 is designed to teach young drivers to be aware of many of the typical driving hazards facing young motorists.');
+$this->questionAnswer('Where can I find driver education courses?', 'You can find driver education courses in your area by searching on the Internet, looking in the yellow pages, or contacting your local DMV. We are unable to make recommendations about specific courses.');
+$this->questionAnswer('Who can take the course?', 'Anyone between the ages of 14-24 is welcome to take the course. You do not have to have a learner&#39;s permit or a driver&#39;s license.');
+$this->questionAnswer('What happens during the course?', 'The course provides important information about the dangers facing young motorists and how to remain safe on the road. The course is&nbsp;4 1/2 hours long, takes place in an interactive classroom setting, and includes instructional videos and class discussion.&nbsp;You will receive a certificate of course completion at the end of the course. If you are court ordered to attend the class, it is your responsibility to report your completion to the court directly.');
+$this->questionAnswer('How much does it cost?', 'Course rates will depend on the state in which you live. Go to <a href=' . PlatformConfig::programInfoUrl() . '>Program Information</a> for information specific to where you live, including tuition rates and information on how to register.');
+$this->questionAnswer('Will this course reduce my insurance rates?', 'It depends on your insurance provider. Please contact them directly to see if completion of the course provides any benefits.');
+$this->newSection('Questions about my registration');
+$this->questionAnswer('How do I change or transfer my registration to a different course?', 'If you have previously registered for a course and want to transfer to a new course date or location, please <a href="' . PlatformConfig::accountUrl() . '">log in to your account</a> and go to &quot;Enrollments,&quot; where you can view all past and current registrations. You can cancel an upcoming enrollment, and will then be able to register into a new class. Your payment will transfer to your new class as long as the new class is within 1 year of the payment date.  If you need additional assitance, please contact your local Alive at 25 administrative office.');
+$this->questionAnswer('I didn&#39;t attend my course. How do I re-register for a new course?', 'Please <a href="' . PlatformConfig::accountUrl() . '">log in to your account</a> and go to <a href="' . PlatformConfig::findACourseUrl() . '">find a course</a>.  Select "Enroll" for the course you would like to take. Make sure to use your existing account from the previous enrollment.');
+$this->questionAnswer('How do I get a new certificate of completion for my course?', 'Please <a href="' . PlatformConfig::contactUrl() . '">Contact Us</a>. A&nbsp;fee&nbsp;may be charged for replacement certificates, and you&nbsp;should allow approximately two weeks for processing and delivery.');
+$this->newSection('Questions about the web site');
+$this->questionAnswer('How do I update my personal information?', 'Please <a href="' . PlatformConfig::contactUrl() . '">Contact Us</a> to update your account.');
+$this->questionAnswer('How do I make a payment online?', '<a href="' . PlatformConfig::accountUrl() . '">Log in to your account</a> and go to &quot;Payments,&quot; which displays any past payments, available credits to apply to a course, and the option to pay online with a credit or debit card.');
+$this->questionAnswer('I&#39;ve forgotten my username and password. Help!', 'Please <a href="' . PlatformConfig::contactUrl() . '">Contact Us</a> and we will send it to you.');

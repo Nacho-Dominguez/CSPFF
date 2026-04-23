@@ -1,0 +1,21 @@
+/* 
+    Document   : a25_page_nav
+    Created on : Mar 11, 2011, 5:21:18 AM
+    Author     : thomas
+    Description:
+        This contains styles for making links blue and not underlined, which we
+	are moving towards on the public side.
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+a:link, a:visited, a:hover {
+	background: none;
+	color: #0033CC;
+}
+a:hover {
+	text-decoration: underline;
+}
+

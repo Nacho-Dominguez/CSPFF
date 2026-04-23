@@ -1,0 +1,28 @@
+- Make the BaseJosUser (or whatever its called) class extend A25_DoctrineRecord.
+- Make the class extend the Doctrine class (i.e. A25_Record_User extends JosUser)
+- Remove all public properties that Doctrine generated from the A25_Record_CLASS.
+  (Check the BaseJosUser class comments to see what it generated.)
+  - Search the file for all uses of $this->.  Many classes have ugly functions
+    that assign to non-declared properties.  These need to be added to the class
+    as public properties.
+  - Search the project for all uses of '$user->' (or whatever the normal
+    variable name is for that object, like $enroll, $course...).
+- Search for any use of property_exists() in the file, because it needs to be
+  replaced with isset().
+- Delete the constructor.  If the constructor is currently needed to set up
+  something else, such as $mailer, it still needs to be deleted.  Doctrine will
+  not work correctly with it.
+- Replace the body of retrieve() with:
+    return Doctrine::getTable('A25_Record_CLASSNAME')->find($id);
+- Search for all occurences of 'parent::' in the class.  Make sure any parent
+  functions have been implemented in A25_DoctrineRecord.
+- Remove all caching.  For an unknown reason, it does not work correctly.
+- Run All Tests
+
+When errors arise during testing, quite often it is a problem with caching.  Now
+that I have removed caching, 2 consecutive calls to something like:
+    $enroll->getCourse()->location_id = 1;
+    $enroll->getCourse()->save()
+won't work anymore.  Instead a $course variable needs to be created.
+
+

@@ -1,0 +1,1 @@
+ALTER TABLE jos_student DROP COLUMN license_no

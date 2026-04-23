@@ -1,0 +1,74 @@
+<style type="text/css">
+h1, h2 {
+	padding-left: 32px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	margin-top: 20px;
+}
+h2 {
+	margin-top: 0px;
+	margin-bottom: 12px;
+	font-size: 14px;
+	color: #000077;
+}
+#frontpage_summary p {
+		padding-left: 32px;
+		padding-right: 32px;
+		padding-top: 12px;
+}
+a.frontpage_button {
+	display: inline-block;
+	border: 1px solid black;
+	padding: 12px 10px;
+	width: 160px;
+	text-align: center;
+	margin-right: 12px;
+	text-decoration: none;
+  background: <?php echo A25_DI::PlatformConfig()->colorScheme()->backgroundColor() ?> url(<?php echo ServerConfig::currentUrl() ?>/templates/aliveat25/images/calloutBG.png) repeat-x top center;
+	color: white;
+	font-weight: bold;
+}
+a.frontpage_button:hover {
+	color: black;
+	background: url(<?php echo ServerConfig::currentUrl() ?>/templates/aliveat25/images/buttonOn.jpg) repeat-x center;
+}
+</style>
+<div id="frontpage_summary" style="
+	color: black; max-width: 778px;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-top: 1px solid black;
+	font-size: 14px;">
+<h1><?php echo PlatformConfig::STATE_NAME?> <i>Attitudinal Dynamics of Driving</i></h1>
+<h2>Defensive Driving Course</h2>
+<div style="margin-left: 32px; margin-right: 32px; margin-bottom: 12px;
+	 max-width: 320px; border: 1px solid black; padding: 12px; background-color: white;">
+<div style="font-size: 14px; line-height: 12px; color: #000077; padding-left: 1px;">ONE WAY TO A SAFER</div>
+<div style="font-size: 28px; line-height: 26px; font-weight: 900;
+	 color: #770000; ">DRIVING FUTURE!</div>
+</div>
+<p>
+The <i>Attitudinal Dynamics of Driving</i> (ADoD) defensive driving course was developed by the <i>National
+Safety Council</i>. This 6-hour course is taught by certified law enforcement
+instructors and is designed for drivers of all ages who wish to improve their
+skills or have been mandated by the courts to take such a course.  This course
+is provided by the <i><?php echo PlatformConfig::agency ?></i>.
+</p><p>
+Our goal is to reduce the number of violations, injuries and fatalities
+associated with automobile crashes. The course includes defensive driving
+principles and strategies, factors that create risk, recognizing unsafe driving
+situations, and furthering the understanding that our choices are based on
+thought and reason. Participants are taught to take responsibility for their
+behavior and to make the right driving choices.
+</p>
+<div style="margin: 32px 32px 0px 32px;">
+	<a class="frontpage_button"
+			href="<?php echo PlatformConfig::findACourseUrl()?>">
+		Find a Course
+	</a>
+	<a class="frontpage_button" href="<?php echo PlatformConfig::programInfoUrl()?>">
+		Learn More
+	</a>
+</div>
+&nbsp;
+</div>

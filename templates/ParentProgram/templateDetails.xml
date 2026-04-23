@@ -1,0 +1,23 @@
+<mosinstall type="template" version="1.0.x">
+<name>Alive at 25 Parent Program</name>
+<creationDate>March 08</creationDate>
+<author>Thomas Albright</author>
+<copyright>GNU/GPL</copyright>
+<authorEmail>talbright@net-deziner.com</authorEmail>
+<authorUrl>www.net-deziner.com</authorUrl>
+<version>1.0</version>
+<description>The template for aliveat25parentprogram.us, based on the design by Paul Sorenson</description>
+<files>
+<filename>index.php</filename>
+</files>
+<images>
+<filename>images/gradients/bg.png</filename>
+<filename>images/gradients/menu_border.png</filename>
+<filename>images/gradients/nav_over_bg.gif</filename>
+<filename>images/gradients/title491.png</filename>
+<filename>images/background.png</filename>
+</images>
+<css>
+<filename>template.css</filename>
+</css>
+</mosinstall>

@@ -1,0 +1,1 @@
+ALTER TABLE `jos_student` ADD COLUMN `license_issue_date` date default NULL;

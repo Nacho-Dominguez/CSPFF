@@ -1,0 +1,18 @@
+<?php
+$mainLocation = A25_Record_Location::retrieve(ServerConfig::parentLocationId);
+
+$late_fee_string = $mainLocation->late_fee_deadline . ' hours';
+?>
+<p><strong>Tuition:</strong> $<?php echo PlatformConfig::defaultCourtFee ?></p>
+<h2>Payment Policies</h2>
+<p><b>All payments are NON-REFUNDABLE</b> and cannot be transferred to any other student account.
+Refunds are not given for missed classes, <i>or students who are not prepared
+for class with a computer or tablet, a strong internet connection,
+identification and a workbook.</i> If you don't show up for the class, or come
+unprepared, you will need to re-register and pay again</p>
+
+<h2>Payment Options</h2>
+
+<p><b><i>Credit card</i></b></p>
+<p>Pay your tuition with a credit/debit card online or by calling
+<?php echo PlatformConfig::phoneNumber ?></p>

@@ -1,0 +1,1 @@
+ALTER TABLE `jos_course` MODIFY COLUMN `duration` time NOT NULL default '00:00:00';

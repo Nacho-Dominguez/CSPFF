@@ -1,0 +1,211 @@
+##
+# @version $Id: htaccess.txt 4085 2006-06-21 16:03:54Z stingrey $
+# @package Joomla
+# @copyright Copyright (C) 2005 Open Source Matters. All rights reserved.
+# @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
+# Joomla! is Free Software
+##
+
+
+#####################################################
+#  READ THIS COMPLETELY IF YOU CHOOSE TO USE THIS FILE
+#
+# The line just below this section: 'Options FollowSymLinks' may cause problems
+# with some server configurations.  It is required for use of mod_rewrite, but may already
+# be set by your server administrator in a way that dissallows changing it in
+# your .htaccess file.  If using it causes your server to error out, comment it out (add # to 
+# beginning of line), reload your site in your browser and test your sef url's.  If they work,
+# it has been set by your server administrator and you do not need it set here. 
+#
+# Only use one of the two SEF sections that follow.  Lines that can be uncommented
+# (and thus used) have only one #.  Lines with two #'s should not be uncommented
+# In the section that you don't use, all lines should start with #
+#
+# For Standard SEF, use the standard SEF section.  You can comment out
+# all of the RewriteCond lines and reduce your server's load if you
+# don't have directories in your root named 'component' or 'content'
+#
+# If you are using a 3rd Party SEF or the Core SEF solution
+# uncomment all of the lines in the '3rd Party or Core SEF' section
+#
+#####################################################
+
+#####  SOLVING PROBLEMS WITH COMPONENT URL's that don't work #####
+# SPECIAL NOTE FOR SMF USERS WHEN SMF IS INTEGRATED AND BRIDGED
+# OR ANY SITUATION WHERE A COMPONENT's URL's AREN't WORKING
+#
+# In both the 'Standard SEF', and '3rd Party or Core SEF' sections the line:
+# RewriteCond %{REQUEST_URI} ^(/component/option,com) [NC,OR] ##optional - see notes##
+# May need to be uncommented.  If you are running your Joomla/Mambo from
+# a subdirectory the name of the subdirectory will need to be inserted into this
+# line.  For example, if your Joomla/Mambo is in a subdirectory called '/test/',
+# change this:
+# RewriteCond %{REQUEST_URI} ^(/component/option,com) [NC,OR] ##optional - see notes##
+# to this:
+# RewriteCond %{REQUEST_URI} ^(/test/component/option,com) [NC,OR] ##optional - see notes##
+#
+#####################################################
+
+
+##  Can be commented out if causes errors, see notes above.
+#Options FollowSymLinks
+
+#
+#  mod_rewrite in use
+
+RewriteEngine On
+
+RewriteCond %{SERVER_PORT}       ^80$
+RewriteCond %{HTTP_HOST} ^www\.aliveat25\.us
+RewriteRule (.*) http://aliveat25.us/$1 [R=301,L]
+
+RewriteCond %{SERVER_PORT}       ^443$
+RewriteCond %{HTTP_HOST} ^www\.aliveat25\.us
+RewriteRule (.*) https://aliveat25.us/$1 [R=301,L]
+
+RewriteRule component/option,com_frontpage/Itemid,1/ / [R=301,L]
+
+
+#  Uncomment following line if your webserver's URL
+#  is not directly related to physical file paths.
+#  Update Your Joomla/MamboDirectory (just / for root)
+
+# RewriteBase /
+
+
+########## Begin - Joomla! core SEF Section
+############# Use this section if using ONLY Joomla! core SEF
+## ALL (RewriteCond) lines in this section are only required if you actually
+## have directories named 'content' or 'component' on your server
+## If you do not have directories with these names, comment them out.
+#
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_URI} ^(/component/option,com) [NC,OR] 		##optional - see notes##
+#RewriteCond %{REQUEST_URI} (/|\.htm|\.php|\.html|/[^.]*)$  [NC]
+#RewriteRule ^(content/|component/) index.php
+#
+########## End - Joomla! core SEF Section
+
+
+
+########## Begin - 3rd Party SEF Section
+############# Use this section if you are using a 3rd party (Non Joomla! core) SEF extension - e.g. OpenSEF, 404_SEF, 404SEFx, SEF Advance, etc
+#
+RewriteCond %{REQUEST_URI} (/administrator/[^.]*)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) administrator/index2.php
+
+RewriteCond %{REQUEST_URI} (/api/[^./]*)$
+RewriteRule (.*) api/index.php
+
+RewriteCond %{REQUEST_URI} ^(/component/option,com) [NC,OR] 		##optional - see notes##
+RewriteCond %{REQUEST_URI} (/|\.htm|\.php|\.html|/[^.]*)$  [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.php
+#
+########## End - 3rd Party SEF Section
+
+# I found the below code in a new version of htaccess.txt.  If there are
+# problems, we should remove it - Thomas
+########## Begin - Rewrite rules to block out some common exploits
+## If you experience problems on your site block out the operations listed below
+## This attempts to block the most common type of exploit `attempts` to Joomla!
+#
+# Block out any script trying to set a mosConfig value through the URL
+RewriteCond %{QUERY_STRING} mosConfig_[a-zA-Z_]{1,21}(=|\%3D) [OR]
+# Block out any script trying to base64_encode crap to send via URL
+RewriteCond %{QUERY_STRING} base64_encode.*\(.*\) [OR]
+# Block out any script that includes a <script> tag in URL
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+# Block out any script trying to set a PHP GLOBALS variable via URL
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+# Block out any script trying to modify a _REQUEST variable via URL
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+# Send all blocked request to homepage with 403 Forbidden error!
+RewriteRule ^(.*)$ index.php [F,L]
+#
+########### End - Rewrite rules to block out some common exploits
+
+# Redirect all requests to aliveat25.us (no www).  This way the search engines
+# know both are the same page
+#RewriteCond %{SERVER_PORT}       ^80$
+
+# Deny http access to all files except ones I expect to be accessed directly:
+<FilesMatch "(?<!index|index2|index3|ads|remind|robots|temp|enrollmentEmail|logout|cert_pdf|cert_pdf_nd|cert_new|print|admin.stats.xls|admin.course.print.html|ajax|hideBroadcast)\.(php|txt|ini|xml)$">
+ deny from all
+</FilesMatch>
+
+# ------- Caching --------
+# See
+# http://www.askapache.com/htaccess/speed-up-sites-with-htaccess-caching.html
+# for more info
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault A86400
+ExpiresByType image/x-icon A2592000
+ExpiresByType application/x-javascript A2592000
+ExpiresByType text/css A2592000
+ExpiresByType image/gif A604800
+ExpiresByType image/png A604800
+ExpiresByType image/jpeg A604800
+ExpiresByType text/plain A604800
+ExpiresByType application/x-shockwave-flash A604800
+ExpiresByType video/x-flv A604800
+ExpiresByType application/pdf A604800
+ExpiresByType text/html A900
+</IfModule>
+
+# TIME CHEAT SHEET
+#      300   5 MIN
+#      600  10 MIN
+#      900  15 MIN
+#     1800  30 MIN
+#     2700  45 MIN
+#
+#     3600   1 HR
+#     7200   2 HR
+#    10800   3 HR
+#    14400   4 HR
+#    18000   5 HR
+#    36000  10 HR
+#    39600  11 HR
+#    43200  12 HR
+#    46800  13 HR
+#    50400  14 HR
+#    54000  15 HR
+#    86400  24 HR
+#
+#    86400   1 DAY
+#   172800   2 DAY
+#   259200   3 DAY
+#   345600   4 DAY
+#   432000   5 DAY
+#   518400   6 DAY
+#   604800   7 DAY
+#
+#   604800   1 WEEK
+#  1209600   2 WEEK
+#  1814400   3 WEEK
+#  2419200   4 WEEK
+#
+#  2419200   1 MONTH
+#  4838400   2 MONTH
+#  7257600   3 MONTH
+#  9676800   4 MONTH
+# 12096000   5 MONTH
+# 14515200   6 MONTH
+# 16934400   7 MONTH
+# 19353600   8 MONTH
+# 21772800   9 MONTH
+# 24192000  10 MONTH
+# 26611200  11 MONTH
+# 29030400  12 MONTH
+
+# Block suspicious user agents
+BrowserMatchNoCase "^BOT/0.1\ \(BOT\ for\ JCE\)" bad_bot
+Order Deny,Allow
+Deny from env=bad_bot

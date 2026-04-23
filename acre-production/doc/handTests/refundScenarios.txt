@@ -1,0 +1,13 @@
+paid enrollment canceled
+refund given
+THEN
+account balance = 0
+course revenue = 0
+course payable = 0
+
+paid enrollment active
+refund given
+THEN
+account balance = -(enrollment cost)
+course revenue = 0
+course payable = (enrollment cost)

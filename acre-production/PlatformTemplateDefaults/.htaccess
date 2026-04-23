@@ -1,0 +1,5 @@
+deny from all
+
+<FilesMatch "favicon\.ico">
+allow from all
+</FilesMatch>

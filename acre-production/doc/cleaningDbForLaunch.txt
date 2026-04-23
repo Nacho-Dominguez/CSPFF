@@ -1,0 +1,16 @@
+I ran:
+delete from jos_student;
+delete from jos_course;
+delete from jos_court;
+delete from jos_court_user_xref;
+	-- no rows affected
+delete from jos_location where location_id=277;
+	-- a better way to do the previous line would be where id != 1
+delete from jos_messages;
+	-- no rows affected
+delete from jos_student_messages;
+	-- no rows affected
+delete from jos_location_user_xref;
+
+-- removed Carmello Anthony and Allen Iverson from users
+

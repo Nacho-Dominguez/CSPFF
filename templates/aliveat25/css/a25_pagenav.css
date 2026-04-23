@@ -1,0 +1,23 @@
+/* 
+    Document   : a25_page_nav
+    Created on : Mar 11, 2011, 5:21:18 AM
+    Author     : thomas
+    Description:
+        This contains styles for the CSS classes used by A25_PageNav
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.pagenav_list {
+	text-align: center;
+	margin-top: 5px;
+}
+.pagenav {
+	margin: 0px 5px;
+}
+span.pagenav {
+	font-weight: bold;
+}
+

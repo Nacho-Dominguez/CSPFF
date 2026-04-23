@@ -1,0 +1,18 @@
+<div style="margin:8px;">
+<div style="float: right;">
+<?php if (PlatformConfig::linkToTuitionRates) {?>
+<a href="<?php echo A25_Link::to(
+		'/component/option,com_location/task,paymentpolicies/Itemid,42/');?>">
+	How much is tuition?</a> &nbsp;&#8211;&nbsp;
+<?php } ?>
+<?php if (PlatformConfig::isAState) { ?>
+<a href="<?php echo A25_Link::to('find-a-course/') ?>">
+		English courses</a>
+<?php } ?>
+</div>
+<h1>Pr&oacute;ximos cursos en <?php echo PlatformConfig::STATE_NAME; ?></h1>
+<div style="color: #666; font-style: italic;">
+<?php echo A25_DI::PlatformConfig()->findACourseEspanolComments(); ?>
+</div>
+<?php $report->run(); ?>
+</div>

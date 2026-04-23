@@ -1,0 +1,58 @@
+#!/usr/bin/php -d safe_mode=Off
+
+<?php
+
+/**
+ * This version of phpunit checks the apache log, and displays a warning message
+ * if an error has been logged.  However, this version of phpunit does not exit
+ * with the correct exit statuses, which makes it unusable with Hudson.  If we
+ * ever do want to add this functionality to Hudson, we would need to adjust
+ * to somehow retrieve the result of PHPUnit_TextUI_Command::main(false);
+ */
+
+// Get autoload.php for the site under test:
+$filepath = getcwd();
+$n=0;
+do {
+	if (file_exists($filepath . '/autoload.php')) {
+		require_once($filepath . '/autoload.php');
+		break;
+	}
+	$filepath .= '/..';
+	$n++;
+} while($n < 15);
+
+if ($n ==15) {
+	throw new Exception('autoload not found');
+}
+
+// Add an autoloader for plugins
+function A25_Plugin_autoload($className) {
+  if (substr($className, 0, 10) != 'A25_Plugin') {
+    return false;
+  }
+  $file = str_replace('_', '/', $className);
+  $file = str_replace('A25/Plugin/', 'plugins/', $file);
+  return include ServerConfig::webRoot . "/$file.php";
+}
+spl_autoload_register('A25_Plugin_autoload');
+
+$startTime = time();
+
+//PHPUnit_Util_Filter::addFileToFilter(__FILE__, 'PHPUNIT');
+
+//define('PHPUnit_MAIN_METHOD', 'We will run it ourselves');
+
+require_once ('PHPUnit/TextUI/Command.php');
+
+PHPUnit_TextUI_Command::main(false);
+
+$logFile = '/var/log/apache2/error.log';
+if ( !file_exists($logFile)) {
+	die('Log file does not exist: ' . $logFile . "\n");
+}
+
+$modifyTime = filemtime($logFile);
+if ($modifyTime > $startTime) {
+	echo 'Warning: ' . $logFile . " was modified during the tests. \n";
+}

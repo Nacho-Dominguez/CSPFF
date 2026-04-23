@@ -1,0 +1,60 @@
+/* 
+    Document   : a25_page_nav
+    Created on : Mar 11, 2011, 5:21:18 AM
+    Author     : thomas
+    Description:
+        This contains styles for the CSS classes used by A25_Listing
+*/
+
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.asterisk {
+    color: red;
+    font-family: serif;
+    font-size: 16px;
+    line-height: 12px;
+    vertical-align: bottom;
+}
+.no_enroll {
+    display: inline-block;
+    text-align: right;
+    color: #999999;
+    padding-right: 1em;
+    font-style: italic;
+}
+.seats_left {
+    width: 80px;
+    display: inline-block;
+}
+.late_fee {
+    font-size: 10px;
+    color: #007777;
+    max-width: 190px;
+}
+.enroll {
+    display: inline-block;
+    padding-left: 10px;
+    text-align: left;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    /*Overriding Bootstrap*/
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+a.enroll_link, a.enroll_link:link, a.enroll_link:visited {
+    color: black;
+    background-color: #dddddd;
+    border: 1px solid #999999;
+    padding: 1px 3px;
+}
+a.enroll_link:hover {
+    text-decoration: none;
+    background-color: #bfbfbf;
+}
+.row0 td, .row1 td {
+	border-bottom: 1px solid #DAEEA6;
+	padding: 4px 5px;
+	background-color: white;
+}

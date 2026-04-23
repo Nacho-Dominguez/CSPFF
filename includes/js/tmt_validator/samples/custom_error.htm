@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+div#errorDisplay {
+	background-image:url(../images/field-alert.gif);
+	background-position: 5px 4px;
+	background-repeat: no-repeat;
+	border: 1px;
+	border-color: #BB0000;
+	border-style: solid;
+	background-color: #FFE813;
+	display: none;
+	padding:5px 0px;
+	margin:10px;
+}
+div#errorDisplay ul {
+	list-style-type: square;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+</style>
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Customizing errors notification</h1>
+	<p>By default the validator uses JavaScript alert boxes to display errors
+	to the user. If we want to display errors in a custom, more user friendly way, we can
+	take advantage of extensibility.</p>
+	<p>First of all we must attach a tmt:callback attribute to the &lt;form&gt; tag:</p>
+	<p class="code">&lt;form action=&quot;index.htm&quot; method=&quot;post&quot; tmt:validate=&quot;true&quot; tmt:callback=&quot;displayError&quot;&gt;</p>
+	<p>The validator will invoke a JavaScript function based on the value of the tmt:callback attribute (displayError in this case).</p>
+	<p>Now we need to write the JavaScript function like this:</p>
+	<p class="code">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+		function displayError(formNode, validators){<br />
+		&nbsp;// Your custom code goes here<br />
+		}<br />
+&lt;/script&gt;</p>
+	<p>The validator will pass two arguments to our custom JavaScript code:</p>
+	<ol>
+		<li>formNode: a reference to the form's tag DOM node</li>
+		<li>validators: an array of validator objects</li>
+	</ol>
+	<p>We can iterate over the validators array (using a for loop) and, for each validator object, refer to its <strong>name</strong> and <strong>message</strong> properties. A very crude example will look more or less like this:</p>
+	<p class="code">function displayError(formNode, validators){<br />
+		&nbsp;var errorHTML = &quot;&quot;;<br />
+		&nbsp;for(var i=0;i&lt;validators.length;i++){<br />
+		&nbsp;&nbsp;errorHTML += &quot;&lt;li&gt;&lt;em&gt;&quot; + validators[i].name + &quot;&lt;/em&gt;: &quot; + validators[i].message + &quot;&lt;/li&gt;&quot;;<br />
+		&nbsp;}<br />
+		&nbsp;document.getElementById(&quot;errorDisplay&quot;).style.display = &quot;block&quot;;<br />
+		&nbsp;document.getElementById(&quot;errorDisplay&quot;).innerHTML = &quot;&lt;ul&gt;&quot; + errorHTML + &quot;&lt;/ul&gt;&quot;;<br />
+		}</p>
+	<p>In this case we concatenate the <strong>name</strong> and <strong>message</strong> properties to form a string of XHTML code that will be displayed inside a &lt;div&gt; tag just above the form.</p>
+	<p>The script above is a simple, easy to understand  and quite effective solution, still, is far from being ideal. First of all, it  requires to hardcode the error display area inside your XHTML; then, since the  id of the area is hardcoded inside the function, you can&rsquo;t validate more than  one form for each page. A more generic, fully reusable solution would require  some additional code that is outside the scope of this documentation. If you  would like to see a more sophisticated we included <a href="../script_tmt_validator_error_display.js"> this .js file</a>.</p>
+</div>
+<script type="text/javascript">
+// <![CDATA[
+// By defining a callback function a developer can display errors the way he see fit
+
+// This function deliberately avoid using innerHTML (a non-standard shortcut)
+// since we want to have the sample working even if served with a xml mime-type. 
+// So we stick with 100% standard DOM
+
+function displayError(formNode, validators){
+	var listNode = document.createElement("ul");
+	for(var i=0;i<validators.length;i++){
+	   var itemNode = document.createElement("li");
+	   itemNode.appendChild(document.createTextNode(validators[i].message));
+	   listNode.appendChild(itemNode);
+	}
+	var displayNode = document.getElementById("errorDisplay");
+	displayNode.style.display = "block";
+	displayNode.replaceChild(listNode, displayNode.firstChild);
+}
+// ]]>
+</script>
+<div id="errorDisplay"><span></span></div>
+<form action="index.htm" method="post" tmt:validate="true" tmt:callback="displayError">
+	<fieldset>
+	<legend>Generic Form</legend>
+	<table>
+		<tr>
+			<td><label for="agefield">Age (required, positive integer, min 18, max 75)</label></td>
+			<td><input type="text" id="agefield" name="agefield" class="required" tmt:required="true" tmt:errorclass="invalid" tmt:message="Please insert a valid age" tmt:pattern="positiveinteger" tmt:minnumber="18" tmt:maxnumber="75" tmt:filters="numbersonly" value="18" /></td>
+		</tr>
+		<tr>
+			<td><label for="namefield">Name (required, string, no leading or trailing spaces)</label></td>
+			<td><input type="text" id="namefield" name="namefield" class="required" tmt:required="true" tmt:errorclass="invalid" tmt:message="Please insert a name" tmt:filters="ltrim,rtrim" /></td>
+		</tr>
+		<tr>
+			<td><label for="emailfield">Email (required, string, email)</label></td>
+			<td><input type="text" id="emailfield" name="emailfield" class="required" tmt:required="true" tmt:errorclass="invalid" tmt:message="Please insert a valid email" tmt:pattern="email" /></td>
+		</tr>
+		<tr>
+			<td><label for="datefield">Date (not required, date, YYYY-MM-DD)</label></td>
+			<td><input type="text" id="datefield" name="datefield" tmt:message="Please insert a valid date using the YYYY-MM-DD format" tmt:errorclass="invalid" tmt:datepattern="YYYY-MM-DD" value="2005-05-09" /></td>
+		</tr>
+		<tr>
+			<td><label for="commentsfield">Comments (not required, min 3 chars, max 10)</label></td>
+			<td><textarea id="commentsfield" name="commentsfield" tmt:message="Comments should be from 3 to 10 chars" tmt:errorclass="invalid" tmt:minlength="3" tmt:maxlength="10"></textarea></td>
+		</tr>
+		<tr>
+			<td>Italy's major contributions to modern civilization?<br />
+				(pick at least one) </td>
+			<td><label>
+				<input name="italy" type="checkbox" class="boxes" value="Pizza" tmt:minchecked="1" tmt:message="Please select at least one contribution" tmt:errorclass="invalidBox" />
+				Pizza</label>
+				<br />
+				<label>
+				<input name="italy" type="checkbox" class="boxes" value="Spaghetti" />
+				Spaghetti</label>
+				<br />
+				<label>
+				<input name="italy" type="checkbox" class="boxes" value="Sophia" />
+				Sophia Loren</label>
+				<br />
+				<label>
+				<input name="italy" type="checkbox" class="boxes" value="Leonardo" />
+				Leonardo Da Vinci</label>
+				<br />
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

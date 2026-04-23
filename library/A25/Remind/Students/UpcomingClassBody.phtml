@@ -1,0 +1,20 @@
+<?php
+$course = $enroll->Course;
+$student = $enroll->Student;
+
+$generator = new A25_Remind_HtmlBodyGenerator();
+echo $generator->header($student, A25_Remind_Students_UpcomingClass::subject());
+?>
+
+<p>
+Just a friendly reminder about your upcoming <?php echo PlatformConfig::courseTitleFullHtml() ?> Course.
+</p>
+<div style="margin-top: 24px; margin-bottom: 24px;">
+<?php echo A25_Html::courseMessage($course);
+echo A25_Html::certificateMessage($course, $student);?>
+</div>
+<?php
+if ($student->getAccountBalance() > 0)
+  echo $generator->paymentDueBox($student, $course, $enroll);
+?>
+<?php echo $generator->footer(); ?>

@@ -1,0 +1,3 @@
+This is a custom build of jQuery UI.  It only includes support for Date
+Picker.  In order to use other features of jQuery UI, you would need to
+create a new custom build at http://jqueryui.com/download.

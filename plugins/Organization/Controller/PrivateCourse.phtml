@@ -1,0 +1,23 @@
+<div style="padding: 20px;">
+<?php
+if (intval($_GET['tryagain']) == 1) {
+	?>
+	<div style="color: red;">Sorry, the registration code you entered was
+	invalid.  Please try again.</div>
+	<?php
+}
+?>
+<h1>Enter Registration Code</h1>
+<p>
+<?php echo A25_DI::PlatformConfig()->privateCourseDescription($org->name) ?>
+</p>
+<form action="validate-registration-code" method="POST">
+<p style="margin-top: 24px;">
+<input type="hidden" name="course" value="<?php echo intval($_GET['id'])?>" />
+<b>Registration Code:</b>
+<input type="text" name="password" />
+<input type="submit" value="Submit" />
+or <a href="<?php echo A25_Link::withoutSef('/find-a-course');?>">choose a different course</a>
+</p>
+</form>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="module">
+	<name>Messages</name>
+	<author>Christiaan van Woudenberg</author>
+	<creationDate>July 2006</creationDate>
+	<copyright>(C) 2005 Velocera Engineering, LLC All rights reserved.</copyright>
+	<authorEmail>christiaanv@velocera.com</authorEmail>
+	<authorUrl>www.velocera.com</authorUrl>
+	<version>1.0.0</version>
+	<description>This module shows messages in the user's inbox.</description>
+	<files>
+		<filename module="mod_mymsg">mod_mymsg.php</filename>
+	</files>
+	<params/>
+</mosinstall>

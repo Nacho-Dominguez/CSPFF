@@ -1,0 +1,36 @@
+<div id="footer-1024">
+<table align="center" border="0" cellpadding="0" cellspacing="0"
+width="100%" style="min-height: 170px;">
+<tr>
+<td width="1" class="footerVR">
+<img src="<?php echo A25_Link::to('/templates/aliveat25/images/spacer.gif');?>" width="1" height="75" alt="" /></td>
+<td width="100%" class="footerNav" valign="top">
+
+<div class="rightMenu" style="font-weight: normal; float: none; clear: both;
+text-align:center; display:block; margin:10px 0px;">
+<a href="<?php echo A25_Link::to('/component/option,com_location/task,privacypolicy/');?>">Privacy Policy</a>
+&nbsp;|&nbsp;
+<a href="<?php echo PlatformConfig::contactUrl();?>">Contact Us</a>
+<?php if (PlatformConfig::displayBecomeInstructor) { ?>
+&nbsp;|&nbsp;
+<a href="<?php echo A25_Link::to('/component/option,com_location/task,becomeaninstructor/');?>">Become an Instructor</a>
+<?php }
+$this->fireAppendFooterMenu(); ?>
+</div>
+<?php include PlatformConfig::platformTemplateFilePath('partners.phtml'); ?>
+<div class="rightMenu" style="font-weight: normal; float: none; clear: both;
+text-align:center; display:block; margin:10px 0px; color: #888899;">
+<span style="margin:5px;">&copy; <?php echo date("Y"); ?> <i>Colorado State Patrol Family Foundation</i>
+<?php if (!in_array(PlatformConfig::STATE_NAME, array('Colorado', 'Wyoming'))) {
+    echo '<br/>in partnership with <i>' . PlatformConfig::agency . '</i>';
+}
+?>
+</span>
+</div>
+</td>
+<td width="1" class="footerVR">
+<img src="<?php echo A25_Link::to('/templates/aliveat25/images/spacer.gif');?>" alt=""/></td>
+</tr>
+</table>
+<?php mosLoadModules('debug', -1);?>
+</div>

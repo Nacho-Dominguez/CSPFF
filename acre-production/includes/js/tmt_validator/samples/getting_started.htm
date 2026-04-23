@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Getting started</h1>
+	<p>In order to enable the validator we must first include the JavaScript
+file:</p>
+	<p class="code">&lt;script src=&quot;script_tmt_validator.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</p>
+	<p>We must then add the tmt:validate attribute to the form tag. Without it the validator parser will completely skip our form:</p>
+	<p class="code">&lt;form action=&quot;index.htm&quot; tmt:validate=&quot;true&quot;&gt;</p>
+	<p>From now on we can take advantage of all the other attributes that can be used for input fields. The code for requiring a value to be entered in a simple text field
+	looks like this:</p>
+	<p class="code">&lt;input type=&quot;text&quot; name=&quot;myfield&quot; tmt:required=&quot;true&quot; tmt:message=&quot;Please insert your name&quot; /&gt;</p>
+	<p>Here is the source code for the whole form:</p>
+	<p class="code">&lt;form action=&quot;index.htm&quot; tmt:validate=&quot;true&quot;&gt;<br />
+		Name<br />
+&lt;input name=&quot;myfield&quot; type=&quot;text&quot; class=&quot;required&quot; tmt:required=&quot;true&quot; tmt:message=&quot;Please insert your name&quot; /&gt;<br />
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;<br />
+&lt;/form&gt;</p>
+</div>
+<form action="index.htm" tmt:validate="true">
+	<fieldset>
+	Name
+	<input name="myfield" type="text" class="required" tmt:required="true" tmt:message="Please insert your name" />
+	<input type="submit" value="Submit" />
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

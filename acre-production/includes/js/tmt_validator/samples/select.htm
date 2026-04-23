@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>&lt;select&gt; validation</h1>
+	<p>There are two different attributes that apply only to drop-down lists created created using the &lt;select&gt; tag.</p>
+	<p>The tmt:invalidindex attribute prevents the user from selecting an entry from a given position (zero based):</p>
+	<p class="code">&lt;select name=&quot;lady&quot; tmt:invalidindex=&quot;0&quot;&gt;</p>
+	<p>The tmt:invalidvalue attribute prevents the user from selection an entry with a specific value:</p>
+	<p class="code">&lt;select name=&quot;dish&quot; tmt:invalidvalue=&quot;Crepes&quot;&gt;</p>
+</div>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Select menus </legend>
+	<table>
+		<tr>
+			<td>You would like to take a drink with:</td>
+		</tr>
+		<tr>
+			<td><select name="lady" tmt:invalidindex="0" tmt:message="Please select a Lady">
+					<option>Your choice</option>
+					<option value="Kate">Kate Beckinsale</option>
+					<option value="Jennifer">Jennifer Connelly</option>
+					<option value="Salma">Salma Hayek</option>
+					<option value="Gisele">Gisele Bundchen</option>
+					<option value="Emmanuelle">Emmanuelle Beart</option>
+					<option value="Liz">Liz Hurley</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Select an italian dish (only italian!)</td>
+		</tr>
+		<tr>
+			<td><select name="dish" tmt:invalidvalue="Crepes" tmt:message="Only traditional Italian dishes please, no foreign stuff!">
+					<option value="Spaghetti">Spaghetti</option>
+					<option value="Pizza">Pizza</option>
+					<option value="Crepes">Crepes suzette</option>
+					<option value="Mozzarella">Mozzarella alla caprese</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

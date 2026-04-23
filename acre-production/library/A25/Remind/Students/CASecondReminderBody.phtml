@@ -1,0 +1,61 @@
+<?php
+$course = $enroll->Course;
+$student = $enroll->Student;
+
+$generator = new A25_Remind_HtmlBodyGenerator();
+echo $generator->header($student, A25_Remind_Students_UpcomingClass::subject());
+echo $enroll->virtualCourseInfo();
+?>
+
+<p>
+Your <i><?php echo PlatformConfig::courseTitleHtml() ?></i> class is just one hour away
+and we can't wait to meet you!
+</p>
+<p>
+<b>Please have your <i><?php echo PlatformConfig::courseTitleHtml() ?></i>
+workbook and photo ID ready to show your instructor.</b> If you did not receive
+a book then please email the <i><?php echo PlatformConfig::courseTitleHtml() ?></i>
+office at <?php echo A25_DI::PlatformConfig()->contactEmailAddress ?>. <i>Your
+instructor can not allow you to take the class without a book. There are no
+exceptions.</i>
+</p>
+<p>
+<b>Log into your Zoom account, do a Zoom test of your speakers, microphone and
+video, and make sure that you have an appropriate background.</b> Please dress
+appropriately and sit at a desk or table.
+</p>
+<p style="font-weight: bold; font-style: italic;">
+Check into the Zoom waiting room 45 minutes before the start of your class with
+your <i><?php echo PlatformConfig::courseTitleHtml() ?></i> book and a photo ID.
+</p>
+<p style="background-color: #FFFF00; color: #000000;">
+<a href="<?php echo A25_DI::PlatformConfig()->kahootLink ?>">Here is the link to
+a short Kahoot activity</a> that you need to complete while you are waiting
+(You'll need to create an account if you haven't already). It
+will prepare you and the other students for today's class. If necessary, you can
+pause your Kahoot activity if your instructor needs to check you in.
+</p>
+<p>
+Once in Zoom, if the name showing for you is not correct, please hover over your
+picture, click on the three dots, click rename, and type your name.
+</p>
+<p>
+If you have questions during the class, then please raise your hand using the
+"Raise Hand" tool on Zoom. Now get ready to have some fun and learn some life
+saving strategies.
+</p>
+<p style="font-weight: bold;">
+    <a href="<?php echo $course->zoom_link ?>">Join the class</a>
+</p>
+<p>
+    <b><u>Certificates of completion</u></b><br/>
+Students who are active participants and attend the entire course will be mailed a certificate
+of completion. Please allow up to 14 days for your certificate to arrive via US
+Mail.
+</p>
+<p>
+    Thanks,
+</p>
+<p>
+    The <i><?php echo PlatformConfig::courseTitleHtml() ?></i> Team
+</p>

@@ -1,0 +1,23 @@
+We currently use SVN (although we pry should change to Git, because of the
+branching/mergin limitations of SVN)
+
+We have 3 major branches:
+/httpdocs/trunk
+/httpdocs/branches/stable
+- descended from trunk
+- only contains changes deemed stable enough for actual use
+/httpdocs/branches/production
+- descended from 'stable'
+- only contains changes that are ready to be deployed
+- does not contain certain test, database reset, and doc files, for security
+  reasons
+
+SVN merging is much trickier than it appears on the surface.  There are many
+edge cases which don't work as expected.  Consult the SVN documentation before
+performing any merges.
+
+In general, when you merge a descendant branch back into a parent (i.e.,
+merging 'production' into 'stable'), you must use the --reintegrate tag.
+Afterwards, you must block the change on the reintegrated branch so that it
+will still work.  See:
+http://svnbook.red-bean.com/nightly/en/svn.branchmerge.advanced.html#svn.branchmerge.advanced.reintegratetwice

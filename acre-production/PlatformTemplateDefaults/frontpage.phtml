@@ -1,0 +1,104 @@
+<style type="text/css">
+/* Logo */
+.logo{
+float: left;
+text-align: right;
+color: green;
+font-family: sans-serif;
+}
+
+.logo_alive{
+font-size: 60px;
+text-transform: lowercase;
+letter-spacing: -5px;
+display: block;
+line-height: 60px;
+margin-bottom: -10px;
+margin-right: 8px;
+}
+
+.logo_at{
+text-transform: uppercase;
+font-size: 16px;
+vertical-align: 15px;
+}
+
+.logo_25{
+font-size: 35px;
+font-weight: bolder;
+letter-spacing: -.1em;
+line-height: 100%;
+margin-left: -6px;
+}
+
+.logo_tm{
+font-size: 8px;
+vertical-align: 20px;
+margin-left: -2px;
+}
+/* End of Logo */
+</style>
+<div style="padding:24px 32px;">
+  <div class="row">
+    <div class="col-sm-3 col-xs-5 logo">
+      <span class="logo_alive">Alive</span>
+      <span class="logo_at">At</span>
+      <span class="logo_25">25</span>
+      <span class="logo_tm">&reg;</span>
+    </div>
+    <div class="col-sm-9 col-xs-7" style="padding-top: 24px; font-size: 32px; font-family: sans-serif;">Driver's Awareness Course</div>
+  </div>
+  <div style="clear: both;"></div>
+  <div class="row">
+    <div class="col-sm-8">
+      <div style="padding-top: 12px;">
+        <i>Alive at 25</i> is a 4&frac12; hour driver's awareness course designed by the <i>National
+        Safety Council</i> for young drivers ages 15-24 which includes:
+      </div>
+      <table cellspacing="6" cellpadding="6" style="margin-top: 8px;">
+        <tr><td><img src="/images/car.png" width="44" style='margin-left: 6px;' /></td><td>
+          <b>Defensive driving classroom curriculum</b><br/>
+          Gain awareness and develop strategies to keep safe on the road.
+        </td></tr>
+        <tr><td><img src="/images/merge_sign.png" style='margin-left: 3px;'/></td><td>
+          <b>Decision-making and responsibility-taking</b><br/>
+          Learn through interactive media, workbook exercises, role-playing, and
+          class discussions.
+        </td></tr>
+        <tr><td><img src="/images/map.png" /></td><td><b>Available nationwide</b><br/>
+          Chances are, there is an agency providing training with the Alive
+          at 25 curriculum in your area.</td></tr>
+      </table>
+    </div>
+    <div class="col-sm-4" style="max-width: 200px; border: 1px solid #FFFFBB; padding: 2px; margin-left: 12px;">
+      <div style="padding: 24px 32px; background-color: #FFFFBB; font-size: 16px;">
+        <div style="color: green; font-size: 24px; font-family: sans-serif; font-weight: bold">Enroll</div>
+        <div style="padding-top: 12px;">
+          <span style="color: #444444">in your state:</span><br/>
+          <div style="margin-left: 6px;">
+            <a href="<?php echo A25_Link::toNational('component/option,com_location/task,findcourse/state,CA/') ?>">California</a><br/>
+            <a href="<?php echo A25_Link::toNational('component/option,com_location/task,findcourse/state,CO/') ?>">Colorado</a><br/>
+            <a href="<?php echo A25_Link::toNational('component/option,com_location/task,findcourse/state,ID/') ?>">Idaho</a><br/>
+            <a href="<?php echo A25_Link::toNational('component/option,com_location/task,findcourse/state,KY/') ?>">Kentucky</a><br/>
+            <a href="<?php echo A25_Link::toNational('component/option,com_location/task,findcourse/state,Maine/') ?>">Maine</a><br/>
+            <a href="<?php echo A25_Link::toNational('component/option,com_location/task,findcourse/state,WY/') ?>">Wyoming</a><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p style="text-align: center; margin-top: 20px; margin-bottom: 0px; font-size: 16px;">
+    <a href="<?php echo PlatformConfig::findACourseUrl() ?>">Find a Course</a>
+    &nbsp;&ndash;&nbsp;
+    <a href="<?php echo A25_Link::toNational('content/view/17/21/') ?>">Learn More</a>
+    &nbsp;&ndash;&nbsp;
+    <a href="<?php echo A25_Link::to('index.php?option=com_content&task=view&id=16&Itemid=17')?>">
+    Info For Parents</a></p>
+  </div>
+</div>
+<?php
+  $number = rand()%10 +1;
+?>
+<img src="images/stories/full/<?php echo $number;?>.jpg" border="0" alt=""
+   style="margin-top: 12px; padding:0px; width: 100%;" />

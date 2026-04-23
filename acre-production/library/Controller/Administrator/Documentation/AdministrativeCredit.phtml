@@ -1,0 +1,42 @@
+<style type='text/css'>
+  p {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  img {
+    padding: 4px;
+    border: 1px solid #999;
+  }
+</style>
+<div style="text-align: left; font-size: 14px; margin-bottom: 48px;">
+  <div style="width: 640px; margin-left: auto; margin-right: auto;">
+    <h1>Administrative Credit / Scholarship</h1>
+    <p>
+      <i>Administrative Credits</i> (a.k.a. "Scholarships") can be used to
+      provide partial or full payment for a student's registration fee.  In
+      other words, they can be used to give a student a discounted price.
+    </p>
+    <p>
+      Imagine that an insurance company has agreed to pay $10 for any of its
+      customers who take the class.  A typical way to provide this through the
+      web site is to create a <i>Administrative Credit/Scholarship</i>, like this one:
+    </p>
+    <img src="<?php echo A25_Link::to('/administrator/images/Documentation/create_credit_type.gif')?>" />
+    <p>
+      An administrator can apply a <i>Scholarship</i> payment to a student's
+      account using the normal payment form, like this:
+    </p>
+    <img src="<?php echo A25_Link::to('/administrator/images/Documentation/apply_credit.gif')?>" />
+    <p>
+      Now, the student owes $10 less than before.
+    </p>
+    <p style="font-size: 12px; color: #666; background-color: #efefff; padding: 12px;">
+      There is an optional <a href="<?php echo A25_Link::to('/administrator/documentation/coupons')?>">
+      Coupons</a> extension which allows a Coupon Code can be assigned
+      to a Credit Type so that students can automatically receive the credit by
+      entering the code themselves.  For more information, see
+      <a href="<?php echo A25_Link::to('/administrator/documentation/coupons')?>">
+      Coupons</a>.
+    </p>
+  </div>
+</div>

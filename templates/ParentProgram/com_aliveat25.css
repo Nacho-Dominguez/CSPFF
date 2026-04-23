@@ -1,0 +1,49 @@
+/* Various classes that the AliveAt25 components use */
+/* (these should be phased out) */
+.shell {
+background-color: white;
+border: 1px solid #898989;
+padding: 6px;
+}
+.message {
+color:#f00;
+font-weight:bold;
+font-size:16px;
+margin:15px;
+}
+.small {
+color: #9A9A9A;
+}
+.formlabel{
+/*font-weight:bold;*/
+}
+input.required {
+	background-image: url('img/required.gif');
+	background-position: right;
+	background-repeat: no-repeat;
+}
+/* 'Find A Course' */
+.courseSearchLinks {
+font-size: 20px;
+background-color: #ABABAB;
+border: 1px solid #898989;
+padding: 5px 10px;
+}
+
+/* Table for 'By Zip Code' */
+.striped thead {
+background-color: #CCCCCC;
+border-bottom: 1px solid black;
+}
+.striped tbody {
+background-color: white;
+}
+.striped tbody td {
+border-top: 1px solid black;
+}
+.striped th {
+background-color: #9A9A9A;
+border: 1px solid black;
+}
+/* End of table for 'By Zip Code' */
+/* End of 'Find A Course' */

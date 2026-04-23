@@ -1,0 +1,1 @@
+ALTER TABLE `jos_student` ADD COLUMN `pr_code` varchar(32) default NULL;

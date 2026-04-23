@@ -1,0 +1,1 @@
+ALTER TABLE `jos_location` ADD COLUMN `court_fee` decimal(10,2) unsigned default NULL

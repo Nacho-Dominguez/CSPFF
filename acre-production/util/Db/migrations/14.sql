@@ -1,0 +1,1 @@
+INSERT INTO jos_license_status (status_name, status_description, created, created_by) VALUES ('Driving Permit', 'An individual with a valid driving permit.', '2010-10-06 00:00:00', 62)

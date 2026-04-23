@@ -1,0 +1,1 @@
+-- Nothing needs to be removed from the database for uninstallation. We want to keep the Donation type name in the database for historical reasons.

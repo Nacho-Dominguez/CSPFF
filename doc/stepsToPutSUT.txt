@@ -1,0 +1,23 @@
+-	Find a function that is associated with a task in admin.[componentName].php
+-	Move the body of the function into a new class in A25/Admin[functionName].  Create a new static function called run.
+-	Copy the parameter list of the old function to the new one.
+-	Remove unused global variables from the new function.  Change global variables into paramemeters in the new function.
+-	If mosRedirct is used at the end of the function replace mosRedirect with A25_DI::Redirector()->redirect()
+-	At the top of the A25_Admin[functionName]:
+		require_once(dirname(__FILE__) . '/../../administrator/components/[componentName]/admin.[componentName].html.php');
+-	Call the new function from the old function
+-	Try the task in a browser window.  Does it use overlib (mouse-over effects)?  If not, remove it from the HTML-generating function.  Do the same thing with Calendar.
+-	If the task uses overlib, change 'mosCommonHTML::loadOverlib()' to 'A25_Javascript::loadOverlib()'.  If this is not done, it will break when running with other tests.
+-	If the task uses overlib, add this line to the top of the testclass file: test_HelperFunctions::enable_loadOverLib().
+-	Change global variables in the HTML function to be parameters.  This includes changing the parameters that are used in the new run() function.  run() pry calls the HTML function at the end.
+-	Start writing a test for the new function, and make any necessary changes until the output is successfully printed to the screen.
+	-	Create any needed database items via ActiveRecord
+	-	Fill in the paramters for the function call.  Create any needed objects.
+	-	When an error like 'could not find class A25_Order' occurs, change the code to use the new A25_Order class instead.
+-	Pipe the output into an 'expectedOutput...' file
+-	Make the test assert that the output matches the expected output.
+
+
+AdminListCourse
+AdminListPay
+CourseRevenueReport

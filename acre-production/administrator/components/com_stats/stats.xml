@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mosinstall type="component">
+   <name>stats</name>
+   <creationDate>2006-05-10</creationDate>
+   <author>Christiaan van Woudenberg</author>
+   <copyright>Copyright 2006 Velocera Engineering, LLC</copyright>
+   <authorEmail>tech@velocera.com</authorEmail>
+   <authorUrl>www.velocera.com</authorUrl>
+   <version>1.0</version>
+   <description>Alive At 25 Statistics and Reporting.</description>
+   <files>
+      <filename>stats.php</filename>
+      <filename>stats.html.php</filename>
+      <filename>index.html</filename>
+   </files>
+   <install>
+      <queries>
+    </queries>
+   </install>
+   <installfile>install.stats.php</installfile>
+   <uninstallfile>uninstall.stats.php</uninstallfile>
+   <administration>
+      <menu>Statistics</menu>
+      <submenu>
+         <menu task="course">By Course</menu>
+         <menu task="court">By Court</menu>
+         <menu task="instructor">By Instructor</menu>
+         <menu task="location">By Location</menu>
+         <menu task="dor">DOR Reporting</menu>
+      </submenu>
+      <files>
+         <filename>admin.stats.php</filename>
+         <filename>admin.stats.html.php</filename>
+         <filename>toolbar.stats.php</filename>
+         <filename>toolbar.stats.html.php</filename>
+         <filename>stats.class.php</filename>
+         <filename>stats.config.php</filename>
+         <filename>index.html</filename>
+      </files>
+   </administration>
+</mosinstall>

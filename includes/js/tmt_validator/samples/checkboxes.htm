@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Checkboxes validation</h1>
+	<p>Checkboxes are a special kind of field, since they often come in groups, sharing the same name but having different values. The TMT Validator validates a set of checkboxes with the same name as a unique entity. So, inside a set of checkboxes, we can define the validation attributes only once (if you specify attributes with conflicting values, the last one wins):</p>
+	<p class="code"> &lt;input type=&quot;checkbox&quot; name=&quot;drink&quot; tmt:minchecked=&quot;2&quot; value=&quot;Nicole&quot; /&gt;<br />
+&lt;input type=&quot;checkbox&quot; name=&quot;drink&quot; value=&quot;Kate&quot; /&gt;</p>
+	<p>There are two different attributes for checkboxes validation.</p>
+	<p>The tmt:minchecked ensures that at least a minimum number of boxes are checked in a group:</p>
+	<p class="code">&lt;input type=&quot;checkbox&quot; name=&quot;drink&quot; tmt:minchecked=&quot;2&quot; value=&quot;Nicole&quot; /&gt;</p>
+	<p>The tmt:maxchecked specifies a maximum number of boxes that can be checked in a group:</p>
+	<p class="code">&lt;input type=&quot;checkbox&quot; name=&quot;drink&quot; tmt:maxchecked=&quot;3&quot; value=&quot;Nicole&quot; /&gt;</p>
+	<p>We can use both attributes at the same time:</p>
+	<p class="code">&lt;input type=&quot;checkbox&quot; name=&quot;drink&quot; tmt:minchecked=&quot;2&quot; tmt:maxchecked=&quot;3&quot; value=&quot;Nicole&quot; /&gt;</p>
+	<p>If we want only one box checked, set both attributes to 1:</p>
+	<p class="code">&lt;input type=&quot;checkbox&quot; name=&quot;pasta&quot; tmt:minchecked=&quot;1&quot; tmt:maxchecked=&quot;1&quot; value=&quot;Penne&quot; /&gt;</p>
+</div>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Checkbox Validation</legend>
+	<table>
+		<tr>
+			<td>You would like to take a drink with: (pick at least two, but no more than three)</td>
+		</tr>
+		<tr>
+			<td><label>
+				<input name="drink" type="checkbox" class="boxes" value="Nicole" tmt:minchecked="2" tmt:maxchecked="3" tmt:message="Please select at least two ladies" />
+				Nicole Kidman</label>
+				<br />
+				<label>
+				<input name="drink" type="checkbox" class="boxes" value="Kate" />
+				Kate Beckinsale</label>
+				<br />
+				<label>
+				<input name="drink" type="checkbox" class="boxes" value="Jennifer" />
+				Jennifer Connelly</label>
+				<br />
+				<label>
+				<input name="drink" type="checkbox" class="boxes" value="Salma" />
+				Salma Hayek</label>
+				<br />
+				<label>
+				<input name="drink" type="checkbox" class="boxes" value="Gisele" />
+				Gisele B&uuml;ndchen</label>
+				<br />
+				<label>
+				<input name="drink" type="checkbox" class="boxes" value="Emmanuelle" />
+				Emmanuelle Beart</label>
+				<br />
+				<label>
+				<input name="drink" type="checkbox" class="boxes" value="Liz" />
+				Liz Hurley</label>
+				<br />
+			</td>
+		</tr>
+		<tr>
+			<td>You can have pasta for dinner; pick one (only one)</td>
+		</tr>
+		<tr>
+			<td><label>
+				<input name="pasta" type="checkbox" class="boxes" value="Penne" tmt:minchecked="1" tmt:maxchecked="1" tmt:message="Please select only one kind of pasta" />
+				Penne</label>
+				<br />
+				<label>
+				<input name="pasta" type="checkbox" class="boxes" value="Rigatoni" />
+				Rigatoni</label>
+				<br />
+				<label>
+				<input name="pasta" type="checkbox" class="boxes" value="Tortellini" />
+				Tortellini</label>
+				<br />
+				<label>
+				<input name="pasta" type="checkbox" class="boxes" value="Fettuccine" />
+				Fettuccine</label>
+				<br />
+				<label>
+				<input name="pasta" type="checkbox" class="boxes" value="Lasagne" />
+				Lasagne</label>
+				<br />
+			</td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<style type="text/css">
+h1, h2 {
+	padding-left: 32px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	margin-top: 20px;
+}
+h2 {
+	margin-top: 0px;
+	margin-bottom: 12px;
+	font-size: 14px;
+	color: #000077;
+}
+#frontpage_summary p {
+		padding-left: 32px;
+		padding-right: 32px;
+		padding-top: 12px;
+}
+a.frontpage_button {
+	display: inline-block;
+	border: 1px solid black;
+	padding: 12px 10px;
+	width: 160px;
+	text-align: center;
+	margin-right: 12px;
+	text-decoration: none;
+  background: <?php echo A25_DI::PlatformConfig()->colorScheme()->backgroundColor() ?> url(<?php echo ServerConfig::currentUrl() ?>/templates/aliveat25/images/calloutBG.png) repeat-x top center;
+	color: white;
+	font-weight: bold;
+}
+a.frontpage_button:hover {
+	color: black;
+	background: url(<?php echo ServerConfig::currentUrl() ?>/templates/aliveat25/images/buttonOn.jpg) repeat-x center;
+}
+</style>
+<div id="frontpage_summary" style="
+	color: black; max-width: 778px;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-top: 1px solid black;
+	font-size: 14px;">
+<h1><?php echo PlatformConfig::STATE_NAME?> <i>MDDC</i><br/>
+Mature Defensive Driving Course</h1>
+<p>The 4-hour course is taught by certified instructors and is designed for drivers of all ages especially
+those that are 55 years of age and older who wish to improve their driving skills.</p>
+<p>As we age, it is important to recognize that mature drivers may not have the same thinking and
+conscious cognitive process as they once did at a younger age. Driving in traffic or through inclement
+weather, work zones, or even at night becomes more challenging the older we get. There is good
+news though! Kentucky Safe Driver has a Mature Defensive Driving Course that can assist with some
+of these challenges while refreshing skill sets that have been previously learned in the past.</p>
+<p>By meeting all the vigorous standards set forth by 601 KAR 13:040, our Mature Defensive Driving
+Program has been approved and certified by the Kentucky Transportation Cabinet. This course will
+not only help mature drivers learn new techniques and refresh old skill sets but it has information
+that is specific to Kentucky.</p>
+<p>Learn new techniques and refresh old skill sets to make you a safer driver and equip yourself with
+skills and knowledge to prevent crashes and avoid violations.</p>
+<p>Are you age 55 or older?<br/>
+Are you interested in getting a car insurance discount?<br/>
+Are you looking to learn skills to make you a safer driver?</p>
+</div>

@@ -1,0 +1,85 @@
+.large_input{
+    width: 300px;
+}
+.small_input{
+    width: 200px;
+}
+.noResult {
+    font-size:large;
+    font-weight:bold;
+    color: #c0d2ec;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    padding-top: 60px;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.error {
+	color: red;
+	font-weight: bold;
+}
+.msg {
+	font-weight: normal;
+	color: black;
+}
+a.toolbar {
+	color : #808080;
+	text-decoration : none;
+	display: block;
+    float:left;
+	border: 1px solid #DDD;
+	width: 20px;
+	height: 20px;
+	padding: 2px 1px 2px 1px;
+	margin: 2px 1px 0px 1px;
+}
+a.toolbar:hover {
+	color : #C64934;
+	border: 1px solid #0A246A;
+	background-color: #B6BDD2;
+	padding: 3px 0px 1px 2px;
+	margin-left: 1px;
+}
+a.toolbar:active {
+	color : #FF9900;
+}
+a.tools {
+	color : #808080;
+	text-decoration : none;
+	display: block;
+    float:left;
+	border: 1px solid #DDD;
+	width: 22px;
+	height: 22px;
+	padding: 2px 1px 2px 1px;
+	margin: 1px 1px 0px 1px;
+}
+a.tools:hover {
+	color : #C64934;
+	border: 1px solid #0A246A;
+	background-color: #B6BDD2;
+	padding: 3px 0px 1px 2px;
+	margin-left: 1px;
+}
+a.tools:active {
+	color : #FF9900;
+}
+#colpick {
+	display:none;
+	position:absolute;
+	background-color:#FFFFFF;
+	border:1px outset lightgrey;
+	background:#D4D4D4;
+	padding:2px;
+}
+
+.colcell{
+	width: 4;
+	height: 2;
+	cursor:pointer;
+}
+

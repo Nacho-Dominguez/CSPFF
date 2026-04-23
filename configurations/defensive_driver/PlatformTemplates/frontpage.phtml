@@ -1,0 +1,87 @@
+<style type="text/css">
+h1, h2 {
+	padding-left: 32px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	margin-top: 20px;
+}
+h2 {
+	margin-top: 0px;
+	margin-bottom: 12px;
+	font-size: 14px;
+	color: #000077;
+}
+#frontpage_summary p {
+		padding-left: 32px;
+		padding-right: 32px;
+		padding-top: 12px;
+}
+a.frontpage_button {
+	display: inline-block;
+	border: 1px solid black;
+	padding: 12px 10px;
+	width: 160px;
+	text-align: center;
+	margin-right: 12px;
+	text-decoration: none;
+  background: <?php echo A25_DI::PlatformConfig()->colorScheme()->backgroundColor() ?> url(<?php echo ServerConfig::currentUrl() ?>/templates/aliveat25/images/calloutBG.png) repeat-x top center;
+	color: white;
+	font-weight: bold;
+}
+a.frontpage_button:hover {
+	color: black;
+	background: url(<?php echo ServerConfig::currentUrl() ?>/templates/aliveat25/images/buttonOn.jpg) repeat-x center;
+}
+.frontpage_image {
+  padding-left: 32px;
+  margin-bottom: 24px;
+  max-width: 100%;
+}
+@media (max-width: 768px) {
+  .frontpage_image {
+    padding-right: 32px;
+  }
+}
+</style>
+<div id="frontpage_summary" style="
+	color: black;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-top: 1px solid black;
+	font-size: 14px;">
+<h1><?php echo PlatformConfig::STATE_NAME?> <i><?php echo PlatformConfig::courseTitleFull; ?></i></h1>
+<h2>90 Minute Online Defensive Driving Course</h2>
+<div class="row">
+  <div class="col-sm-7">
+    <img class="frontpage_image" src="<?php echo A25_Link::to('/PlatformTemplates/screenshot.png')?>" />
+  </div>
+  <div class="col-sm-5">
+    <div style="max-width: 240px; border: 1px solid #FFFFBB; padding: 2px; margin-left: 32px;">
+      <div style="padding: 22px; background-color: #FFFFBB; font-size: 16px;">
+        <div style="margin-bottom: 12px; color: #000077; font-size: 20px;">Only <b>$<?php echo PlatformConfig::defaultCourtFee?></b></div>
+        <div style="margin-bottom: 24px;">Learn at your own pace, from the comfort of your own home.</div>
+        <a class="frontpage_button" href="<?php echo PlatformConfig::findACourseUrl()?>">
+          Take the Class
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<p>
+<i><?php echo PlatformConfig::courseTitleFull; ?></i> is a 90 minute online course based on the same content used in
+the National Safety Council instructor-led <i>Defensive Driving Course</i>
+&mdash; the most widely used driver safety program in the world. Through
+animation, narration, video and interactive exercises the online defensive
+driving course offers an engaging, interactive learning environment where
+students analyze real driving situations, spot driving hazards, and identify the
+correct defenses.
+</p>
+<h2>What you will learn</h3>
+<ul style="margin-left: 12px;">
+<li>Defensive driving strategies and techniques to reduce the chance of collision</li>
+<li>How drugs, alcohol, physical conditions and emotions affect driving decisions</li>
+<li>How to deal with driver distractions and fatigue</li>
+<li>Physical forces of a collision</li>
+<li>The importance of occupant safety devices and how to use them correctly</li>
+</ul>
+</div>

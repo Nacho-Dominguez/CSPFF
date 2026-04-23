@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+	<name>Alive At 25</name>
+	<creationDate>July 2006</creationDate>
+	<author>Christiaan van Woudenberg</author>
+	<copyright>Copyright (c) Velocera Engineering, LLC</copyright>
+	<authorEmail>christiaanv@velocera.com</authorEmail>
+	<authorUrl>http://www.velocera.com</authorUrl>
+	<version>1.0</version>
+	<description>A template for the Alive At 25 site.</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>template_thumbnail.png</filename>
+	</files>
+	<images>
+		<filename>images/back_all1024.gif</filename>
+		<filename>images/back_all.gif</filename>
+		<filename>images/back_mainmenu.jpg</filename>
+		<filename>images/back_search.jpg</filename>
+		<filename>images/back_verlauf.jpg</filename>
+		<filename>images/banner_back.jpg</filename>
+		<filename>images/bodyBG.jpg</filename>
+		<filename>images/content-top1024.gif</filename>
+		<filename>images/content-top.gif</filename>
+		<filename>images/faq.jpg</filename>
+		<filename>images/field-alert.gif</filename>
+		<filename>images/findClass.jpg</filename>
+		<filename>images/footer1024.jpg</filename>
+		<filename>images/fadeFromBlack.png</filename>
+		<filename>images/footer.jpg</filename>
+		<filename>images/footerVR.jpg</filename>
+		<filename>images/headmenu_left.gif</filename>
+		<filename>images/headmenu_left_hover.gif</filename>
+		<filename>images/headmenu_right.gif</filename>
+		<filename>images/headmenu_right_hover.gif</filename>
+		<filename>images/indent1.png</filename>
+		<filename>images/indent2.png</filename>
+		<filename>images/logo.gif</filename>
+		<filename>images/mainPic.jpg</filename>
+		<filename>images/module_bottom.jpg</filename>
+		<filename>images/module_bottom_wide.jpg</filename>
+		<filename>images/module_head_back.jpg</filename>
+		<filename>images/module_left_bottom.gif</filename>
+		<filename>images/module_left_top.gif</filename>
+		<filename>images/module_middle.jpg</filename>
+		<filename>images/module_middle_wide.jpg</filename>
+		<filename>images/module_right_bottom.gif</filename>
+		<filename>images/module_right_top.gif</filename>
+		<filename>images/module_top.jpg</filename>
+		<filename>images/module_top_wide.jpg</filename>
+		<filename>images/navBG.png</filename>
+		<filename>images/navBGon.png</filename>
+		<filename>images/navVR.png</filename>
+		<filename>images/parents.jpg</filename>
+		<filename>images/pic1.jpg</filename>
+		<filename>images/pic2.jpg</filename>
+		<filename>images/pic3.jpg</filename>
+		<filename>images/pic4.jpg</filename>
+		<filename>images/pic5.jpg</filename>
+		<filename>images/pic6.jpg</filename>
+		<filename>images/pic7.jpg</filename>
+		<filename>images/pic8.jpg</filename>
+		<filename>images/pic9.jpg</filename>
+		<filename>images/picArrow.jpg</filename>
+		<filename>images/readon2.gif</filename>
+		<filename>images/readon.gif</filename>
+		<filename>images/required.gif</filename>
+		<filename>images/right-bottom.gif</filename>
+		<filename>images/right-top.gif</filename>
+		<filename>images/spacer.gif</filename>
+		<filename>images/submenu_back.gif</filename>
+		<filename>images/support.jpg</filename>
+	</images>
+	<css>
+		<filename>css/template_css.css</filename>
+	</css>
+</mosinstall>

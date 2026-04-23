@@ -1,0 +1,1 @@
+ALTER TABLE `jos_student_course_xref` ADD COLUMN `was_survey_visited` BOOL NOT NULL DEFAULT 0;

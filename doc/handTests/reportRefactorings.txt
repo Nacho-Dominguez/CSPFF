@@ -1,0 +1,2 @@
+Test the report with live data with 2 revisions: the one that is on production,
+and the new one.  The report should be exactly the same.

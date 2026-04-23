@@ -1,0 +1,1 @@
+alter table jos_pay change date_originally_collected refund_date_originally_collected date default NULL;

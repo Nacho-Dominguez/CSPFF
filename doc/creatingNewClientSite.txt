@@ -1,0 +1,30 @@
+(This documentation was quickly adapted from my attempt at creating a site for
+Vermont.  I imagine I forgot to write down several steps.  Many of these steps
+would also apply to setting up a completely separate site based on the
+aliveat25.us code.)
+
+Technical steps to set up the new state site:
+- Create a database
+- Create the folder on the server
+- Create an svn checkout for vermont
+- Edit ServerConfig to have the database, directory, etc.  'isDev' should be
+  true.
+- Run util/Db/execDbReset.php
+- Run util/Db/insertZipCodes.php
+- Setup a really basic deployment on aliveat25.us, and pass all tests
+- Remove 'isDev' from ServerConfig
+- Copy ServerConfig back into svn
+- Create user accounts
+- Make sure authorize.net is in test mode
+- Change config to be 'live' (both 'extends' and 'require_once')
+- Switch to using the 'production' branch
+- Change authorize.net out of test mode
+- Remove all extraneous data from the database.
+- Link to new state from aliveat25.us main
+
+Settings to get from client:
+- 'Program Information'
+- e-mail communications
+- admin e-mail address
+- Course Payment Requests address to send them to
+- Look at /administrators for other settings we need to set

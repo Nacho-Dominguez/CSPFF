@@ -1,0 +1,77 @@
+<div style="width: 782px;">
+<div style="float: right; width: 240px; text-align: left; margin: 12px;
+	 padding: 0px 12px 12px 12px; background-color: #FFFFD0;
+	 border: 1px solid #999944; color: #444444">
+<h2>Legacy Reports</h2>
+Please note: These "legacy" reports were written in days of yore, before
+significant changes were made to the underlying system.  As a result, they are
+not guaranteed to be accurate.  Much of the data in these reports  can also be
+obtained by exporting more reliable reports from "Explore individual records" to
+Excel.  Eventually, all of these "legacy" reports will be replaced with new ones.
+<dl class="statistics">
+	<dt><a href="index2.php?option=com_stats&task=payment">Payments Received Report</a></dt>
+	<dd>View a detailed report showing payments received.</dd>
+
+	<dt><a href="index2.php?option=com_stats&task=creditTypeStats">Credit Type Usage Report</a></dt>
+	<dd>View a detailed report showing students who have been assigned credits/scholarships.</dd>
+
+	<dt><a href="index2.php?option=com_stats&task=marketing">Marketing Report</a></dt>
+	<dd>View a summary report showing marketing statistics with a wealth of graphical information.</dd>
+
+	<dt><a href="index2.php?option=com_stats&task=course">Course Revenue Report</a></dt>
+	<dd>View a detailed report showing course revenues.</dd>
+	
+	<dt><a href="index2.php?option=com_stats&task=losing">Losing Courses Report</a></dt>
+	<dd>View a detailed report showing losing courses.</dd>
+</dl>
+</div>
+<div style="text-align: left; margin: 12px;">
+<h1>Reports</h1>
+<h2 style="margin-bottom: 0px;">Explore individual records</h2>
+<dl class="statistics">
+	<?php
+		$from = urlencode(date("m/d/Y", mktime(0, 0, 0, date("m"), 1, date("Y"))));
+		$to = urlencode(date("m/d/Y", mktime(0, 0, 0, date("m"), date("d"), date("Y"))));
+	?>
+	<dt><a href="index2.php?option=com_stats&task=enrollment&course_date_from=<?php echo $from ?>&course_date_to=<?php echo $to ?>">Enrollments</a></dt>
+	<dt><a href="index2.php?option=com_stats&task=courses&course_date_from=<?php echo $from ?>&course_date_to=<?php echo $to ?>">Courses</a></dt>
+	<dt><a href="index2.php?option=com_stats&task=court">Courts</a></dt>
+	<dt><a href="index2.php?option=com_stats&task=fees&course_date_from=<?php echo $from ?>&course_date_to=<?php echo $to ?>">Fees</a></dt>
+	<dt><a href="index2.php?option=com_stats&task=refundByType">Refunds</a></dt>
+	<div style="color: #999999;">
+	<dt>Payments</dt>
+	<dd>Coming soon -- In the meantime, the legacy
+		<a href="index2.php?option=com_stats&task=payment">Payments Received
+		Report</a> gives some ability to search through payments.</dd>
+	</div>
+  <?php
+    $this->fireAppendToIndividualRecordReports();
+  ?>
+</dl>
+<h2>Specialized lists</h2>
+<dl class="statistics">
+	<dt><a href="index2.php?option=com_stats&task=location">Location Statistics Report</a></dt>
+	<dd>View a summary report showing location statistics with a wealth of graphical information.</dd>
+	<dt><a href="index2.php?option=com_stats&task=completedstudents">Completed Students</a></dt>
+	<dd>View a detailed report showing all students with completed enrollments.</dd>
+	<dt><a href="index2.php?option=com_stats&task=completedbycourt">Completed Students By Court</a></dt>
+	<dd>View a detailed report showing only students with completed court enrollments.</dd>
+	<dt><a href="index2.php?option=com_stats&task=dmv">DMV Report</a></dt>
+	<dd>Shows completed and pending student enrollments, who gave 'Obtain Early Permit' as their reason for enrolling.</dd>
+
+<?php if (PlatformConfig::defaultCourtSurcharge > 0) { ?>
+<dt><a href="index2.php?option=com_stats&task=courtSurchargeCollected">Collected Court Surcharges</a></dt>
+<dd>Shows all court DOR surcharges paid over a given time period, based upon payment date.
+(Since Court Surcharges are non-refundable, the "Used Surcharge Report" is not pertinent
+and has been removed.)</dd>
+<?php } ?>
+</dl>
+<h2>Accrual Accounting</h2>
+<dl class="statistics">
+	<dt><a href="income-summary?accrual_date_from=<?php echo $from?>&accrual_date_to=<?php echo $to?>">Income</a></dt>
+  <?php if (PlatformConfig::STATE_NAME == 'Colorado') { ?>
+	<dt><a href="deferred-revenue-summary">Deferred Revenue</a></dt>
+  <?php } ?>
+</dl>
+</div>
+</div>

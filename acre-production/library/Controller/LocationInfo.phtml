@@ -1,0 +1,25 @@
+<div style="margin:20px;">
+<h1>Course Location Details</h1>
+<?php
+if ($location) { ?>
+<div style="background-color: white; padding: 20px 20px 8px 20px; margin: 12px;">
+<?php
+echo $location->showLocationInfo(); ?>
+</div>
+
+<h2 style="margin-top: 24px;">Upcoming courses at <?php echo $location->location_name; ?></h2>
+
+<?php $report->run(); ?>
+
+<p style="padding-top: 1em; padding-bottom: 1em; text-align: center;
+   font-style: italic;">
+Courses designated with
+'<span class="asterisk">*</span>'
+require immediate payment with credit card in order to enroll.
+</p>
+<?php
+}
+else {
+  echo 'Sorry, that location does not exist. Would you like to <a href="' . PlatformConfig::findACoursePath . '">view all upcoming courses</a>?';
+} ?>
+</div>

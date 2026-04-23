@@ -1,0 +1,1 @@
+ALTER TABLE `jos_course` ADD COLUMN `zoom_link` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin;

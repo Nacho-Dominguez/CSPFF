@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tmt="http://www.massimocorner.com/validator" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TMT Validator</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<script src="../script_tmt_validator.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="docBlock">
+	<h1>Subscription Form</h1>
+	<p>This is a sample for a typical subscription form. This is a typical subscription form. To prevent the user from 
+including
+spaces in their username, we can attach a filter to the field:</p>
+	<p class="code">&lt;input type=&quot;text&quot; name=&quot;username&quot; tmt:required=&quot;true&quot; tmt:filters=&quot;nospaces&quot; /&gt;</p>
+	<p>This sample shows the tmt:equalto attribute in action:</p>
+	<p class="code">&lt;input type=&quot;password&quot; name=&quot;password1&quot; id=&quot;password1&quot; class=&quot;required&quot; tmt:required=&quot;true&quot; /&gt;<br />
+&lt;input type=&quot;password&quot; name=&quot;password2&quot; id=&quot;password2&quot; class=&quot;required&quot; tmt:required=&quot;true&quot; tmt:equalto=&quot;password1&quot; tmt:message=&quot;Please insert two matching passwords&quot; /&gt;</p>
+	<p><strong>Note</strong>: The value of the tmt:equalto attribute must be the id of an existing field in the current document<strong>.</strong></p>
+</div>
+<form action="index.htm" method="post" tmt:validate="true">
+	<fieldset>
+	<legend>Subscription Form</legend>
+	<table>
+		<tr>
+			<td>Username (required, string, no spaces)</td>
+			<td><input type="text" name="username" class="required" tmt:required="true" tmt:errorclass="invalid" tmt:message="Please insert a username" tmt:filters="nospaces" /></td>
+		</tr>
+		<tr>
+			<td>Password (required, string)</td>
+			<td><input type="password" name="password1" id="password1" class="required" tmt:required="true" tmt:errorclass="invalid" /></td>
+		</tr>
+		<tr>
+			<td>Repeat Password (required, string)</td>
+			<td><input type="password" name="password2" id="password2" class="required" tmt:required="true" tmt:errorclass="invalid" tmt:equalto="password1" tmt:message="Please insert two matching passwords" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</fieldset>
+</form>
+<div>Copyright 2005 massimocorner.com (<a href="../license.htm">license</a>)</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+ALTER TABLE jos_credit_type DROP COLUMN `location_id`;
