@@ -1,0 +1,35 @@
+.cspff-table-wrap {
+  overflow-x: auto;
+}
+.cspff-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--typography-size-base);
+  font-family: var(--typography-family-base);
+  border: 1px solid var(--component-table-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.cspff-table th {
+  background: var(--component-table-header-bg);
+  color: var(--semantic-color-text-muted);
+  font-size: var(--typography-size-xs);
+  font-weight: var(--typography-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--typography-tracking-wide);
+  padding: var(--spacing-3) var(--spacing-4);
+  text-align: left;
+  border-bottom: 1px solid var(--component-table-border);
+}
+.cspff-table td {
+  background: var(--component-table-row-bg);
+  color: var(--semantic-color-text-primary);
+  padding: var(--spacing-3) var(--spacing-4);
+  border-bottom: 1px solid var(--component-table-border);
+}
+.cspff-table tr:last-child td {
+  border-bottom: none;
+}
+.cspff-table tr:hover td {
+  background: var(--component-table-row-hover-bg);
+}

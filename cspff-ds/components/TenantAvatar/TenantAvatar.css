@@ -1,0 +1,25 @@
+.cspff-avatar {
+  background: var(--avatar-bg);
+  color: var(--avatar-text);
+  border-radius: var(--radius-full);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--typography-size-sm);
+  font-weight: var(--typography-weight-semibold);
+  font-family: var(--typography-family-base);
+  flex-shrink: 0;
+  user-select: none;
+}
+.cspff-avatar--lg {
+  width: 48px;
+  height: 48px;
+  font-size: var(--typography-size-base);
+}
+.cspff-avatar--sm {
+  width: 28px;
+  height: 28px;
+  font-size: var(--typography-size-xs);
+}

@@ -1,0 +1,100 @@
+.cspff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-4);  /* 8px 16px */
+  border-radius: var(--radius-md);
+  font-size: var(--typography-size-base);
+  font-weight: var(--typography-weight-medium);
+  font-family: inherit;
+  line-height: var(--typography-leading-tight);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.12s, border-color 0.12s, box-shadow 0.12s;
+  text-decoration: none;
+}
+
+/* Primary */
+.cspff-btn--primary {
+  background: var(--component-button-bg);
+  color: var(--component-button-text);
+  border-color: transparent;
+  box-shadow: 0 1px 0 oklch(0.108 0.063 256 / 0.30) inset,
+              0 1px 2px oklch(0.108 0.063 256 / 0.20);
+}
+.cspff-btn--primary:hover:not(:disabled) {
+  background: var(--component-button-bg-hover);
+}
+
+/* Ghost */
+.cspff-btn--ghost {
+  background: var(--component-button-ghost-bg);
+  color: var(--component-button-ghost-text);
+  border-color: var(--component-button-border);
+}
+.cspff-btn--ghost:hover:not(:disabled) {
+  background: var(--component-button-ghost-hover);
+  border-color: var(--component-button-border);
+}
+
+/* Danger */
+.cspff-btn--danger {
+  background: var(--component-button-bg-danger);
+  color: var(--component-button-text);
+  border-color: transparent;
+}
+.cspff-btn--danger:hover:not(:disabled) {
+  background: var(--component-button-bg-danger-hover);
+}
+
+/* Warn-ghost */
+.cspff-btn--warn-ghost {
+  background: var(--component-button-ghost-bg);
+  color: var(--component-button-bg-danger);
+  border-color: var(--component-button-bg-danger);
+  opacity: 0.7;
+}
+.cspff-btn--warn-ghost:hover:not(:disabled) {
+  background: var(--component-button-ghost-hover);
+  opacity: 1;
+}
+
+/* Disabled */
+.cspff-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Loading */
+.cspff-btn--loading {
+  opacity: 0.7;
+  cursor: wait;
+  pointer-events: none;
+}
+
+.cspff-btn__icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.cspff-btn__spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: var(--radius-full);
+  animation: cspff-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes cspff-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Size modifier — sm */
+.cspff-btn--sm {
+  padding: 5px var(--spacing-3);
+  font-size: var(--typography-size-sm);
+}

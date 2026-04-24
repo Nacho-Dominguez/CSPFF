@@ -1,0 +1,38 @@
+.cspff-topbar {
+  background: var(--component-topbar-bg);
+  border-bottom: 1px solid var(--component-topbar-border);
+  height: 56px;
+  padding: 0 var(--spacing-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  font-family: var(--typography-family-base);
+}
+.cspff-topbar__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  flex: 1;
+}
+.cspff-topbar__crumb {
+  color: var(--component-topbar-text);
+  font-size: var(--typography-size-base);
+}
+.cspff-topbar__crumb--muted {
+  color: var(--component-topbar-breadcrumb-separator);
+}
+.cspff-topbar__sep {
+  color: var(--component-topbar-breadcrumb-separator);
+  font-size: var(--typography-size-sm);
+}
+.cspff-topbar__title {
+  color: var(--component-topbar-text);
+  font-size: var(--typography-size-lg);
+  font-weight: var(--typography-weight-semibold);
+}
+.cspff-topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}

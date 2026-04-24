@@ -1,0 +1,57 @@
+/*
+ * CSPFF Design System — Semantic Color Tokens
+ *
+ * Maps primitive color steps to design intent.
+ * Rules:
+ *   - Only reference --primitive-color-* vars (never raw values)
+ *   - No spacing, radius, shadow, or typography here — primitives only
+ */
+
+:root {
+
+  /* ============================================================
+     SURFACES
+     ============================================================ */
+  --semantic-color-bg-surface:        var(--primitive-color-white);
+  --semantic-color-bg-surface-raised: var(--primitive-color-gray-50);
+  --semantic-color-bg-page:           var(--primitive-color-gray-150); /* #E6EAF0 page shell */
+  --semantic-color-bg-sidebar:        var(--primitive-color-navy-800);
+  --semantic-color-bg-sidebar-active: var(--primitive-color-blue-50);
+
+
+  /* ============================================================
+     TEXT
+     ============================================================ */
+  --semantic-color-text-primary:   var(--primitive-color-gray-900);
+  --semantic-color-text-secondary: var(--primitive-color-gray-700);
+  --semantic-color-text-muted:     var(--primitive-color-gray-500);
+  --semantic-color-text-inverse:   var(--primitive-color-white);
+
+
+  /* ============================================================
+     BORDERS
+     ============================================================ */
+  --semantic-color-border-default: var(--primitive-color-gray-200);
+  --semantic-color-border-strong:  var(--primitive-color-gray-300);
+
+
+  /* ============================================================
+     STATUS
+     ============================================================ */
+  --semantic-color-status-active-bg:    var(--primitive-color-green-50);
+  --semantic-color-status-active-text:  var(--primitive-color-green-600);
+  --semantic-color-status-paused-bg:    var(--primitive-color-gray-100);
+  --semantic-color-status-paused-text:  var(--primitive-color-gray-500);
+  --semantic-color-status-trial-bg:     var(--primitive-color-amber-50);
+  --semantic-color-status-trial-text:   var(--primitive-color-amber-700);
+
+
+  /* ============================================================
+     INTERACTIVE
+     ============================================================ */
+  --semantic-color-interactive-primary:       var(--primitive-color-blue-600);
+  --semantic-color-interactive-primary-hover: var(--primitive-color-blue-700);
+  --semantic-color-interactive-danger:        var(--primitive-color-red-600);
+  --semantic-color-interactive-danger-hover:  var(--primitive-color-red-700);
+
+}

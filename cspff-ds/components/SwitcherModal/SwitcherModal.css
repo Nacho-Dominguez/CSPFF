@@ -1,0 +1,50 @@
+.cspff-switcher {
+  background: var(--component-switcher-modal-bg);
+  border: 1px solid var(--component-switcher-modal-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  width: 280px;
+  overflow: hidden;
+  font-family: var(--typography-family-base);
+}
+.cspff-switcher__header {
+  padding: var(--spacing-4) var(--spacing-5);
+  border-bottom: 1px solid var(--component-switcher-modal-border);
+  font-size: var(--typography-size-xs);
+  font-weight: var(--typography-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--typography-tracking-wider);
+  color: var(--semantic-color-text-muted);
+}
+.cspff-switcher__list {
+  list-style: none;
+  margin: 0;
+  padding: var(--spacing-2) 0;
+}
+.cspff-switcher__item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) var(--spacing-4);
+  cursor: pointer;
+  transition: background 0.12s;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+.cspff-switcher__item:hover {
+  background: var(--component-switcher-modal-item-hover-bg);
+}
+.cspff-switcher__item--selected {
+  background: var(--component-switcher-modal-item-selected-bg);
+}
+.cspff-switcher__item-name {
+  font-size: var(--typography-size-base);
+  color: var(--semantic-color-text-primary);
+  font-weight: var(--typography-weight-medium);
+}
+.cspff-switcher__item-meta {
+  font-size: var(--typography-size-sm);
+  color: var(--semantic-color-text-muted);
+}

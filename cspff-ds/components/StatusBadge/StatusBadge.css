@@ -1,0 +1,30 @@
+.cspff-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: 3px var(--spacing-2);
+  border-radius: var(--radius-full);
+  font-size: var(--typography-size-xs);
+  font-weight: var(--typography-weight-semibold);
+  letter-spacing: var(--typography-tracking-normal);
+  text-transform: uppercase;
+  background: var(--status-badge-bg);
+  color: var(--status-badge-text);
+  white-space: nowrap;
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-3);
+}
+
+/* When used inline (not positioned), remove absolute */
+.cspff-status-badge--inline {
+  position: static;
+}
+
+.cspff-status-badge__pip {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  flex-shrink: 0;
+}
