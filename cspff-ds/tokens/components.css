@@ -1,0 +1,117 @@
+/*
+ * CSPFF Design System — Component Color Tokens
+ *
+ * Per-component color aliases. Rules:
+ *   - Only reference --semantic-color-* vars (never primitives or raw values)
+ *   - No spacing, radius, shadow, or typography here — color only
+ */
+
+:root {
+
+  /* ============================================================
+     BUTTON
+     ============================================================ */
+  --component-button-bg:           var(--semantic-color-interactive-primary);
+  --component-button-bg-hover:     var(--semantic-color-interactive-primary-hover);
+  --component-button-bg-danger:    var(--semantic-color-interactive-danger);
+  --component-button-bg-danger-hover: var(--semantic-color-interactive-danger-hover);
+  --component-button-text:         var(--semantic-color-text-inverse);
+  --component-button-border:       var(--semantic-color-border-default);
+  --component-button-ghost-bg:     var(--semantic-color-bg-surface);
+  --component-button-ghost-text:   var(--semantic-color-text-secondary);
+  --component-button-ghost-hover:  var(--semantic-color-bg-surface-raised);
+
+
+  /* ============================================================
+     BADGE  (status variants)
+     ============================================================ */
+  --component-badge-active-bg:    var(--semantic-color-status-active-bg);
+  --component-badge-active-text:  var(--semantic-color-status-active-text);
+  --component-badge-trial-bg:     var(--semantic-color-status-trial-bg);
+  --component-badge-trial-text:   var(--semantic-color-status-trial-text);
+  --component-badge-paused-bg:    var(--semantic-color-status-paused-bg);
+  --component-badge-paused-text:  var(--semantic-color-status-paused-text);
+  --component-badge-default-bg:   var(--semantic-color-bg-surface-raised);
+  --component-badge-default-text: var(--semantic-color-text-muted);
+
+
+  /* ============================================================
+     CARD
+     ============================================================ */
+  --component-card-bg:     var(--semantic-color-bg-surface);
+  --component-card-border: var(--semantic-color-border-default);
+
+
+  /* ============================================================
+     SIDEBAR
+     ============================================================ */
+  --component-sidebar-bg:                var(--semantic-color-bg-sidebar);
+  --component-sidebar-item-text:         var(--semantic-color-text-inverse);
+  --component-sidebar-item-active-bg:    var(--semantic-color-bg-sidebar-active);
+  --component-sidebar-item-active-text:  var(--semantic-color-text-inverse);
+  --component-sidebar-section-label-text: var(--semantic-color-text-muted);
+
+
+  /* ============================================================
+     TOPBAR
+     ============================================================ */
+  --component-topbar-bg:                   var(--semantic-color-bg-surface);
+  --component-topbar-border:               var(--semantic-color-border-default);
+  --component-topbar-text:                 var(--semantic-color-text-primary);
+  --component-topbar-breadcrumb-separator: var(--semantic-color-text-muted);
+
+
+  /* ============================================================
+     TABLE
+     ============================================================ */
+  --component-table-header-bg:  var(--semantic-color-bg-surface-raised);
+  --component-table-row-bg:     var(--semantic-color-bg-surface);
+  --component-table-row-hover-bg: var(--semantic-color-bg-surface-raised);
+  --component-table-border:     var(--semantic-color-border-default);
+
+
+  /* ============================================================
+     MODAL
+     ============================================================ */
+  --component-modal-overlay: oklch(0.147 0.076 256 / 0.55); /* navy-800 at 55% */
+  --component-modal-bg:      var(--semantic-color-bg-surface);
+
+
+  /* ============================================================
+     TENANT AVATAR
+     ============================================================ */
+  --component-tenant-avatar-bg:   var(--semantic-color-bg-sidebar);
+  --component-tenant-avatar-text: var(--semantic-color-text-inverse);
+
+
+  /* ============================================================
+     STATUS BADGE
+     ============================================================ */
+  --component-status-badge-active-bg:    var(--semantic-color-status-active-bg);
+  --component-status-badge-active-text:  var(--semantic-color-status-active-text);
+  --component-status-badge-paused-bg:    var(--semantic-color-status-paused-bg);
+  --component-status-badge-paused-text:  var(--semantic-color-status-paused-text);
+  --component-status-badge-trial-bg:     var(--semantic-color-status-trial-bg);
+  --component-status-badge-trial-text:   var(--semantic-color-status-trial-text);
+
+
+  /* ============================================================
+     KPI CARD
+     ============================================================ */
+  --component-kpi-card-bg:             var(--semantic-color-bg-surface);
+  --component-kpi-card-border:         var(--semantic-color-border-default);
+  --component-kpi-card-label-text:     var(--semantic-color-text-muted);
+  --component-kpi-card-value-text:     var(--semantic-color-text-primary);
+  --component-kpi-card-trend-positive: var(--semantic-color-status-active-text);
+  --component-kpi-card-trend-negative: var(--semantic-color-interactive-danger);
+
+
+  /* ============================================================
+     SWITCHER MODAL
+     ============================================================ */
+  --component-switcher-modal-bg:              var(--semantic-color-bg-surface);
+  --component-switcher-modal-border:          var(--semantic-color-border-default);
+  --component-switcher-modal-item-hover-bg:   var(--semantic-color-bg-sidebar-active);
+  --component-switcher-modal-item-selected-bg: var(--semantic-color-bg-sidebar-active);
+
+}

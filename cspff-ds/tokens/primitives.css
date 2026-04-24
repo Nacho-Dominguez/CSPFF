@@ -1,0 +1,225 @@
+/*
+ * CSPFF Design System — Primitives
+ *
+ * Source of truth: extracted from Flow A (Super Admin) and Flow B (Tenant Configuration)
+ * Color format: OKLCH — oklch(L C H) where L=0–1, C=0–0.4, H=0–360
+ * Anchored steps are marked; all others are linearly interpolated.
+ *
+ * ⚑ INCONSISTENCY: --primitive-color-red-500 exists only in Flow B (input danger state).
+ *    Included in full scale here. Flow A uses red-600 for all danger states.
+ * ⚑ NOTE: #E6EAF0 (html/body page shell background) sits between gray-100 and gray-200.
+ *    Added as gray-150 — do not round to gray-100, they are visually distinct.
+ * ⚑ NOTE: #FAFBFD (table header/card footer bg) rounded to gray-50 — difference is sub-perceptual.
+ * ⚑ NOTE: #5A7196 (breadcrumb separator) assigned to gray-600 — sits between gray-500 and navy-500.
+ *    FLAG: review whether this should become navy-500 once the product palette is finalized.
+ * ⚑ NOTE: color-mix(in oklab, ...) used in sidebar brand gradient (Flow B).
+ *    Requires Chrome 111+ / Safari 16.2+ / Firefox 113+. No fallback provided — document requirement.
+ * ⚑ NOTE: #244F8F (button hover, Flow A JSX) → blue-700. #A93225 (danger hover) → red-700.
+ *    These appear only as derived hover states, not as CSS custom properties in source.
+ */
+
+:root {
+
+  /* ============================================================
+     GLOBALS
+     ============================================================ */
+  --primitive-color-white: oklch(1 0 0);
+  --primitive-color-black: oklch(0 0 0);
+
+
+  /* ============================================================
+     NAVY  (H ≈ 256°)
+     Deep background blues — sidebar, context bar, dark surfaces
+     Anchors: 600, 700, 800, 900
+     ============================================================ */
+  --primitive-color-navy-50:  oklch(0.970 0.025 256);
+  --primitive-color-navy-100: oklch(0.900 0.040 256);
+  --primitive-color-navy-200: oklch(0.800 0.055 256);
+  --primitive-color-navy-300: oklch(0.680 0.068 256);
+  --primitive-color-navy-400: oklch(0.550 0.080 256);
+  --primitive-color-navy-500: oklch(0.380 0.083 256);
+  --primitive-color-navy-600: oklch(0.228 0.095 257); /* anchor #14416F */
+  --primitive-color-navy-700: oklch(0.185 0.089 258); /* anchor #0E2F54 */
+  --primitive-color-navy-800: oklch(0.147 0.076 256); /* anchor #082340 — sidebar bg */
+  --primitive-color-navy-900: oklch(0.108 0.063 256); /* anchor #061A30 — darkest bg */
+  --primitive-color-navy-950: oklch(0.075 0.050 256);
+
+
+  /* ============================================================
+     BLUE  (H ≈ 263°)
+     Primary interactive / brand blue
+     Anchors: 50, 400, 500, 600
+     ============================================================ */
+  --primitive-color-blue-50:  oklch(0.937 0.035 265); /* anchor #EEF3FA — light hover/selection bg */
+  --primitive-color-blue-100: oklch(0.890 0.050 265);
+  --primitive-color-blue-200: oklch(0.810 0.075 265);
+  --primitive-color-blue-300: oklch(0.720 0.105 264);
+  --primitive-color-blue-400: oklch(0.642 0.129 265); /* anchor #6EA4D8 — secondary accent, avatar */
+  --primitive-color-blue-500: oklch(0.501 0.147 263); /* anchor #3E6FB8 — focus ring */
+  --primitive-color-blue-600: oklch(0.438 0.151 262); /* anchor #2C5AA0 — primary action */
+  --primitive-color-blue-700: oklch(0.350 0.140 261); /* hover #244F8F */
+  --primitive-color-blue-800: oklch(0.260 0.115 260);
+  --primitive-color-blue-900: oklch(0.180 0.075 259);
+  --primitive-color-blue-950: oklch(0.115 0.050 258);
+
+
+  /* ============================================================
+     GREEN  (H ≈ 155°)
+     Success / active status states
+     Anchors: 50, 500, 600
+     ============================================================ */
+  --primitive-color-green-50:  oklch(0.938 0.036 160); /* anchor #E8F3EC — active badge bg */
+  --primitive-color-green-100: oklch(0.870 0.055 158);
+  --primitive-color-green-200: oklch(0.780 0.080 156);
+  --primitive-color-green-300: oklch(0.670 0.100 155);
+  --primitive-color-green-400: oklch(0.580 0.118 155);
+  --primitive-color-green-500: oklch(0.545 0.135 156); /* anchor #3B9862 — toggle on, donut */
+  --primitive-color-green-600: oklch(0.444 0.121 155); /* anchor #2E7D4E — active text, accents */
+  --primitive-color-green-700: oklch(0.355 0.105 154);
+  --primitive-color-green-800: oklch(0.260 0.080 153);
+  --primitive-color-green-900: oklch(0.170 0.050 152);
+  --primitive-color-green-950: oklch(0.110 0.035 151);
+
+
+  /* ============================================================
+     AMBER  (H ≈ 65°)
+     Warnings / trial status / save-bar pill
+     Anchors: 50, 500
+     ============================================================ */
+  --primitive-color-amber-50:  oklch(0.962 0.043 70);  /* anchor #FDF4DF — trial badge bg */
+  --primitive-color-amber-100: oklch(0.920 0.080 68);
+  --primitive-color-amber-200: oklch(0.860 0.115 67);
+  --primitive-color-amber-300: oklch(0.790 0.145 66);
+  --primitive-color-amber-400: oklch(0.720 0.160 65);
+  --primitive-color-amber-500: oklch(0.710 0.165 65);  /* anchor #F2B63D — warning, save-bar pill */
+  --primitive-color-amber-600: oklch(0.620 0.158 64);
+  --primitive-color-amber-700: oklch(0.520 0.140 63);  /* resolves #9A6F11 (trial text) */
+  --primitive-color-amber-800: oklch(0.400 0.110 62);
+  --primitive-color-amber-900: oklch(0.280 0.080 61);
+  --primitive-color-amber-950: oklch(0.180 0.055 60);
+
+
+  /* ============================================================
+     RED  (H ≈ 25°)
+     Errors / danger / destructive actions
+     Anchors: 50, 500 (Flow B only ⚑), 600
+     ============================================================ */
+  --primitive-color-red-50:  oklch(0.935 0.048 10);  /* anchor #FBEDEB — error bg */
+  --primitive-color-red-100: oklch(0.880 0.080 15);
+  --primitive-color-red-200: oklch(0.810 0.120 19);
+  --primitive-color-red-300: oklch(0.710 0.160 23);
+  --primitive-color-red-400: oklch(0.600 0.190 24);
+  --primitive-color-red-500: oklch(0.465 0.203 25);  /* anchor #D0483A — Flow B input danger ⚑ */
+  --primitive-color-red-600: oklch(0.404 0.218 25);  /* anchor #C0392B — danger primary */
+  --primitive-color-red-700: oklch(0.320 0.200 25);  /* hover #A93225 */
+  --primitive-color-red-800: oklch(0.230 0.170 24);
+  --primitive-color-red-900: oklch(0.150 0.130 24);
+  --primitive-color-red-950: oklch(0.090 0.090 23);
+
+
+  /* ============================================================
+     GRAY  (H ≈ 250°)
+     Neutral blue-gray — text, surfaces, borders
+     Anchors: 50, 100, 200, 300, 400, 500, 700, 900
+     Missing from source: 600, 800, 950 — interpolated
+     ============================================================ */
+  --primitive-color-gray-50:  oklch(0.970 0.010 254); /* anchor #F5F7FA — lightest bg */
+  --primitive-color-gray-100: oklch(0.938 0.015 253); /* anchor #EEF1F5 — disabled bg */
+  --primitive-color-gray-150: oklch(0.918 0.013 252); /* #E6EAF0 — page shell bg, between 100/200 ⚑ */
+  --primitive-color-gray-200: oklch(0.887 0.020 252); /* anchor #DDE2EA — borders */
+  --primitive-color-gray-300: oklch(0.769 0.033 251); /* anchor #B6BECB — light borders */
+  --primitive-color-gray-400: oklch(0.623 0.053 249); /* anchor #8A96A8 — icons, muted */
+  --primitive-color-gray-500: oklch(0.458 0.062 248); /* anchor #5C6A80 — tertiary text */
+  --primitive-color-gray-600: oklch(0.358 0.055 249); /* interpolated — breadcrumb sep ⚑ review */
+  --primitive-color-gray-700: oklch(0.260 0.049 248); /* anchor #2E3A4E — secondary text */
+  --primitive-color-gray-800: oklch(0.182 0.040 247); /* interpolated */
+  --primitive-color-gray-900: oklch(0.108 0.031 248); /* anchor #0E1726 — primary text */
+  --primitive-color-gray-950: oklch(0.075 0.025 247); /* interpolated */
+
+
+  /* ============================================================
+     SPACING  (4pt grid)
+     Sub-grid values (2px, 3px, 6px, 9px, 14px, 18px) appear in source
+     for borders, inner sizing, and font-sizes — use raw px for those.
+     ============================================================ */
+  --spacing-1:  4px;
+  --spacing-2:  8px;
+  --spacing-3:  12px;
+  --spacing-4:  16px;
+  --spacing-5:  20px;  /* 20px used widely in card padding and gaps */
+  --spacing-6:  24px;
+  --spacing-7:  28px;  /* 28px used in content padding, label widths */
+  --spacing-8:  32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-14: 56px;  /* content bottom padding */
+  --spacing-16: 64px;
+
+
+  /* ============================================================
+     BORDER RADIUS
+     NOTE: 2–5px used for fine accents (active nav indicator, bar charts)
+     — too small for the scale, use raw px inline for those.
+     ============================================================ */
+  --radius-sm:   6px;    /* inputs, buttons, chips */
+  --radius-md:   8px;    /* icon buttons, inner card elements */
+  --radius-lg:   10px;   /* stat cards, panels, section containers */
+  --radius-xl:   12px;   /* large cards */
+  --radius-2xl:  14px;   /* modals */
+  --radius-full: 9999px; /* pills, toggles, circular avatars */
+
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+
+  /* Families */
+  --typography-family-base: 'Inter', system-ui, sans-serif;
+  --typography-family-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Size scale
+     NOTE: 11px, 12.5px, 13px, 14px, 15.5px found in source —
+     rounded to nearest step. */
+  --typography-size-xs:   10px;    /* uppercase labels, table headers */
+  --typography-size-sm:   12px;    /* descriptions, meta, chips */
+  --typography-size-base: 13.5px;  /* nav links, body copy, buttons */
+  --typography-size-md:   15px;    /* card section headers */
+  --typography-size-lg:   18px;    /* topbar title, modal h3 */
+  --typography-size-xl:   24px;    /* page h1 */
+  --typography-size-2xl:  26px;    /* global dashboard h1 */
+  --typography-size-3xl:  28px;    /* KPI stat values */
+
+  /* Weight */
+  --typography-weight-regular:  400;
+  --typography-weight-medium:   500;
+  --typography-weight-semibold: 600;
+  --typography-weight-bold:     700;
+
+  /* Line height */
+  --typography-leading-tight:   1.25;
+  --typography-leading-normal:  1.35;
+  --typography-leading-relaxed: 1.5;
+
+  /* Letter spacing — used in uppercase section labels, badges, nav counts */
+  --typography-tracking-tight:   0.02em;
+  --typography-tracking-normal:  0.04em;
+  --typography-tracking-wide:    0.10em;
+  --typography-tracking-wider:   0.14em;
+  --typography-tracking-widest:  0.18em;
+
+
+  /* ============================================================
+     SHADOW
+     Base color: navy-900 = oklch(0.108 0.063 256)
+     Identical in both Flow A and Flow B.
+     ============================================================ */
+  --shadow-sm: 0 1px 2px oklch(0.108 0.063 256 / 0.06),
+               0 1px 1px oklch(0.108 0.063 256 / 0.04);
+
+  --shadow-md: 0 4px 12px oklch(0.108 0.063 256 / 0.08),
+               0 1px 2px  oklch(0.108 0.063 256 / 0.04);
+
+  --shadow-lg: 0 24px 60px oklch(0.108 0.063 256 / 0.22),
+               0 4px  12px oklch(0.108 0.063 256 / 0.10);
+
+}

@@ -1,0 +1,311 @@
+/*
+ * CSPFF Design System — Token Reference
+ *
+ * Copy this entire block into Claude Design prompts to maintain
+ * visual consistency across all CSPFF flows.
+ *
+ * This is a FLAT RESOLVED reference — not an @import file.
+ * Do not use this file in production. Use tokens/index.css instead.
+ *
+ * Generated: 2026-04-23  |  Version: 0.1.0
+ */
+
+:root {
+
+  /* ============================
+     COLOR PRIMITIVES — GLOBALS
+     ============================ */
+  --primitive-color-white: oklch(1 0 0);              /* #FFFFFF */
+  --primitive-color-black: oklch(0 0 0);              /* #000000 */
+
+  /* ============================
+     COLOR PRIMITIVES — NAVY
+     ============================ */
+  --primitive-color-navy-50:  oklch(0.970 0.025 256); /* ~#EEF2FB */
+  --primitive-color-navy-100: oklch(0.900 0.040 256); /* ~#D5DDEF */
+  --primitive-color-navy-200: oklch(0.800 0.055 256); /* ~#B3C1D9 */
+  --primitive-color-navy-300: oklch(0.680 0.068 256); /* ~#8DA1C2 */
+  --primitive-color-navy-400: oklch(0.550 0.080 256); /* ~#6381A9 */
+  --primitive-color-navy-500: oklch(0.380 0.083 256); /* ~#3D5F89 */
+  --primitive-color-navy-600: oklch(0.228 0.095 257); /* #14416F   */
+  --primitive-color-navy-700: oklch(0.185 0.089 258); /* #0E2F54   */
+  --primitive-color-navy-800: oklch(0.147 0.076 256); /* #082340   */
+  --primitive-color-navy-900: oklch(0.108 0.063 256); /* #061A30   */
+  --primitive-color-navy-950: oklch(0.075 0.050 256); /* ~#030F1C */
+
+  /* ============================
+     COLOR PRIMITIVES — BLUE
+     ============================ */
+  --primitive-color-blue-50:  oklch(0.937 0.035 265); /* #EEF3FA */
+  --primitive-color-blue-100: oklch(0.890 0.050 265); /* ~#D9E7F6 */
+  --primitive-color-blue-200: oklch(0.810 0.075 265); /* ~#B8D0EE */
+  --primitive-color-blue-300: oklch(0.720 0.105 264); /* ~#8DB5E4 */
+  --primitive-color-blue-400: oklch(0.642 0.129 265); /* #6EA4D8  */
+  --primitive-color-blue-500: oklch(0.501 0.147 263); /* #3E6FB8  */
+  --primitive-color-blue-600: oklch(0.438 0.151 262); /* #2C5AA0  */
+  --primitive-color-blue-700: oklch(0.350 0.140 261); /* ~#244F8F */
+  --primitive-color-blue-800: oklch(0.260 0.115 260); /* ~#1A3A6B */
+  --primitive-color-blue-900: oklch(0.180 0.075 259); /* ~#112748 */
+  --primitive-color-blue-950: oklch(0.115 0.050 258); /* ~#0A1830 */
+
+  /* ============================
+     COLOR PRIMITIVES — GREEN
+     ============================ */
+  --primitive-color-green-50:  oklch(0.938 0.036 160); /* #E8F3EC */
+  --primitive-color-green-100: oklch(0.870 0.055 158); /* ~#C9E6D2 */
+  --primitive-color-green-200: oklch(0.780 0.080 156); /* ~#A3D1B5 */
+  --primitive-color-green-300: oklch(0.670 0.100 155); /* ~#72B893 */
+  --primitive-color-green-400: oklch(0.580 0.118 155); /* ~#4D9E72 */
+  --primitive-color-green-500: oklch(0.545 0.135 156); /* #3B9862  */
+  --primitive-color-green-600: oklch(0.444 0.121 155); /* #2E7D4E  */
+  --primitive-color-green-700: oklch(0.355 0.105 154); /* ~#22603B */
+  --primitive-color-green-800: oklch(0.260 0.080 153); /* ~#164428 */
+  --primitive-color-green-900: oklch(0.170 0.050 152); /* ~#0D2C19 */
+  --primitive-color-green-950: oklch(0.110 0.035 151); /* ~#081C10 */
+
+  /* ============================
+     COLOR PRIMITIVES — AMBER
+     ============================ */
+  --primitive-color-amber-50:  oklch(0.962 0.043 70);  /* #FDF4DF */
+  --primitive-color-amber-100: oklch(0.920 0.080 68);  /* ~#FAEABF */
+  --primitive-color-amber-200: oklch(0.860 0.115 67);  /* ~#F6D890 */
+  --primitive-color-amber-300: oklch(0.790 0.145 66);  /* ~#F0C260 */
+  --primitive-color-amber-400: oklch(0.720 0.160 65);  /* ~#EBAC35 */
+  --primitive-color-amber-500: oklch(0.710 0.165 65);  /* #F2B63D  */
+  --primitive-color-amber-600: oklch(0.620 0.158 64);  /* ~#D09220 */
+  --primitive-color-amber-700: oklch(0.520 0.140 63);  /* ~#9A6F11 */
+  --primitive-color-amber-800: oklch(0.400 0.110 62);  /* ~#6F4C0A */
+  --primitive-color-amber-900: oklch(0.280 0.080 61);  /* ~#4A3005 */
+  --primitive-color-amber-950: oklch(0.180 0.055 60);  /* ~#2E1D02 */
+
+  /* ============================
+     COLOR PRIMITIVES — RED
+     ============================ */
+  --primitive-color-red-50:  oklch(0.935 0.048 10);  /* #FBEDEB */
+  --primitive-color-red-100: oklch(0.880 0.080 15);  /* ~#F5D4CF */
+  --primitive-color-red-200: oklch(0.810 0.120 19);  /* ~#EDB2AA */
+  --primitive-color-red-300: oklch(0.710 0.160 23);  /* ~#E08A7E */
+  --primitive-color-red-400: oklch(0.600 0.190 24);  /* ~#D06358 */
+  --primitive-color-red-500: oklch(0.465 0.203 25);  /* #D0483A  Flow B ⚑ */
+  --primitive-color-red-600: oklch(0.404 0.218 25);  /* #C0392B  */
+  --primitive-color-red-700: oklch(0.320 0.200 25);  /* ~#A93225 */
+  --primitive-color-red-800: oklch(0.230 0.170 24);  /* ~#7B2419 */
+  --primitive-color-red-900: oklch(0.150 0.130 24);  /* ~#501510 */
+  --primitive-color-red-950: oklch(0.090 0.090 23);  /* ~#300C09 */
+
+  /* ============================
+     COLOR PRIMITIVES — GRAY
+     ============================ */
+  --primitive-color-gray-50:  oklch(0.970 0.010 254); /* #F5F7FA */
+  --primitive-color-gray-100: oklch(0.938 0.015 253); /* #EEF1F5 */
+  --primitive-color-gray-150: oklch(0.918 0.013 252); /* #E6EAF0 — page bg ⚑ */
+  --primitive-color-gray-200: oklch(0.887 0.020 252); /* #DDE2EA */
+  --primitive-color-gray-300: oklch(0.769 0.033 251); /* #B6BECB */
+  --primitive-color-gray-400: oklch(0.623 0.053 249); /* #8A96A8 */
+  --primitive-color-gray-500: oklch(0.458 0.062 248); /* #5C6A80 */
+  --primitive-color-gray-600: oklch(0.358 0.055 249); /* ~#5A7196 — breadcrumb sep ⚑ */
+  --primitive-color-gray-700: oklch(0.260 0.049 248); /* #2E3A4E */
+  --primitive-color-gray-800: oklch(0.182 0.040 247); /* ~#1E2836 */
+  --primitive-color-gray-900: oklch(0.108 0.031 248); /* #0E1726 */
+  --primitive-color-gray-950: oklch(0.075 0.025 247); /* ~#080F19 */
+
+  /* ============================
+     SEMANTIC — SURFACES
+     ============================ */
+  --semantic-color-bg-surface:        var(--primitive-color-white);
+  --semantic-color-bg-surface-raised: var(--primitive-color-gray-50);
+  --semantic-color-bg-page:           var(--primitive-color-gray-150);
+  --semantic-color-bg-sidebar:        var(--primitive-color-navy-800);
+  --semantic-color-bg-sidebar-active: var(--primitive-color-blue-50);
+
+  /* ============================
+     SEMANTIC — TEXT
+     ============================ */
+  --semantic-color-text-primary:   var(--primitive-color-gray-900);
+  --semantic-color-text-secondary: var(--primitive-color-gray-700);
+  --semantic-color-text-muted:     var(--primitive-color-gray-500);
+  --semantic-color-text-inverse:   var(--primitive-color-white);
+
+  /* ============================
+     SEMANTIC — BORDERS
+     ============================ */
+  --semantic-color-border-default: var(--primitive-color-gray-200);
+  --semantic-color-border-strong:  var(--primitive-color-gray-300);
+
+  /* ============================
+     SEMANTIC — STATUS
+     ============================ */
+  --semantic-color-status-active-bg:    var(--primitive-color-green-50);
+  --semantic-color-status-active-text:  var(--primitive-color-green-600);
+  --semantic-color-status-paused-bg:    var(--primitive-color-gray-100);
+  --semantic-color-status-paused-text:  var(--primitive-color-gray-500);
+  --semantic-color-status-trial-bg:     var(--primitive-color-amber-50);
+  --semantic-color-status-trial-text:   var(--primitive-color-amber-700);
+
+  /* ============================
+     SEMANTIC — INTERACTIVE
+     ============================ */
+  --semantic-color-interactive-primary:       var(--primitive-color-blue-600);
+  --semantic-color-interactive-primary-hover: var(--primitive-color-blue-700);
+  --semantic-color-interactive-danger:        var(--primitive-color-red-600);
+  --semantic-color-interactive-danger-hover:  var(--primitive-color-red-700);
+
+  /* ============================
+     COMPONENT — BUTTON
+     ============================ */
+  --component-button-bg:              var(--semantic-color-interactive-primary);
+  --component-button-bg-hover:        var(--semantic-color-interactive-primary-hover);
+  --component-button-bg-danger:       var(--semantic-color-interactive-danger);
+  --component-button-bg-danger-hover: var(--semantic-color-interactive-danger-hover);
+  --component-button-text:            var(--semantic-color-text-inverse);
+  --component-button-border:          var(--semantic-color-border-default);
+  --component-button-ghost-bg:        var(--semantic-color-bg-surface);
+  --component-button-ghost-text:      var(--semantic-color-text-secondary);
+  --component-button-ghost-hover:     var(--semantic-color-bg-surface-raised);
+
+  /* ============================
+     COMPONENT — BADGE
+     ============================ */
+  --component-badge-active-bg:    var(--semantic-color-status-active-bg);
+  --component-badge-active-text:  var(--semantic-color-status-active-text);
+  --component-badge-trial-bg:     var(--semantic-color-status-trial-bg);
+  --component-badge-trial-text:   var(--semantic-color-status-trial-text);
+  --component-badge-paused-bg:    var(--semantic-color-status-paused-bg);
+  --component-badge-paused-text:  var(--semantic-color-status-paused-text);
+  --component-badge-default-bg:   var(--semantic-color-bg-surface-raised);
+  --component-badge-default-text: var(--semantic-color-text-muted);
+
+  /* ============================
+     COMPONENT — CARD
+     ============================ */
+  --component-card-bg:     var(--semantic-color-bg-surface);
+  --component-card-border: var(--semantic-color-border-default);
+
+  /* ============================
+     COMPONENT — SIDEBAR
+     ============================ */
+  --component-sidebar-bg:                  var(--semantic-color-bg-sidebar);
+  --component-sidebar-item-text:           var(--semantic-color-text-inverse);
+  --component-sidebar-item-active-bg:      var(--semantic-color-bg-sidebar-active);
+  --component-sidebar-item-active-text:    var(--semantic-color-text-inverse);
+  --component-sidebar-section-label-text:  var(--semantic-color-text-muted);
+
+  /* ============================
+     COMPONENT — TOPBAR
+     ============================ */
+  --component-topbar-bg:                    var(--semantic-color-bg-surface);
+  --component-topbar-border:                var(--semantic-color-border-default);
+  --component-topbar-text:                  var(--semantic-color-text-primary);
+  --component-topbar-breadcrumb-separator:  var(--semantic-color-text-muted);
+
+  /* ============================
+     COMPONENT — TABLE
+     ============================ */
+  --component-table-header-bg:    var(--semantic-color-bg-surface-raised);
+  --component-table-row-bg:       var(--semantic-color-bg-surface);
+  --component-table-row-hover-bg: var(--semantic-color-bg-surface-raised);
+  --component-table-border:       var(--semantic-color-border-default);
+
+  /* ============================
+     COMPONENT — MODAL
+     ============================ */
+  --component-modal-overlay: oklch(0.147 0.076 256 / 0.55);
+  --component-modal-bg:      var(--semantic-color-bg-surface);
+
+  /* ============================
+     COMPONENT — TENANT AVATAR
+     ============================ */
+  --component-tenant-avatar-bg:   var(--semantic-color-bg-sidebar);
+  --component-tenant-avatar-text: var(--semantic-color-text-inverse);
+
+  /* ============================
+     COMPONENT — STATUS BADGE
+     ============================ */
+  --component-status-badge-active-bg:    var(--semantic-color-status-active-bg);
+  --component-status-badge-active-text:  var(--semantic-color-status-active-text);
+  --component-status-badge-paused-bg:    var(--semantic-color-status-paused-bg);
+  --component-status-badge-paused-text:  var(--semantic-color-status-paused-text);
+  --component-status-badge-trial-bg:     var(--semantic-color-status-trial-bg);
+  --component-status-badge-trial-text:   var(--semantic-color-status-trial-text);
+
+  /* ============================
+     COMPONENT — KPI CARD
+     ============================ */
+  --component-kpi-card-bg:             var(--semantic-color-bg-surface);
+  --component-kpi-card-border:         var(--semantic-color-border-default);
+  --component-kpi-card-label-text:     var(--semantic-color-text-muted);
+  --component-kpi-card-value-text:     var(--semantic-color-text-primary);
+  --component-kpi-card-trend-positive: var(--semantic-color-status-active-text);
+  --component-kpi-card-trend-negative: var(--semantic-color-interactive-danger);
+
+  /* ============================
+     COMPONENT — SWITCHER MODAL
+     ============================ */
+  --component-switcher-modal-bg:               var(--semantic-color-bg-surface);
+  --component-switcher-modal-border:           var(--semantic-color-border-default);
+  --component-switcher-modal-item-hover-bg:    var(--semantic-color-bg-sidebar-active);
+  --component-switcher-modal-item-selected-bg: var(--semantic-color-bg-sidebar-active);
+
+  /* ============================
+     SPACING
+     ============================ */
+  --spacing-1:  4px;
+  --spacing-2:  8px;
+  --spacing-3:  12px;
+  --spacing-4:  16px;
+  --spacing-5:  20px;
+  --spacing-6:  24px;
+  --spacing-7:  28px;
+  --spacing-8:  32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-14: 56px;
+  --spacing-16: 64px;
+
+  /* ============================
+     BORDER RADIUS
+     ============================ */
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   10px;
+  --radius-xl:   12px;
+  --radius-2xl:  14px;
+  --radius-full: 9999px;
+
+  /* ============================
+     TYPOGRAPHY
+     ============================ */
+  --typography-family-base:        'Inter', system-ui, sans-serif;
+  --typography-family-mono:        'JetBrains Mono', ui-monospace, monospace;
+  --typography-size-xs:            10px;
+  --typography-size-sm:            12px;
+  --typography-size-base:          13.5px;
+  --typography-size-md:            15px;
+  --typography-size-lg:            18px;
+  --typography-size-xl:            24px;
+  --typography-size-2xl:           26px;
+  --typography-size-3xl:           28px;
+  --typography-weight-regular:     400;
+  --typography-weight-medium:      500;
+  --typography-weight-semibold:    600;
+  --typography-weight-bold:        700;
+  --typography-leading-tight:      1.25;
+  --typography-leading-normal:     1.35;
+  --typography-leading-relaxed:    1.5;
+  --typography-tracking-tight:     0.02em;
+  --typography-tracking-normal:    0.04em;
+  --typography-tracking-wide:      0.10em;
+  --typography-tracking-wider:     0.14em;
+  --typography-tracking-widest:    0.18em;
+
+  /* ============================
+     SHADOW
+     ============================ */
+  --shadow-sm: 0 1px 2px oklch(0.108 0.063 256 / 0.06),
+               0 1px 1px oklch(0.108 0.063 256 / 0.04);
+  --shadow-md: 0 4px 12px oklch(0.108 0.063 256 / 0.08),
+               0 1px 2px  oklch(0.108 0.063 256 / 0.04);
+  --shadow-lg: 0 24px 60px oklch(0.108 0.063 256 / 0.22),
+               0 4px  12px oklch(0.108 0.063 256 / 0.10);
+
+}

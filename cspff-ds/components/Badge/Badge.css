@@ -1,0 +1,29 @@
+/* badge variants driven entirely by CSS custom properties set on the element */
+.cspff-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);          /* 4px between pip and label */
+  padding: 3px var(--spacing-2);  /* 3px top/bottom (sub-grid acceptable), 8px sides */
+  border-radius: var(--radius-full);
+  font-size: var(--typography-size-xs);
+  font-weight: var(--typography-weight-semibold);
+  letter-spacing: var(--typography-tracking-normal);
+  text-transform: uppercase;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  white-space: nowrap;
+}
+
+.cspff-badge__pip {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* Variant-specific local vars — set by JS via style attribute */
+/* active:  --badge-bg = var(--component-badge-active-bg)  etc */
+/* trial:   --badge-bg = var(--component-badge-trial-bg)   etc */
+/* paused:  --badge-bg = var(--component-badge-paused-bg)  etc */
+/* default: --badge-bg = var(--component-badge-default-bg) etc */

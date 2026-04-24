@@ -1,0 +1,51 @@
+.cspff-card {
+  background: var(--component-card-bg);
+  border: 1px solid var(--component-card-border);
+  border-radius: var(--radius-xl);       /* 12px — large card */
+  overflow: hidden;
+  transition: box-shadow 0.14s, border-color 0.14s, transform 0.14s;
+}
+
+.cspff-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--component-card-border);  /* explicit — no override needed */
+  transform: translateY(-1px);
+}
+
+.cspff-card__header {
+  padding: var(--spacing-4) var(--spacing-5);  /* 16px 20px */
+  border-bottom: 1px solid var(--component-card-border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+}
+
+.cspff-card__title {
+  margin: 0;
+  font-size: var(--typography-size-md);        /* 15px */
+  font-weight: var(--typography-weight-semibold);
+  letter-spacing: -0.005em;
+  line-height: var(--typography-leading-tight);
+  color: inherit;
+}
+
+.cspff-card__description {
+  margin: 4px 0 0;
+  font-size: var(--typography-size-sm);
+  color: var(--component-card-border);         /* reusing border var for muted — override below */
+  line-height: var(--typography-leading-relaxed);
+}
+
+.cspff-card__body {
+  padding: var(--spacing-2) var(--spacing-5) var(--spacing-5);  /* 8px 20px 20px */
+}
+
+.cspff-card__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}

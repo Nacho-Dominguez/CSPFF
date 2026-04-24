@@ -1,0 +1,29 @@
+.cspff-kpi {
+  background: var(--kpi-bg);
+  border: 1px solid var(--kpi-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 180px;
+}
+.cspff-kpi__label {
+  color: var(--component-kpi-card-label-text);
+  font-size: var(--typography-size-xs);
+  font-weight: var(--typography-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--typography-tracking-wide);
+}
+.cspff-kpi__value {
+  color: var(--kpi-value-text);
+  font-size: var(--typography-size-3xl);
+  font-weight: var(--typography-weight-bold);
+  line-height: var(--typography-leading-tight);
+}
+.cspff-kpi__trend {
+  color: var(--kpi-trend-text);
+  font-size: var(--typography-size-sm);
+  font-weight: var(--typography-weight-medium);
+}

@@ -1,0 +1,47 @@
+.cspff-sidebar {
+  background: var(--component-sidebar-bg);
+  width: 240px;
+  min-height: 400px;
+  padding: var(--spacing-4) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.cspff-sidebar__section-label {
+  color: var(--component-sidebar-section-label-text);
+  font-size: var(--typography-size-xs);
+  font-weight: var(--typography-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--typography-tracking-wider);
+  padding: var(--spacing-3) var(--spacing-4) var(--spacing-1);
+  margin-top: var(--spacing-2);
+}
+.cspff-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) var(--spacing-4);
+  color: var(--component-sidebar-item-text);
+  font-size: var(--typography-size-base);
+  font-family: var(--typography-family-base);
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  border-radius: 0;
+  transition: background 0.15s;
+}
+.cspff-sidebar__item:hover {
+  background: oklch(1 0 0 / 0.06);
+}
+.cspff-sidebar__item--active {
+  background: var(--component-sidebar-item-active-bg);
+  color: var(--component-sidebar-item-active-text);
+  font-weight: var(--typography-weight-semibold);
+}
+.cspff-sidebar__item--active:hover {
+  background: var(--component-sidebar-item-active-bg);
+}
